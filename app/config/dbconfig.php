@@ -1,7 +1,7 @@
 <?php
 $type = "mysql";
-$servername = "mysql";
-$username = "user";
-$password = "password";
-$dbname = "FS-flowershop";
+$servername = "haarlemfestival.database.windows.net";
+$username = "HaarlemFestival";
+$password = "Haarlem@festival5";
+$dbname = "haarlem_festival";
 ?>
