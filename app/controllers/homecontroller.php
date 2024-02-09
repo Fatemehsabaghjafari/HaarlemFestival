@@ -10,13 +10,13 @@ class HomeController extends Controller
 
     public function __construct()
     {
-        $this->flowerService = new \App\Services\HomeService();
+        $this->homeService = new \App\Services\HomeService();
 
     }
 
     public function index()
     {
       
-        include '../views/home/index.php';
+        include '../views/index.php';
     }
 }
