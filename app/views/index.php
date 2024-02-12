@@ -12,7 +12,9 @@
 </head>
 
 <body>
-   
+    <?php
+    include __DIR__ . '/header.php';
+    ?>
 
      <h2> Flowers </h2>     
       

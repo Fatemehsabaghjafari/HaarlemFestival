@@ -4,7 +4,7 @@ class ArrayRouter {
       
         $routes = array(
             '' => array(
-                'controller' => 'logincontroller',
+                'controller' => 'homecontroller',
                 'method' => 'index'
             ),
 
