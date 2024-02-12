@@ -15,7 +15,7 @@ class ArrayRouter {
 
             'register' => array(
                'controller' => 'registercontroller', 
-                'method' => 'register'
+                'method' => 'index'
              ),
              'home' => array(
                 'controller' => 'homecontroller', 

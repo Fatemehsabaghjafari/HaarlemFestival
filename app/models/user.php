@@ -2,8 +2,8 @@
 namespace App\Models;
 class User {
 public $id;
-public $name;
 public $username;
+public $email;
 public $password;
 
 public function verifyPassword($inputPassword) {
