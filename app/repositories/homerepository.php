@@ -8,7 +8,6 @@ class HomeRepository {
 
     public function __construct() {
         include(__DIR__ . '/../config/dbconfig.php');
-        phpinfo();
         $this->db = new PDO("$type:server=$servername;Database=$dbname", $username, $password);
     }
     

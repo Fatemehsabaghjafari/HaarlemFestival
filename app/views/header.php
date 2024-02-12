@@ -14,15 +14,15 @@
         <div class="container">        
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container-fluid">
-                    <a class="navbar-brand" href="/home">FS Flower Shop</a>
+                    <a class="navbar-brand" href="/">Visit Haarlem</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav">
                             <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
-                            <li class="nav-item"><a href="/search" class="nav-link">Search</a></li>
-                            <li class="nav-item"><a href="/cart" class="nav-link"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                            <li class="nav-item"><a href="/login" class="nav-link">login</a></li>
+                            <li class="nav-item"><a href="/cart" class="nav-link">PersonalProgram</a></li>
                         </ul>
                     </div>
                 </div>
