@@ -5,7 +5,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
-    <title>FS Flower Shop</title>
+    <title>Haarelem Festival</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">  
 
 </head>
@@ -14,6 +14,7 @@
         <div class="container">        
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="container-fluid">
+                <img src="img/Logo.png" alt="Logo" style="max-height: 30px;">
                     <a class="navbar-brand" href="/">Visit Haarlem</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -21,8 +22,9 @@
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav">
                             <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
-                            <li class="nav-item"><a href="/login" class="nav-link">login</a></li>
                             <li class="nav-item"><a href="/cart" class="nav-link">PersonalProgram</a></li>
+                            <li class="nav-item"><a href="/login" class="nav-link">login</a></li>
+                            
                         </ul>
                     </div>
                 </div>
