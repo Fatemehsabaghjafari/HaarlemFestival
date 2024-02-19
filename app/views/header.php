@@ -50,7 +50,7 @@
               </div>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="#">Personal Program</a>
+              <a class="nav-link active" href="/personalProgram">Personal Program</a>
             </li>
           </ul>
           <li class="nav-item dropdown">

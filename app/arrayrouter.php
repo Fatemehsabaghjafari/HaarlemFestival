@@ -17,18 +17,16 @@ class ArrayRouter {
                'controller' => 'registercontroller', 
                 'method' => 'index'
              ),
-             'home' => array(
-                'controller' => 'homecontroller', 
-                 'method' => 'index'
-              ),
-              'artCulture' => array(
+
+            'artCulture' => array(
                 'controller' => 'artCulturecontroller', 
                  'method' => 'index'
-              ),
-              'cart' => array(
-                'controller' => 'cartcontroller', 
+            ),
+
+            'personalProgram' => array(
+                'controller' => 'personalProgramcontroller', 
                  'method' => 'index'
-              ),
+            ),
 
             
         );
