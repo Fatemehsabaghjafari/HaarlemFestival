@@ -26,7 +26,7 @@
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <ul>
-                  <li><a class="dropdown-item" href="#">ART & CULTURE</a></li>
+                  <li><a class="dropdown-item" href="/artCulture">ART & CULTURE</a></li>
                   <li><a class="dropdown-item" href="#">HISTORY</a></li>
                   <li><a class="dropdown-item" href="#">HAARLEM FOR FOODIES</a></li>
                 </ul>
