@@ -1,1 +1,112 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap');
+.dropdown-menu ul{
+    list-style: none;
+    padding: 0;
+}
+.dropdown-menu.show{
+    display: flex;
+    width: 800px;
+}
+.dropdown-menu li a{
+    color: red;
+    font-weight: bold;
+    font-size: 30px;
+    padding: .5em;
+}
+
+.nav-link{
+    font-weight: bold;
+    font-size: 20px;
+    color: black;
+    padding: .5em;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.logo{
+    max-height: 50px;
+    padding: auto;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+
+footer {
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            height: 200px;
+            width: 100%;
+        }
+
+        .footer_background{
+            background-image: url('Footer.png');
+            color: white;
+            height: 100px;
+            width: 100%;
+        }
+
+        footer div {
+            width: 30%;
+            text-align: center;
+            margin: 10px;
+        }
+
+        form {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        input[type="email"] {
+            padding: 10px;
+            width: 60%;
+            margin-right: 10px;
+            box-shadow: 2px 1px;
+        }
+
+        input[type="submit"] {
+            padding: 10px;
+            background-color:#791112;
+            border-radius: 5px;
+            color: white;
+            border: none;
+            cursor: pointer;
+            box-shadow: 2px 1px;
+        }
+        .footer_1{
+            display: inline-block;
+        }
+        
+.headPic{
+    height: 500px;
+    width: 100%;
+}
+
+.artCultureHead{
+    text-align: center;
+    margin-top: 45px;
+    font-weight: bold;
+}
+
+.artCultureHeadP{
+    text-align: center;
+    font-weight: 600;
+    font-size:x-large;
+    margin-top: 25px;
+    margin-bottom: 45px;
+    margin-right: 95px;
+    margin-left: 95px;
+}
+
+.overlayBox{
+    background-color:#FF7A00;
+    width: 400px;
+    float: left;
+    border-radius: 0px 110px 110px 0px;
+}
+
+.overlayBoxP{
+    color: #fff;
+}
+
