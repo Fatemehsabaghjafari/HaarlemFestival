@@ -27,6 +27,10 @@ class ArrayRouter {
                 'controller' => 'personalProgramcontroller', 
                  'method' => 'index'
             ),
+            'history' => array(
+                'controller' => 'historycontroller', 
+                 'method' => 'index'
+            ),
 
             'foodies' => array(
                 'controller' => 'foodiescontroller', 
