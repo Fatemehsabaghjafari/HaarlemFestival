@@ -28,6 +28,11 @@ class ArrayRouter {
                  'method' => 'index'
             ),
 
+            'foodies' => array(
+                'controller' => 'foodiescontroller', 
+                 'method' => 'index'
+            ),
+
             
         );
 
