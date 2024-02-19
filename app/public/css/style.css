@@ -31,3 +31,38 @@
     color: #fff;
 }
 
+
+body {
+    margin: 0; /* Remove default margin */
+}
+
+.dropdown-menu ul{
+    list-style: none;
+    padding: 0;
+}
+.dropdown-menu.show{
+    display: flex;
+    width: 800px;
+}
+.dropdown-menu li a{
+    color: red;
+    font-weight: bold;
+    font-size: 30px;
+    padding: .5em;
+}
+
+.nav-link{
+    font-weight: bold;
+    font-size: 20px;
+    color: black;
+    padding: .5em;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.logo{
+    max-height: 50px;
+    padding: auto;
+    margin-left: 15px;
+    margin-right: 15px;
+}
