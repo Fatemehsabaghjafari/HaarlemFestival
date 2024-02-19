@@ -21,8 +21,8 @@ class ArrayRouter {
                 'controller' => 'homecontroller', 
                  'method' => 'index'
               ),
-              'search' => array(
-                'controller' => 'searchcontroller', 
+              'artCulture' => array(
+                'controller' => 'artCulturecontroller', 
                  'method' => 'index'
               ),
               'cart' => array(

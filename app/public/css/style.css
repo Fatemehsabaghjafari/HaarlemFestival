@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap');
+.headPic{
+    height: 500px;
+    width: 100%;
+}
+
+.artCultureHead{
+    text-align: center;
+    margin-top: 45px;
+    font-weight: bold;
+}
+
+.artCultureHeadP{
+    text-align: center;
+    font-weight: 600;
+    font-size:x-large;
+    margin-top: 25px;
+    margin-bottom: 45px;
+    margin-right: 95px;
+    margin-left: 95px;
+}
+
+.overlayBox{
+    background-color:#FF7A00;
+    width: 400px;
+    float: left;
+    border-radius: 0px 110px 110px 0px;
+}
+
+.overlayBoxP{
+    color: #fff;
+}
+

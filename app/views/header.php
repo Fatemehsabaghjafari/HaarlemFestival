@@ -23,6 +23,7 @@
                             <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
                             <li class="nav-item"><a href="/login" class="nav-link">login</a></li>
                             <li class="nav-item"><a href="/cart" class="nav-link">PersonalProgram</a></li>
+                            <li class="nav-item"><a href="/artCulture" class="nav-link">Art & Culture</a></li>
                         </ul>
                     </div>
                 </div>
