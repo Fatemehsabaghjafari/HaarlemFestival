@@ -1,1 +1,89 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap');
+body {
+    margin: 0; /* Remove default margin */
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #f7f1f1;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: rgb(9, 9, 9);
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a img {
+    max-height: 40px; /* Adjust the height as needed */
+    max-width: auto; /* Adjust the width as needed */
+    margin-top: 5px; /* Adjust the margin as needed */
+}
+
+li a:hover {
+    background-color: #111;
+    color: white;
+}
+
+h1 {
+    text-align: center; /* Center the heading */
+}
+
+img.centered {
+    display: block;
+    margin: 0 auto;
+    max-height: 60px;
+}
+
+footer {
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    height: 200px;
+    width: 100%;
+}
+
+.footer_background{
+    background-image: url('Footer.png');
+    color: white;
+    height: 100px;
+    width: 100%;
+}
+
+footer div {
+    width: 30%;
+    text-align: center;
+    margin: 10px;
+}
+
+form {
+    text-align: center;
+    margin-top: 20px;
+}
+
+input[type="email"] {
+    padding: 10px;
+    width: 60%;
+    margin-right: 10px;
+}
+
+input[type="submit"] {
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+.footer_1{
+    display: inline-block;
+}
