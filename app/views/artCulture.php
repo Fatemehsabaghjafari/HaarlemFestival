@@ -26,106 +26,40 @@
         innovation. Arts and culture in Haarlem truly embrace and celebrate the spirit of creativity. Here is a
         glimpse of what this enchanting city has to offer.
     </p>
+
+    <video controls style="width: 100%; height: 100%;">
+        <source src="/video/ArtCulture.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    
     <div class="container">
-        <video controls style="width: 100%; height: 100%;">
-            <source src="/video/ArtCulture.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-    </div>
-    &nbsp;&nbsp;&nbsp;
-    <div class="container">
-        <div class="card mb-12" style="max-width: 1400px;">
-            <div class="row g-0">
-                <div class="col-md-8">
-                    <img src="/img/Frans.png" class="img-fluid rounded-start" alt="FransMuseum">
-                </div>
-                <div class="col-md-4">
-                    <div class="card-body">
-                        <h5 class="card-title">Frans Hals Museum</h5>
-                        <p class="card-text">The Frans Hals Museum in Haarlem, Netherlands, is a renowned art museum dedicated to the works of the Dutch Golden Age painter Frans Hals. <br /><br /><br />
-                            It houses an impressive collection of Hals' masterpieces, showcasing his innovative and lively approach to portraiture, providing visitors with a captivating insight into 17th-century Dutch art.
-                        </p>
-                        
-                    </div>
+        <div class="row">
+            <div class="col-md-6">
+                <img class="fransPic" src="/img/Frans.png" alt="FransMuseum">
+            </div>
+            <div class="col-md-6">
+                <div class="fransHallMuseum">
+                    <h3>Frans Hals Museum</h3>
+                    <p>The Frans Hals Museum in Haarlem, Netherlands, is a renowned art museum dedicated to the works of the Dutch Golden Age painter Frans Hals. It houses an impressive collection of Hals' masterpieces, showcasing his innovative and lively approach to portraiture, providing visitors with a captivating insight into 17th-century Dutch art.</p>
                 </div>
             </div>
-        </div>
-    </div>
-    &nbsp;&nbsp;&nbsp;
-    <div class="container">
-        <div class="card-group">
-            <div class="card">
-                <img src="/img/Frans.png" class="card-img-top" alt="...">
-                <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                </div>
-            </div>
-            <div class="card">
-                <img src="/img/Frans.png" class="card-img-top" alt="...">
-                <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                </div>
-            </div>
-            <div class="card">
-                <img src="/img/Frans.png" class="card-img-top" alt="...">
-                <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                </div>
-            </div>
-        </div>
-    </div>
-    &nbsp;&nbsp;&nbsp;
-    <div class="container">
-        <div class="card">
-        <div class="card-body">
-            <h1 class="card-title">Exploring the Cultural Tapestry of Haarlem </h1>
-            <h5>Music, Theater, Cinema, and Concert Halls</h5>
-            <p class="card-text">Nestled in the heart of the Netherlands, Haarlem boasts a vibrant cultural scene enriched by its diverse array of music venues, theaters, cinemas, and concert halls.
-                From the historic splendor of its concert halls hosting classical performances to the cutting-edge ambiance of its cinemas showcasing the latest films, Haarlem offers a dynamic tapestry of artistic experiences for locals and visitors alike.</p>
-        </div>
-        <img src="/img/Frans.png" class="card-img-bottom" alt="...">
         </div>
     </div>
 
-    &nbsp;&nbsp;&nbsp;
 
-    <div class="container">
-        <div class="card-group">
-            <div class="card">
-                <img src="/img/Frans.png" class="card-img-top round" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                </div>
-            </div>
-            <div class="card">
-                <img src="/img/Frans.png" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                </div>
-            </div>
-            <div class="card">
-                <img src="/img/Frans.png" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                </div>
-            </div>
-        </div>
-    </div>
-    &nbsp;&nbsp;&nbsp;
-<div class="card text-left" style="width: 1400px;">
-  <div class="card-body">
-    <h5 class="card-title">Special title treatment</h5>
-    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
+
+
+
+
+
+
+
+
 
     
          
       
-    <?php
-    include __DIR__ . '/footer.php';
-    ?>
+   
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 
