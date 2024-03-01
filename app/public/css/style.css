@@ -140,4 +140,73 @@ footer {
     margin-left: 15px;
     margin-right: 15px;
 }
+.logo_language{
+    list-style: none;
+}
+.logo_language_img{
+    max-height: 30px;
+    border-radius: 50px;
+    width: 60px;
+}
 
+footer {
+    padding: 10px 0;
+    margin-bottom: 10px;
+    height: 200px;
+    width: 100%;
+}
+
+.footer_background{
+    background-image: url('/img/Footer.png');
+    color: white;
+    height: 150px;
+    width: 100%;
+}
+
+
+form {
+    text-align: center;
+    margin-top: 20px;
+}
+
+input[type="email"] {
+    font-size: 14px;
+    padding: 5px;
+    width: 200px;
+    border-radius: 5px;
+}
+
+input[type="submit"] {
+    padding: 10px;
+    background-color:#791112;
+    border-radius: 5px;
+    color: white;
+    border: none;
+    cursor: pointer;
+    box-shadow: 2px 1px;
+}
+.footer_1 {
+    text-align: center;
+}
+
+.footer_1 div {
+    display: inline-block;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 20px;
+    font-weight: bold;
+}
+
+
+/*  history page*/
+.round{
+    border-radius: 50% !important;
+}
+
+.card_Frans{
+    background: rgba(217, 217, 217, 0.30);
+}
+
+.Frans{
+    padding: 50px;
+}
