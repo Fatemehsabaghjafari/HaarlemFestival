@@ -6,7 +6,7 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="css/style.css" rel="stylesheet">
-    <title>Hello, world!</title>
+    <title>Header</title>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -53,14 +53,15 @@
               <a class="nav-link active" href="/personalProgram">Personal Program</a>
             </li>
           </ul>
-          <li class="nav-item dropdown">
+          <li class="nav-item dropdown logo_language">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <img src="NL.png" alt="Logo" style="max-height: 30px;">
+              <img src="/img/NL.png" alt="Logo" class="logo_language_img">
             </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <img src="img/NL.png" alt="Logo" style="max-height: 30px;">
-            </ul>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <img src="/img/NL.png" alt="Logo" class="logo_language_img">
+            </div>
           </li>
+          
         </div>
       </div>
     </nav>

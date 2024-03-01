@@ -93,6 +93,14 @@
     margin-left: 15px;
     margin-right: 15px;
 }
+.logo_language{
+    list-style: none;
+}
+.logo_language_img{
+    max-height: 30px;
+    border-radius: 50px;
+    width: 60px;
+}
 
 footer {
     padding: 10px 0;
@@ -145,6 +153,13 @@ input[type="submit"] {
 
 /*  history page*/
 .round{
-    border: 1px solid white;
-    border-radius: 15px;
+    border-radius: 50% !important;
+}
+
+.card_Frans{
+    background: rgba(217, 217, 217, 0.30);
+}
+
+.Frans{
+    padding: 50px;
 }

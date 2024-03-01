@@ -34,14 +34,14 @@
     </div>
     &nbsp;&nbsp;&nbsp;
     <div class="container">
-        <div class="card mb-12" style="max-width: 1400px;">
+        <div class="card mb-12 card_Frans" style="max-width: 1400px;">
             <div class="row g-0">
                 <div class="col-md-8">
-                    <img src="/img/Frans.png" class="img-fluid rounded-start" alt="FransMuseum">
+                    <img src="/img/Frans.png" class="img-fluid rounded-start Frans" alt="FransMuseum">
                 </div>
                 <div class="col-md-4">
                     <div class="card-body">
-                        <h5 class="card-title">Frans Hals Museum</h5>
+                        <h5 class="card-title Frans">Frans Hals Museum</h5>
                         <p class="card-text">The Frans Hals Museum in Haarlem, Netherlands, is a renowned art museum dedicated to the works of the Dutch Golden Age painter Frans Hals. <br /><br /><br />
                             It houses an impressive collection of Hals' masterpieces, showcasing his innovative and lively approach to portraiture, providing visitors with a captivating insight into 17th-century Dutch art.
                         </p>
@@ -54,22 +54,24 @@
     &nbsp;&nbsp;&nbsp;
     <div class="container">
         <div class="card-group">
-            <div class="card">
-                <img src="/img/Frans.png" class="card-img-top" alt="...">
+            <div class="card border-light">
+                <img src="/img/Museum of the mind.png" class="card-img-top" alt="Museum of the mind">
                 <div class="card-body">
-                <h5 class="card-title">Card title</h5>
+                <h5 class="card-title">Museum of the mind</h5>
                 </div>
             </div>
-            <div class="card">
-                <img src="/img/Frans.png" class="card-img-top" alt="...">
+            &nbsp;&nbsp;&nbsp;
+            <div class="card border-light">
+                <img src="/img/Teylers Museum.png" class="card-img-top" alt="Teylers Museum">
                 <div class="card-body">
-                <h5 class="card-title">Card title</h5>
+                <h5 class="card-title">Teylers Museum</h5>
                 </div>
             </div>
-            <div class="card">
-                <img src="/img/Frans.png" class="card-img-top" alt="...">
+            &nbsp;&nbsp;&nbsp;
+            <div class="card border-light">
+                <img src="/img/Archaeological Museum.png" class="card-img-top" alt="Archaeological Museum">
                 <div class="card-body">
-                <h5 class="card-title">Card title</h5>
+                <h5 class="card-title">Archaeological Museum</h5>
                 </div>
             </div>
         </div>
@@ -83,7 +85,32 @@
             <p class="card-text">Nestled in the heart of the Netherlands, Haarlem boasts a vibrant cultural scene enriched by its diverse array of music venues, theaters, cinemas, and concert halls.
                 From the historic splendor of its concert halls hosting classical performances to the cutting-edge ambiance of its cinemas showcasing the latest films, Haarlem offers a dynamic tapestry of artistic experiences for locals and visitors alike.</p>
         </div>
-        <img src="/img/Frans.png" class="card-img-bottom" alt="...">
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+            <img src="/img/slide1.png" class="d-block w-100" alt="slide">
+            </div>
+            <div class="carousel-item">
+            <img src="/img/slide2.png" class="d-block w-100" alt="slide">
+            </div>
+            <div class="carousel-item">
+            <img src="/img/slide3.png" class="d-block w-100" alt="slide">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+        </div>
         </div>
     </div>
 
@@ -92,36 +119,49 @@
     <div class="container">
         <div class="card-group">
             <div class="card">
-                <img src="/img/Frans.png" class="card-img-top round" alt="...">
+                <img src="/img/round1.png" class="card-img-top round" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
+                    <h5 class="card-title">Draaiorgel museum</h5>
                 </div>
             </div>
             <div class="card">
-                <img src="/img/Frans.png" class="card-img-top" alt="...">
+                <img src="/img/round2.png" class="card-img-top round" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
+                    <h5 class="card-title">Galerie art yard</h5>
                 </div>
             </div>
             <div class="card">
-                <img src="/img/Frans.png" class="card-img-top" alt="...">
+                <img src="/img/round3.png" class="round card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
+                    <h5 class="card-title">Film Dome</h5>
                 </div>
             </div>
         </div>
     </div>
     &nbsp;&nbsp;&nbsp;
-<div class="card text-left" style="width: 1400px;">
-  <div class="card-body">
-    <h5 class="card-title">Special title treatment</h5>
-    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
-
-    
-         
+    <div class="container">
+        <div class="card mb-12 card_Frans" style="max-width: 1400px;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <div class="card-body">
+                        <h5 class="card-title Frans">Ruin Of Brederode</h5>
+                        <p class="card-text">The Ruin of Brederode, a medieval castle
+                            near Haarlem, Netherlands, dates back to 
+                            the 13th century and reflects the historical significance of the Brederode family.
+                            <br /> <br /><br />
+                            This castle serves as a tangible connection
+                            to the rich history and architectural heritage 
+                            shared with Haarlem, offering insights into the region's medieval past and the influence of 
+                            noble families like the Brederodes on the area's development.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <img src="/img/Ruin Of Brederode.png" class="img-fluid  Frans" alt="uin Of Brederode">
+                </div>
+            </div>
+        </div>
+    </div>     
       
     <?php
     include __DIR__ . '/footer.php';
