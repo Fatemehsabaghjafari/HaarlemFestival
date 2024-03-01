@@ -26,13 +26,19 @@
         innovation. Arts and culture in Haarlem truly embrace and celebrate the spirit of creativity. Here is a
         glimpse of what this enchanting city has to offer.
     </p>
+
+    <video controls style="width: 100%; height: 100%;">
+        <source src="/video/ArtCulture.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    
     <div class="container">
         <video controls style="width: 100%; height: 100%;">
             <source src="/video/ArtCulture.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
     </div>
-    &nbsp;&nbsp;&nbsp;
+
     <div class="container">
         <div class="card mb-12 card_Frans" style="max-width: 1400px;">
             <div class="row g-0">
@@ -51,7 +57,7 @@
             </div>
         </div>
     </div>
-    &nbsp;&nbsp;&nbsp;
+
     <div class="container">
         <div class="card-group">
             <div class="card border-light">
@@ -76,7 +82,7 @@
             </div>
         </div>
     </div>
-    &nbsp;&nbsp;&nbsp;
+
     <div class="container">
         <div class="card">
         <div class="card-body">
@@ -114,8 +120,6 @@
         </div>
     </div>
 
-    &nbsp;&nbsp;&nbsp;
-
     <div class="container">
         <div class="card-group">
             <div class="card">
@@ -138,7 +142,7 @@
             </div>
         </div>
     </div>
-    &nbsp;&nbsp;&nbsp;
+
     <div class="container">
         <div class="card mb-12 card_Frans" style="max-width: 1400px;">
             <div class="row g-0">
@@ -163,9 +167,7 @@
         </div>
     </div>     
       
-    <?php
-    include __DIR__ . '/footer.php';
-    ?>
+   
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 
