@@ -1,0 +1,49 @@
+.danceHead{
+    text-align: center;
+    margin-top: 45px;
+    font-weight: bold;
+    color: #000;
+    font-family: Figtree;
+    font-size: 70px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 40px; /* 80% */
+}
+.djHead{
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 50px;
+    font-weight: bold;
+    color: #fff;
+    font-family: Figtree;
+    font-size: 60px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 40px; /* 80% */
+}
+.dj{
+    color: #fff;
+}
+.top-dish{
+    background: black;
+    height: 900px;
+    flex-shrink: 0;
+}
+.danceTicket{
+    background: black;
+    height: 400px;
+}
+
+.ticket_head{
+    color: #fff;
+}
+.black_background{
+    background: black;
+}
+.ticket-img{
+    width: 200px;
+    height: 200px;;
+}
+.ticket-table{
+    background: #fff;
+}

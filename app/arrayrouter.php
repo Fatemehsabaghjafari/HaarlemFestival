@@ -38,6 +38,12 @@ class ArrayRouter {
             ),
 
             
+            'dance' => array(
+                'controller' => 'dancecontroller', 
+                 'method' => 'index'
+            ),
+
+            
         );
 
         // Add this method to handle JSON responses

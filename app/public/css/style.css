@@ -180,14 +180,7 @@ input[type="submit"] {
     bottom: 70px;
 }
 
-.top-dish{
-    border-radius: 20px;
-    background: rgba(217, 217, 217, 0.30);
-    width: 1230px;
-    height: 1000px;
-    margin-left:50px;
-    flex-shrink: 0;
-}
+
 
 .top-dish-h{
     display: flex;
@@ -207,4 +200,8 @@ input[type="submit"] {
     font-family: Figtree;
     font-weight: 900;
     word-wrap: break-word
+}
+
+.black_background{
+    background: black;
 }

@@ -45,7 +45,7 @@
                   <li><a class="dropdown-item" href="#">GAARLEM JAZZ</a></li>
                   <li><a class="dropdown-item" href="#">YUMMY!</a></li>
                   <li><a class="dropdown-item" href="#">A STROLL THROUGH HISTORY</a></li>
-                  <li><a class="dropdown-item" href="#">DANCE!</a></li>
+                  <li><a class="dropdown-item" href="/dance">DANCE!</a></li>
                 </ul>
               </div>
             </li>
