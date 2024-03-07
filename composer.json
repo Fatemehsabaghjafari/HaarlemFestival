@@ -1,0 +1,17 @@
+{
+    "name": "roozbehk/haarlem-festival",
+    "require": {
+        "ext-gd": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Roozbehk\\HaarlemFestival\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "RoozbehKouchaki",
+            "email": "126156782+RoozbehKouchaki@users.noreply.github.com"
+        }
+    ]
+}
