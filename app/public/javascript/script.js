@@ -1,86 +1,70 @@
-document.addEventListener("DOMContentLoaded", function() {
-
+document.addEventListener('DOMContentLoaded', function () {
     // Add event listeners to "Add to Cart" buttons
-    const addToCartButtons = document.querySelectorAll('.addToCartBtn');
+    const addToCartButtons = document.querySelectorAll('.add-to-cart');
     addToCartButtons.forEach(button => {
         button.addEventListener('click', function() {
-            addToCart(this); // Pass the button element to the function
+            const ticketId = this.dataset.ticketId;
+
+            // Call addToCart function
+            addToCart(ticketId);
+
+            // Call addNewTicketToCart function
+            addNewTicketToCart(ticketId, 1, null, null, null);
         });
     });
 
-    // Function to handle "Add to Cart" button click
-    function addToCart(button) {
-        // Extract product details from the button's parent container
-        const cardBody = button.closest('.card-body');
-        const productName = cardBody.querySelector('input[name="product_name"]').value;
-        const productPrice = cardBody.querySelector('input[name="product_price"]').value;
-
-        // Send an AJAX request to add the item to the cart
-        fetch('http://localhost/api/cart', {
+    // Function to handle "Add to Cart" action
+    function addToCart(ticketId) {
+        fetch('http://localhost/danceapi', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
                 action: 'add_to_cart',
-                product_name: productName,
-                product_price: productPrice,
+                ticketId: ticketId,
             }),
         })
         .then(response => response.json())
         .then(data => {
             if (data.status === 'success') {
-              // Access the display message
-               const displayMessage = data.message;
-               alert(displayMessage);
-               // updateCartItemCount();
+                // Access the display message
+                const displayMessage = data.message;
+                alert(displayMessage);
             } else {
-                console.error('Error adding item :', data.message);
+                console.error('Error adding ticket:', data.message);
             }
         })
-        .catch(error => console.error('Error adding item :', error));
+        .catch(error => console.error('Error adding ticket:', error));
     }
 
-    
-  // Function to fetch data from the server and update the cart items
-  function fetchData() {
-  fetch('http://localhost/api/cart')
-      .then(response => response.json())
-      .then(data => {
-          const tbody = document.querySelector('.tbody');
-          tbody.innerHTML = '';
-          let newTotalAmount = 0;
-
-          data.forEach(item => {
-              const row = document.createElement('tr');
-              row.innerHTML = `
-              <td>${item.name}</td>
-                      <td>
-                          <input type="number" min="1" value="${item.quantity}" id="quantity_${item.id}">
-                      </td>
-                      <td>€${item.price}</td>
-                      <td>
-                          <button class="btn btn-sm btn-outline-secondary" onclick="modifyQuantity(${item.id}, 1)">+</button>
-                          <button class="btn btn-sm btn-outline-secondary" onclick="modifyQuantity(${item.id}, -1)">-</button>
-                      </td>
-                      <td>
-                          <button class="btn btn-sm btn-outline-danger" onclick="removeItem(${item.id});">Remove</button>
-                      </td>
-              `;
-              tbody.appendChild(row);
-
-              // Update the total amount
-              newTotalAmount += item.quantity * item.price;
-
-          });
-
-          // Update the total amount in the HTML
-          const totalAmountElement = document.getElementById('totalAmount');
-          totalAmountElement.textContent = `€${newTotalAmount.toFixed(2)}`;
-      })
-      .catch(error => console.error('Error fetching data:', error));
-      //updateCartItemCount();
-}
-  
-
+    // Function to handle "Add New Ticket" action
+    function addNewTicketToCart(eventId, quantity, oneDayAccessTicketQuantity, allDaysAccessTicketQuantity, isPurchased) {
+        fetch('http://localhost/dancePersonalProgramApi', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                action: 'add_new_ticket',
+                eventId: eventId,
+                quantity: quantity,
+                oneDayAccessTicketQuantity: oneDayAccessTicketQuantity,
+                allDaysAccessTicketQuantity: allDaysAccessTicketQuantity,
+                isPurchased: isPurchased
+            }),
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            if (data.status === 'success') {
+                // Access the display message
+                const displayMessage = data.message;
+                alert(displayMessage);
+            } else {
+                console.error('Error adding ticket:', data.message);
+            }
+        })
+        .catch(error => console.error('Error adding ticket:', error));
+    }
 });

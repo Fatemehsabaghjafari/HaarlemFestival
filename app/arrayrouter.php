@@ -43,6 +43,28 @@ class ArrayRouter {
                  'method' => 'index'
             ),
 
+            'nicky' => array(
+                'controller' => 'dancecontroller', 
+                 'method' => 'nicky'
+            ),
+
+            'martin' => array(
+                'controller' => 'dancecontroller', 
+                 'method' => 'martin'
+            ),
+
+            'danceapi' => array(
+                'controller' => 'danceapicontroller', 
+                 'method' => 'index'
+            ),
+
+            'dancePersonalProgramApi' => array(
+                'controller' => 'dancePersonalProgramApicontroller', 
+                 'method' => 'index'
+            ),
+
+            
+
             
         );
 

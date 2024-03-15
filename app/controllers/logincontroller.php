@@ -37,5 +37,13 @@ class LoginController extends Controller {
 
         include '../views/login.php';
     }
+
+    public static function getUserId() {
+        if (isset($_SESSION['user'])) {
+            return $_SESSION['user']->id;
+        } else {
+            return null; // User not logged in
+        }
+    }
 }
 ?>

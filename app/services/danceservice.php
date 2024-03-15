@@ -13,23 +13,40 @@ class DanceService
         $this->repository = new \App\Repositories\DanceRepository();
     }
 
-    public function isProductInCart($productName)
-    {
-        return $this->repository->isProductInCart($productName);
+    public function getAllTickets(){
+        return $this->repository->getAllTickets();
+    }
+
+    public function getAllVenues(){
+        return $this->repository->getAllVenues();
+    }
+
+    public function getAllArtists(){
+        return $this->repository->getAllArtists();
+    }
+
+    public function getAllTicketsOfPersonalProgram(){
+        return $this->repository->getAllTicketsOfPersonalProgram();
     }
     
-    public function insertToCart($products_quantity, $products_name, $products_price)
-    {
-        try {
-            if (!$this->isProductInCart($products_name)) {
-                $this->repository->insertToCart($products_quantity, $products_name, $products_price);
-                return ['status' => 'success', 'message' => 'Item added to cart!'];
-            } else {
-                return ['status' => 'error', 'message' => 'Item is already in the cart.'];
-            }
-        } catch (\Exception $e) {
-            return ['status' => 'error', 'message' => $e->getMessage()];
-        }
+    public function getTicketsByArtist($artistId){
+        return $this->repository->getTicketsByArtist($artistId);
     }
-  
+
+    public function getAllTicketsForArtist($artistId){
+        return $this->repository->getAllTicketsForArtist($artistId);
+    }
+
+    public function getAllTicketsForDateAndVenue($date, $venueId){
+        return $this->repository->getAllTicketsForDateAndVenue($date, $venueId);
+    }
+
+    public function buyTicket($ticketId) {
+        return $this->repository->buyTicket($ticketId);
+    }
+
+    public function addNewTicketForLoggedInUser($eventId, $quantity, $oneDayAccessQuantity = null, $allDayAccessQuantity = null, $isPurchased = null){
+        return $this->repository->addNewTicketForLoggedInUser($eventId, $quantity, $oneDayAccessQuantity = null, $allDayAccessQuantity = null, $isPurchased = null);
+    }
+
 }
