@@ -43,7 +43,7 @@
                 </ul>
                 <ul>
                   <li><a class="dropdown-item" href="#">GAARLEM JAZZ</a></li>
-                  <li><a class="dropdown-item" href="#">YUMMY!</a></li>
+                  <li><a class="dropdown-item" href="/yummy">YUMMY!</a></li>
                   <li><a class="dropdown-item" href="#">A STROLL THROUGH HISTORY</a></li>
                   <li><a class="dropdown-item" href="#">DANCE!</a></li>
                 </ul>
@@ -52,16 +52,7 @@
             <li class="nav-item">
               <a class="nav-link active" href="/personalProgram">Personal Program</a>
             </li>
-          </ul>
-          <li class="nav-item dropdown logo_language">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <img src="/img/NL.png" alt="Logo" class="logo_language_img">
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <img src="/img/NL.png" alt="Logo" class="logo_language_img">
-            </div>
-          </li>
-          
+          </ul>         
         </div>
       </div>
     </nav>

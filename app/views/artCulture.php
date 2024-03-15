@@ -19,7 +19,10 @@
     ?>
     
     <img class="headPic" src="/img/Museum.png" alt="Museum">
-    
+    <div class="orange">
+        <p>Be surprised by the rich art and culture of Haarlem. Will it be a museum, the theater  or a walk past historical monuments?</p>
+    </div>
+    &nbsp;&nbsp;&nbsp;&nbsp;
     <h1 class="artCultureHead"> The artistic soul of Haarlem </h1>
     <p class="artCultureHeadP"> Haarlem is a paradise for art lovers, with a wide range of museums, galleries and cultural events.
         Immerse yourself in the city's artistic offerings and witness the interplay between tradition and

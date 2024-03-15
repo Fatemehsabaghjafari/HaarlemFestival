@@ -163,3 +163,22 @@ input[type="submit"] {
 .Frans{
     padding: 50px;
 }
+.headPic{
+    position: relative;
+}
+
+.orange{
+    border-radius: 0px 110px 110px 0px;
+    background: #FF7A00;
+    width: 580px;
+    height: 150px;
+    flex-shrink: 0;
+    color: white;
+    font-size: 20px;
+    font-family: Inter;
+    font-weight: 700;
+    word-wrap: break-word;
+    padding: 35px;
+    position: absolute; 
+    bottom: 90px;
+}
