@@ -45,7 +45,16 @@ h2.title {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    margin: 1rem auto
+    margin: 1rem auto;
+    max-width: 900px;
+}
+
+.banner-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 1rem auto;
 }
 
 .navigation-card-container {
@@ -127,7 +136,6 @@ h3.festival-card-title {
 }
 
 @media (max-width: 1310px) {
-    /* make big navigation card the same as others */
     .navigation-card-container-big {
         width: 405px;
     }
