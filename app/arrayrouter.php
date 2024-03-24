@@ -27,6 +27,26 @@ class ArrayRouter {
                 'controller' => 'personalProgramcontroller', 
                  'method' => 'index'
             ),
+            'api/personalprogram' => array(
+                'controller' => 'personalProgramAPIController', 
+                'method' => 'index',
+                'api' => true
+            ),
+            'api/personalprogram/updateticket' => array(
+                'controller' => 'personalProgramAPIController', 
+                'method' => 'updateTicketQuantity',
+                'api' => true
+            ),
+            'api/personalprogram/deleteticket' => array(
+                'controller' => 'personalProgramAPIController', 
+                'method' => 'deleteTicket',
+                'api' => true
+            ),
+            'api/personalprogram/setactivestatus' => array(
+                'controller' => 'personalProgramAPIController', 
+                'method' => 'setActiveStatus',
+                'api' => true
+            ),
             'history' => array(
                 'controller' => 'historycontroller', 
                  'method' => 'index'
@@ -35,9 +55,7 @@ class ArrayRouter {
             'foodies' => array(
                 'controller' => 'foodiescontroller', 
                  'method' => 'index'
-            ),
-
-            
+            ),            
         );
 
         // Add this method to handle JSON responses
@@ -56,8 +74,14 @@ class ArrayRouter {
         // dynamically instantiate controller and method
         $controller = $routes[$uri]['controller'];
         $method = $routes[$uri]['method'];
+        $api = $routes[$uri]['api'] ?? false;
 
-        require __DIR__ . '/controllers/' . $controller . '.php';
+        if ($api) {
+            require __DIR__ . '/api/controllers/' . $controller . '.php';
+        } else {
+            require __DIR__ . '/controllers/' . $controller . '.php';
+        }
+        
         $controllerObj = new $controller;
         $controllerObj->$method();
     }

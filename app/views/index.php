@@ -18,36 +18,13 @@
     include __DIR__ . '/header.php';
     ?>
 
-    <div class="welcome-banner">
+    <!-- <div class="welcome-banner">
         <div class="welcome-overlay">
             WELCOME TO HAARLEM
         </div>
-    </div>
+    </div> -->
 
-    <h2 class="title">DISCOVER HAARLEM</h2>
-      
-    <div class="navigation-cards">
-        <div class="navigation-card-container">
-            <div class="navigation-card-backdrop"></div>
-            <div class="navigation-card" style="background-image: url('/img/art_culture_card.png');">
-                <h3>ART & CULTURE</h3>
-            </div>
-        </div>
-
-        <div class="navigation-card-container">
-            <div class="navigation-card-backdrop"></div>
-            <div class="navigation-card" style="background-image: url('/img/history_card.png');">
-                <h3>HISTORY</h3>
-            </div>
-        </div>
-
-        <div class="navigation-card-container">
-            <div class="navigation-card-backdrop"></div>
-            <div class="navigation-card" style="background-image: url('/img/foodies_card.png');">
-                <h3>HAARLEM FOR FOODIES</h3>
-            </div>
-        </div>
-
+    <div class="banner-card">
         <div class="navigation-card-container navigation-card-container-big">
             <div class="navigation-card-backdrop navigation-card-backdrop-big"></div>
             <div class="navigation-card navigation-card-big" style="background-image: url('/img/festival_card.png');">
@@ -55,9 +32,40 @@
             </div>
         </div>
     </div>
+
+    <h2 class="title">EVENTS IN THE FESTIVAL</h2>
+      
+    <div class="navigation-cards">
+        <div class="navigation-card-container">
+            <div class="navigation-card-backdrop"></div>
+            <div class="navigation-card" style="background-image: url('/img/art_culture_card.png');">
+                <h3>HAARLEM JAZZ</h3>
+            </div>
+        </div>
+
+        <div class="navigation-card-container">
+            <div class="navigation-card-backdrop"></div>
+            <div class="navigation-card" style="background-image: url('/img/history_card.png');">
+                <h3>YUMMY</h3>
+            </div>
+        </div>
+
+        <div class="navigation-card-container">
+            <div class="navigation-card-backdrop"></div>
+            <div class="navigation-card" style="background-image: url('/img/foodies_card.png');">
+                <h3>A STROLL THROUGH HISTORY</h3>
+            </div>
+        </div>
+
+        <div class="navigation-card-container">
+            <div class="navigation-card-backdrop"></div>
+            <div class="navigation-card" style="background-image: url('/img/foodies_card.png');">
+                <h3>DANCE!</h3>
+            </div>
+        </div>        
+    </div>
    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 
 </html>
-
