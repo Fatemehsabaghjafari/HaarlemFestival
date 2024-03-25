@@ -33,7 +33,7 @@
 }
 .top-djs{
     background: black;
-    height: 950px;
+    height: auto;
     flex-shrink: 0;
 }
 .danceHeadP{

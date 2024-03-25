@@ -1,4 +1,4 @@
-<!doctype html>
+
 <html lang="en">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -46,39 +46,10 @@
                 </ul>
               </div>
             </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="/personalProgram">Personal Program</a>
-            </li>
+
           </ul>
-          <li class="nav-item dropdown logo_language">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <img src="/img/NL.png" alt="Logo" class="logo_language_img">
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <ul>
-                <li><a class="dropdown-item" href="/artCulture">ART & CULTURE</a></li>
-                <li><a class="dropdown-item" href="/history">HISTORY</a></li>
-                <li><a class="dropdown-item" href="/foodies">HAARLEM FOR FOODIES</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Festival
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <ul>
-                <li><a class="dropdown-item" href="#">Festival Overview</a></li>
-                <li><a class="dropdown-item" href="#">Festival Agenda</a></li>
-              </ul>
-              <ul>
-                <li><a class="dropdown-item" href="#">GAARLEM JAZZ</a></li>
-                <li><a class="dropdown-item" href="#">YUMMY!</a></li>
-                <li><a class="dropdown-item" href="#">A STROLL THROUGH HISTORY</a></li>
-                <li><a class="dropdown-item" href="#">DANCE!</a></li>
-              </ul>
-            </div>
-          </li>
+          
+
           <li class="nav-item">
             <a class="nav-link active" href="/personalProgram">Personal Program</a>
           </li>

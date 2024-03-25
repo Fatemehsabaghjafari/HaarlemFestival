@@ -15,9 +15,18 @@ class AdminController extends Controller
     public function index()
     {
         $danceTickets = $this->adminService->getAllEvents();
-        $danceArtists = $this->adminService->getAllArtists();
+       
         $danceVenues = $this->adminService->getAllVenues();
 
         include '../views/adminView.php';
+    }
+    public function danceAdmin(){
+        $danceArtists = $this->adminService->getAllArtists();
+        include '../views/danceAdmin.php';
+    }
+
+    public function danceVenueAdmin(){
+        $danceVenues = $this->adminService->getAllVenues();
+        include '../views/danceVenueAdmin.php';
     }
 }

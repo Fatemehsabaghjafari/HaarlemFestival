@@ -47,10 +47,6 @@ class ArrayRouter {
                 'method' => 'setActiveStatus',
                 'api' => true
             ),
-            'history' => array(
-                'controller' => 'historycontroller', 
-                 'method' => 'index'
-            ),
 
             'foodies' => array(
                 'controller' => 'foodiescontroller', 
@@ -93,6 +89,19 @@ class ArrayRouter {
                  'method' => 'index'
             ),
 
+            'danceAdmin' => array(
+                'controller' => 'admincontroller', 
+                 'method' => 'danceAdmin'
+            ),
+            'danceVenues' => array(
+                'controller' => 'admincontroller', 
+                 'method' => 'danceVenueAdmin'
+            ),
+
+            'adminDanceVenueApi' => array(
+                'controller' => 'adminDanceVenueApicontroller', 
+                 'method' => 'index'
+            ),
             
 
             

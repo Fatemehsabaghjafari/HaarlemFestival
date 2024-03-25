@@ -13,10 +13,6 @@ class AdminService
         $this->repository = new \App\Repositories\AdminRepository();
     }
 
-    public function getAllEvents(){
-        return $this->repository->getAllEvents();
-    }
-
     public function getAllVenues(){
         return $this->repository->getAllVenues();
     }
@@ -35,5 +31,15 @@ class AdminService
 
     public function updateArtist($artistId, $artistName, $style, $imagePath){
         return $this->repository->updateArtist($artistId, $artistName, $style, $imagePath);
+    }
+
+    public function addVenue($venueName, $venueAddress){
+        return $this->repository->addVenue($venueName, $venueAddress);
+    }
+    public function deleteVenueById($venueId) {
+        return $this->repository->deleteVenueById($venueId);
+    }
+    public function updateVenue($venueId, $venueName, $venueAddress){
+        return $this->repository->updateVenue($venueId, $venueName, $venueAddress);
     }
 }

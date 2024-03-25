@@ -37,11 +37,6 @@
 
             <div class="djHead">Our DJs</div>
 
-            <div class="navigation-cards">
-                <div class="dj">Nicky Romero</div>
-                <div class="dj">Martin Garrix</div>
-                <div class="dj">Hardwell</div>
-            </div>
 
             <div class="navigation-cards">
                 <a href="/nicky">
@@ -67,11 +62,6 @@
                 <div class="navigation-card" style="background-image: url('/img/d3.jpg');">
 
                 </div>
-            </div>
-            <div class="navigation-cards">
-                <div class="dj">Tiëtso</div>
-                <div class="dj">Armin van Buuren</div>
-                <div class="dj">Afrojack</div>
             </div>
 
             <div class="navigation-cards">
@@ -150,9 +140,9 @@
             <img src="img/kid.png" alt="Image">
         </div> -->
 
-        <?php
+       <!-- <?php
         include __DIR__ . '/footer.php';
-        ?>
+        ?> -->
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
