@@ -63,6 +63,16 @@ class ArrayRouter {
                  'method' => 'index'
             ),
 
+            'admin' => array(
+                'controller' => 'admincontroller', 
+                 'method' => 'index'
+            ),
+
+            'adminApi' => array(
+                'controller' => 'adminApicontroller', 
+                 'method' => 'index'
+            ),
+
             
 
             

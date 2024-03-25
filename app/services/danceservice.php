@@ -45,8 +45,16 @@ class DanceService
         return $this->repository->buyTicket($ticketId);
     }
 
-    public function addNewTicketForLoggedInUser($eventId, $quantity, $oneDayAccessQuantity = null, $allDayAccessQuantity = null, $isPurchased = null){
-        return $this->repository->addNewTicketForLoggedInUser($eventId, $quantity, $oneDayAccessQuantity = null, $allDayAccessQuantity = null, $isPurchased = null);
+    public function addNewTicketForLoggedInUser($eventId, $quantity){
+        return $this->repository->addNewTicketForLoggedInUser($eventId, $quantity);
+    }
+
+    public function addNewOneDayTicketForLoggedInUser($eventId){
+        return $this->repository->addNewOneDayTicketForLoggedInUser($eventId);
+    }
+
+    public function addNewAllDaysTicketForLoggedInUser($eventId){
+        return $this->repository->addNewAllDaysTicketForLoggedInUser($eventId);
     }
 
 }

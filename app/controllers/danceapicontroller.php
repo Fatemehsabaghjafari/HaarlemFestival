@@ -17,7 +17,7 @@ class DanceapiController {
         }
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $this->handlePostRequest();           
+           // $this->handlePostRequest();           
         }    
 
          

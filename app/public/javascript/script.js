@@ -6,12 +6,34 @@ document.addEventListener('DOMContentLoaded', function () {
             const ticketId = this.dataset.ticketId;
 
             // Call addToCart function
-            addToCart(ticketId);
+           // addToCart(ticketId);
 
             // Call addNewTicketToCart function
             addNewTicketToCart(ticketId, 1, null, null, null);
+         
         });
     });
+
+    // Ensure the variable name is different here
+    const addToCartOneDayButtons = document.querySelectorAll('.add-oneDay-to-cart');
+    addToCartOneDayButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const ticketId = this.dataset.ticketId;
+
+            addNewOneDayTicketToCart(ticketId);
+        });
+    });
+
+    const addToCartAllDaysButtons = document.querySelectorAll('.add-allDays-to-cart');
+    addToCartAllDaysButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const ticketId = this.dataset.ticketId;
+
+            addNewAllDaysTicketToCart(ticketId);
+        });
+    });
+
+
 
     // Function to handle "Add to Cart" action
     function addToCart(ticketId) {
@@ -67,4 +89,77 @@ document.addEventListener('DOMContentLoaded', function () {
         })
         .catch(error => console.error('Error adding ticket:', error));
     }
+
+
+
+
+
+
+
+
+    function addNewOneDayTicketToCart(eventId, quantity, oneDayAccessTicketQuantity, allDaysAccessTicketQuantity, isPurchased) {
+        fetch('http://localhost/dancePersonalProgramApi', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                action: 'add_new_oneDayTicket',
+                eventId: eventId,
+                quantity: quantity,
+                oneDayAccessTicketQuantity: oneDayAccessTicketQuantity,
+                allDaysAccessTicketQuantity: allDaysAccessTicketQuantity,
+                isPurchased: isPurchased
+            }),
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            if (data.status === 'success') {
+                // Access the display message
+                const displayMessage = data.message;
+                alert(displayMessage);
+            } else {
+                console.error('Error adding ticket:', data.message);
+            }
+        })
+        .catch(error => console.error('Error adding ticket:', error));
+    }
+
+
+
+    function addNewAllDaysTicketToCart(eventId, quantity, oneDayAccessTicketQuantity, allDaysAccessTicketQuantity, isPurchased) {
+        fetch('http://localhost/dancePersonalProgramApi', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                action: 'add_new_allDaysTicket',
+                eventId: eventId,
+                quantity: quantity,
+                oneDayAccessTicketQuantity: oneDayAccessTicketQuantity,
+                allDaysAccessTicketQuantity: allDaysAccessTicketQuantity,
+                isPurchased: isPurchased
+            }),
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            if (data.status === 'success') {
+                // Access the display message
+                const displayMessage = data.message;
+                alert(displayMessage);
+            } else {
+                console.error('Error adding ticket:', data.message);
+            }
+        })
+        .catch(error => console.error('Error adding ticket:', error));
+    }
 });
+
+
+
+
+
+

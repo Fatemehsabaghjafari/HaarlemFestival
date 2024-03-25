@@ -10,17 +10,16 @@ require_once __DIR__ . '/../controllers/logincontroller.php';
 
 use PDO;
 use \App\Models\MusicTickets;
-//use \App\Controllers\LoginController;
+
 
 class DanceRepository {
 
     private $db;
-    //private $loginController;
 
     public function __construct() {
         include(__DIR__ . '/../config/dbconfig.php');
         $this->db = new PDO("$type:server=$servername;Database=$dbname", $username, $password);
-      //  $this->loginController = new \App\Controllers\LoginController();
+     
     }
 
     public function getAllTicketsOfPersonalProgram() {
@@ -100,40 +99,115 @@ class DanceRepository {
     
         return true; 
     }
+    public function addNewTicketForLoggedInUser($eventId, $quantity) {
 
-    public function addNewTicketForLoggedInUser($eventId, $quantity, $oneDayAccessTicketQuantity = null, $allDaysAccessTicketQuantity = null, $isPurchased = null) {
-        // Retrieve the user ID using the getUserId() method from the LoginController
-        
         $userId = \LoginController::getUserId();
         
-        // If user is not logged in, handle the situation accordingly
+
         if ($userId === null) {
-            // Handle the case where user is not logged in
-            throw new Exception("User is not logged in.");
-            return false;
+            header('Location: /login'); 
+            exit();
         }
     
+
+        $isPurchased = false;
+    
+
+        $oneDayAccessTicketQuantity = 0;
+        $allDaysAccessTicketQuantity = 0;
+    
         $stmt = $this->db->prepare("
-        INSERT INTO musicTickets 
-        (userId, eventId, oneDayAccessTicketQuantity, allDaysAccessTicketQuantity, isPurchased, quantity) 
-        VALUES 
-        (:userId, :eventId, :oneDayAccessTicketQuantity, :allDaysAccessTicketQuantity, :isPurchased, :quantity)
-    ");
+            INSERT INTO musicTickets 
+            (userId, eventId, oneDayAccessTicketQuantity, allDaysAccessTicketQuantity, isPurchased, quantity) 
+            VALUES 
+            (:userId, :eventId, :oneDayAccessTicketQuantity, :allDaysAccessTicketQuantity, :isPurchased, :quantity)
+        ");
     
         $stmt->bindParam(':userId', $userId);
         $stmt->bindParam(':eventId', $eventId);
         $stmt->bindParam(':oneDayAccessTicketQuantity', $oneDayAccessTicketQuantity, PDO::PARAM_INT);
         $stmt->bindParam(':allDaysAccessTicketQuantity', $allDaysAccessTicketQuantity, PDO::PARAM_INT);
-        $stmt->bindParam(':isPurchased', $isPurchased, PDO::PARAM_BOOL);
+        $stmt->bindParam(':isPurchased', $isPurchased, PDO::PARAM_INT); // Bind as integer (0 for false, 1 for true)
         $stmt->bindParam(':quantity', $quantity, PDO::PARAM_INT);
     
         $stmt->execute();
     
+        return true;
+    }
+
+    
+    public function addNewOneDayTicketForLoggedInUser($eventId) {
+
+        $userId = \LoginController::getUserId();
+        
+
+        if ($userId === null) {
+            header('Location: /login');
+            exit();
+        }
+    
+
+        $isPurchased = false;
+        $oneDayAccessTicketQuantity = 1;
+        $allDaysAccessTicketQuantity = 0;
+        $quantity=0;
+    
+        $stmt = $this->db->prepare("
+            INSERT INTO musicTickets 
+            (userId, eventId, oneDayAccessTicketQuantity, allDaysAccessTicketQuantity, isPurchased, quantity) 
+            VALUES 
+            (:userId, :eventId, :oneDayAccessTicketQuantity, :allDaysAccessTicketQuantity, :isPurchased, :quantity)
+        ");
+    
+        $stmt->bindParam(':userId', $userId);
+        $stmt->bindParam(':eventId', $eventId);
+        $stmt->bindParam(':oneDayAccessTicketQuantity', $oneDayAccessTicketQuantity, PDO::PARAM_INT);
+        $stmt->bindParam(':allDaysAccessTicketQuantity', $allDaysAccessTicketQuantity, PDO::PARAM_INT);
+        $stmt->bindParam(':isPurchased', $isPurchased, PDO::PARAM_INT); // Bind as integer (0 for false, 1 for true)
+        $stmt->bindParam(':quantity', $quantity, PDO::PARAM_INT);
+    
+        $stmt->execute();
     
         return true;
     }
     
 
+
+    public function addNewAllDaysTicketForLoggedInUser($eventId) {
+
+        $userId = \LoginController::getUserId();
+        
+
+        if ($userId === null) {
+            header('Location: /login');
+            exit();
+        }
+    
+        $isPurchased = false;
+        $oneDayAccessTicketQuantity = 0;
+        $allDaysAccessTicketQuantity = 1;
+        $quantity=0;
+    
+        $stmt = $this->db->prepare("
+            INSERT INTO musicTickets 
+            (userId, eventId, oneDayAccessTicketQuantity, allDaysAccessTicketQuantity, isPurchased, quantity) 
+            VALUES 
+            (:userId, :eventId, :oneDayAccessTicketQuantity, :allDaysAccessTicketQuantity, :isPurchased, :quantity)
+        ");
+    
+        $stmt->bindParam(':userId', $userId);
+        $stmt->bindParam(':eventId', $eventId);
+        $stmt->bindParam(':oneDayAccessTicketQuantity', $oneDayAccessTicketQuantity, PDO::PARAM_INT);
+        $stmt->bindParam(':allDaysAccessTicketQuantity', $allDaysAccessTicketQuantity, PDO::PARAM_INT);
+        $stmt->bindParam(':isPurchased', $isPurchased, PDO::PARAM_INT); // Bind as integer (0 for false, 1 for true)
+        $stmt->bindParam(':quantity', $quantity, PDO::PARAM_INT);
+    
+        $stmt->execute();
+    
+        return true;
+    }
+    
+    
 
 
     

@@ -26,10 +26,15 @@ class LoginController extends Controller {
                 if ($username === $user->username && password_verify($password, $user->password)) {
                     // Authentication successful
                     $_SESSION['user'] = $user;
-                    header('Location: /'); // Redirect to the main page
+                    if ($user->roleId == 1) {
+                        header('Location: /admin'); // Redirect to the admin page
+                    } else {
+                        header('Location: /'); // Redirect to the main page
+                    }
                     exit();
                 }
             }
+            
 
             // Authentication failed
             $error = 'Invalid username or password';

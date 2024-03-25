@@ -59,7 +59,7 @@
 }
 #myCarousel {
     width: 100%;
-    height: 400px;
+    height: 700px;
     background-color: black;
     color: white;
     position: relative; /* Make the container relative */
@@ -93,9 +93,12 @@
 }
 .djImg{
     height: 250px;
-    width: 220px;
+    width: 250px;
     margin-top: 30px;
-    margin-right: 200px;
+    margin-right: 300px;
+}
+.col-md-6.djTable{
+    margin-left: 50px;
 }
 .btn.btn-primary.add-to-cart {
     background-color: #FC8E2E;
@@ -103,6 +106,22 @@
     border-radius: 20px;
     width: 120px;
     font-size: 12px;
+    font-weight: 900;
+}
+.btn.btn-primary.add-allDays-to-cart {
+    background-color: #FC8E2E;
+    color: #000;
+    border-radius: 20px;
+    width: 120px;
+    font-size: 11px;
+    font-weight: 900;
+}
+.btn.btn-primary.add-oneDay-to-cart {
+    background-color: #FC8E2E;
+    color: #000;
+    border-radius: 20px;
+    width: 120px;
+    font-size: 11px;
     font-weight: 900;
 }
 
