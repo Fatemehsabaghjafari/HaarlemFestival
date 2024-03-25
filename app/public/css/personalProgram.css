@@ -1,0 +1,251 @@
+.title {
+    width: 100%;
+}
+
+
+h1 {
+    color: #C0373C;
+    text-align: center;
+    font-family: Figtree;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+    letter-spacing: 3px;
+    margin: 0;
+}
+
+.checkout-button {
+    width: 240px;
+    height: 60px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+
+    border-radius: 15px;
+    background: #C0373C;
+    color: #FFF;
+    margin-left: auto;
+    margin-right: 2rem;
+    margin-top: 1.5rem;
+}
+
+.color-legend {
+    display: flex;
+    justify-content: center;
+}
+
+.color-legend-item {
+    display: flex;
+    align-items: center;
+    margin-left: 3rem;
+    margin-top: 2rem;
+}
+
+.color-legend-item p {
+    margin-bottom: 0;
+}
+
+.color-legend-circle {
+    height: 30px;
+    width: 30px;
+    border-radius: 6px;
+    margin-right: 1rem;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.color-blue {
+    background-color: #4D7887;
+}
+
+.color-yellow {
+    background-color: #DA8E00;
+}
+
+.color-green {
+    background-color: #33856D;
+}
+
+.color-red {
+    background-color: #C0373C;
+}
+
+.switch-views {
+    display: flex;
+    justify-content: center;
+}
+
+.btn-list-view, .btn-agenda-view {
+    width: 200px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 13px;
+    border: 2px solid #C0373C;
+    color: #C0373C;
+    margin: 2rem 1rem;
+    cursor: pointer;
+}
+
+.view-active {
+    background-color: #C0373C;
+    color: #FFF;
+}
+
+.list-view, .agenda-view {
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 30px;
+    border: 5px solid #D58386;
+    background: #FFF;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.list-view .day {
+    padding: 1rem 2rem;
+    border-bottom: 3px solid rgba(196, 196, 196, 0.50);
+}
+
+.list-view .date {
+    color: #C0373C;
+    font-size: 1.2rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.list-view .event {
+    display: flex;
+    justify-content: space-between;
+    color: #FFF;
+    padding: 1rem;
+    border-radius: 10px;
+    margin-top: 1rem;
+}
+
+.list-view .no-event {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.list-view .no-event a {
+    display: block;
+    width: 200px;
+    background-color: #C0373C;
+    color: #FFF;
+    text-decoration: none;
+    margin: 1rem auto;
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+.event .fa-circle-check, .event .fa-circle {
+    font-size: 1.3rem;
+}
+
+.list-view .left, .list-view .right {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.list-view .right {
+    gap: 25px;
+    margin-right: 1rem;
+}
+
+.list-view .amount-selector {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+}
+
+.list-view .fa-trash-can {
+    cursor: pointer;
+}
+
+.agenda-view {
+    display: flex;
+    position: relative;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.agenda-view .time-slots {
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 72px;
+    margin: 1.5rem;
+    margin-top: 7rem;
+}
+
+.agenda-view .time-seperators {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 94px;
+    margin-top: 123px;
+    margin-left: 5rem;
+}
+
+.agenda-view .time-seperator {
+    width: 100%;
+    height: 2px;
+    background-color: #C0373C;
+    background: rgba(196, 196, 196, 0.50);
+    margin: 0 auto;
+}
+
+.agenda-view .date {
+    width: 100%;
+    min-width: 150px;
+    border-radius: 15px;
+    background: #C0373C;
+    color: #FFF;
+    padding: 1rem;
+    text-align: center;
+    font-weight: 600;
+    margin: 0 auto;
+}
+
+.agenda-view .date span {
+    display: block;
+    font-weight: 400;
+}
+
+.agenda-view .days {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.agenda-view .day {
+    z-index: 10;
+    padding: 1rem;
+}
+
+.agenda-view .event {
+    width: 120px;
+    height: 150px;
+    min-width: 120px;
+    border-radius: 10px;
+    /* border: 5px solid rgba(0, 103, 73, 0.40); */
+    /* background: linear-gradient(0deg, rgba(0, 103, 73, 0.35) 0%, rgba(0, 103, 73, 0.35) 100%), url('/img/art_culture_card.png'), lightgray 50% / cover no-repeat; */
+    background-size: cover;
+    background-position: center;
+    /* box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25); */
+    margin-top: calc(26px + 100px);
+}
+
+.agenda-view .columns {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}

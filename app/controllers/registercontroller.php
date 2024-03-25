@@ -3,20 +3,30 @@ session_start();
 require __DIR__ . '/controller.php';
 require_once __DIR__ . '/../services/loginservice.php';
 
-class RegisterController extends Controller {
-    
+class RegisterController extends Controller
+{
+
     private $loginService;
+    private $errorMsg;
 
     public function __construct()
     {
         $this->loginService = new \App\Services\LoginService();
     }
 
-    public function index() {
-       
+    public function index()
+    {
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $username = $_POST['username'];
-            $password = $_POST['password'];
+            if (strcasecmp($_SESSION['captcha'], $_POST['captcha']) != 0) {
+                $this->errorMsg = "The captcha code isn't correct. Please try again";
+                include '../views/register.php';
+                return;
+            }
+
+            $username = filter_var($_POST["username"], FILTER_SANITIZE_SPECIAL_CHARS);
+            $password = filter_var($_POST["password"], FILTER_SANITIZE_SPECIAL_CHARS);
+
 
             // Hash the password before storing it
             $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
@@ -32,4 +42,3 @@ class RegisterController extends Controller {
         include '../views/register.php';
     }
 }
-?>
