@@ -17,4 +17,9 @@ class YummyService
     {
         return $this->repository->getAllRestaurantsItems();
     }
+
+    public function getRestaurantById($id)
+    {
+        return $this->repository->getRestaurantById($id);
+    }
 }

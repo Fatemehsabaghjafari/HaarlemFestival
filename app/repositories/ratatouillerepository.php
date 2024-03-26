@@ -1,6 +1,7 @@
 <?php
 namespace App\Repositories;
 require_once __DIR__ . '/../models/user.php';
+require_once __DIR__ . '/../models/restaurant.php';
 use PDO;
 
 

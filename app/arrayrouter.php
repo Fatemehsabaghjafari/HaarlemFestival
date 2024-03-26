@@ -48,6 +48,10 @@ class ArrayRouter {
                 'controller' => 'toujourscontroller', 
                  'method' => 'index'
             ),
+            'reservation' => array(
+                'controller' => 'reservationcontroller', 
+                 'method' => 'index'
+            ),
         );
 
         // Add this method to handle JSON responses

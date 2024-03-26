@@ -11,9 +11,9 @@
 </head>
 
 <body>
-<?php
-  include __DIR__ . '/header.php';
-  ?>
+    <?php
+    include __DIR__ . '/header.php';
+        ?>
     
     <div class="container">
         <img src="/img/Toujours.png" class="main_img" alt="">
@@ -54,29 +54,29 @@
     </div>
 
     <div class="container-fuild ">
+    <div class="text_contact">
+       <p>CONTACT INFORMATION</p>
+        <p>Phone Number: <?php echo $Restaurants->phoneNumber; ?></p>   
+        <p>E-mail: <?php echo $Restaurants->email; ?></p>
+        <p>Address: <?php echo $Restaurants->address; ?></p> 
+        <p>Festival opening Hours: <?php 
+             echo date('H:i', strtotime($Restaurants->firstSession)); ?>
+        </p> 
+    </div>
+</div>
+
+
+<div class="container text-center">
+    <div>
+        <button type="button" class="btn btn-primary mb-4">Book A Table</button>
         <div>
-           <pre class="text_contact">
-                CONTACT INFORMATION
-                Phone Number: 023 532 1699
-                E-mail:  info@restauranttoujours.nl
-                Address | Oude Groenmarkt 10-12, 2011 HL Haarlem, Nederland
-                Festival opening Hours: 12:00 - 00:00
-             </pre> 
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2435.4344941536597!2d4.634479976183698!3d52.38067334653618!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c5ef6bc6d98bef%3A0x8774b1a9247d531d!2sToujours!5e0!3m2!1sen!2snl!4v1709688504132!5m2!1sen!2snl" width="1200" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
-
+        <button type="button" class="btn btn-primary mb-4">Back to Previous Page</button>
     </div>
+</div>
 
-    <div class="container ">
-        <div class="d-felx justify-content-center">
-            
-            <button type="button" class="btn btn-outline-primary">Book A Table</button>
-            <div>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2435.4344941536597!2d4.634479976183698!3d52.38067334653618!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c5ef6bc6d98bef%3A0x8774b1a9247d531d!2sToujours!5e0!3m2!1sen!2snl!4v1709688504132!5m2!1sen!2snl" width="800" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            </div>
-            <button type="button" class="btn btn-outline-primary">Back to Prevoius Page</button>
-            
-        </div>
-    </div>
+
     <?php
     include __DIR__ . '/footer.php';
     ?>

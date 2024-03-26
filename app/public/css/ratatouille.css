@@ -54,3 +54,7 @@ h2{
 .center{
     margin: auto;
 }
+
+iframe{
+    margin: 30px;
+}

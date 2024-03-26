@@ -28,15 +28,36 @@ h1{
     padding: 35px;
 }
 
-.bg-cream{
+.container .card:nth-child(odd) {
     max-width: 1807px;
-    background: rgba(224, 203, 160, 0.50) !important;
-}
-.bg-gray{
+    border-radius: 15px;
+    background: rgba(224, 203, 160, 0.50);
+  }
+
+  .container .card:nth-child(even) {
+    max-width: 1807px;
     border-radius: 15px;
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%), #FFF;
-}
-.rounded-start{
+
+  }
+  .card:nth-child(odd) .col-md-4 {
+    order: 0;
+  }
+  
+  .card:nth-child(even) .col-md-4 {
+    order: 1;
+  }
+
+  .card-body{
     margin: 15px;
-    padding: 5px;
+  }
+
+.rounded-start{
+    padding-top: 25px;
+    padding-left: 10px;
+}
+
+.link{
+    text-decoration: none;
+    color: #FFF;
 }
