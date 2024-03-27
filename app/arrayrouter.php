@@ -13,6 +13,11 @@ class ArrayRouter {
                 'method' => 'index'
             ),
 
+            'logout' => array(
+                'controller' => 'logoutcontroller',
+                'method' => 'index'
+            ),
+
             'register' => array(
                'controller' => 'registercontroller', 
                 'method' => 'index'
@@ -100,6 +105,11 @@ class ArrayRouter {
 
             'adminDanceVenueApi' => array(
                 'controller' => 'adminDanceVenueApicontroller', 
+                 'method' => 'index'
+            ),
+
+            'forgot-password' => array(
+                'controller' => 'forgotPasswordcontroller', 
                  'method' => 'index'
             ),
             
