@@ -57,8 +57,7 @@ class ArrayRouter {
                 'controller' => 'foodiescontroller', 
                  'method' => 'index'
             ),
-
-            
+                      
             'dance' => array(
                 'controller' => 'dancecontroller', 
                  'method' => 'index'
@@ -115,6 +114,22 @@ class ArrayRouter {
             
 
             
+            'yummy' => array(
+                'controller' => 'yummycontroller', 
+                 'method' => 'index'
+            ),
+            'ratatouille' => array(
+                'controller' => 'ratatouillecontroller', 
+                 'method' => 'index'
+            ),
+            'toujours' => array(
+                'controller' => 'toujourscontroller', 
+                 'method' => 'index'
+            ),
+            'reservation' => array(
+                'controller' => 'reservationcontroller', 
+                 'method' => 'index'
+            ),
         );
 
         // Add this method to handle JSON responses
