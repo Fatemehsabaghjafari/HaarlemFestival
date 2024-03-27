@@ -27,3 +27,8 @@ RUN apt-get update -y && apt-get install -y zlib1g-dev libpng-dev libfreetype6-d
 RUN docker-php-ext-configure gd --enable-gd --with-freetype
 
 RUN docker-php-ext-install gd pdo pdo_mysql mysqli
+
+RUN apt-get update && apt-get install -y git
+
+# Install Composer
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer

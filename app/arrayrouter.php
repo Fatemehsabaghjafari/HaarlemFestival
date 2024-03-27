@@ -55,7 +55,11 @@ class ArrayRouter {
             'foodies' => array(
                 'controller' => 'foodiescontroller', 
                  'method' => 'index'
-            ),            
+            ),
+            'checkout' => array(
+                'controller' => 'checkoutcontroller', 
+                 'method' => 'index'
+            ),          
         );
 
         // Add this method to handle JSON responses

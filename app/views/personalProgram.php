@@ -26,7 +26,14 @@
     </script>
     
     <div class="title">
-        <div class="checkout-button"><i class="fa-solid fa-cart-shopping"></i> Checkout Program</div>
+        <div class="checkout-button">
+            <div>
+                <i class="fa-solid fa-cart-shopping"></i> Checkout Program
+            </div>
+            <div>
+                <div class="total-price">€0</div>
+            </div>
+        </div>
 
         <h1>PERSONAL PROGRAM</h1>
     </div>
