@@ -23,6 +23,14 @@ class UserRepository {
         $stmt = $this->db->prepare('INSERT INTO users (username, email, password) VALUES (?, ?, ?)');
         $stmt->execute([$username, $email, $hashedPassword]);
     }
+
+    public function getUserById($userId) {
+        $stmt = $this->db->prepare('SELECT * FROM users WHERE id = ?');
+        $stmt->execute([$userId]);
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $user;
+    }
+
     public function isUsernameTaken($username) {
         $stmt = $this->db->prepare('SELECT COUNT(*) as count FROM users WHERE username = ?');
         $stmt->execute([$username]);
@@ -37,8 +45,10 @@ class UserRepository {
         return $result['count'] > 0;
     }
 
-    public function storePasswordResetToken($email, $token) {
-        $stmt = $this->db->prepare('INSERT INTO password_reset_tokens (email, token, created_at) VALUES (?, ?, NOW())');
-        $stmt->execute([$email, $token]);
+    public function storePasswordResetToken($email, $tokenHash, $expiry) {
+        $sql = "UPDATE users SET resetTokenHash = ?, tokenExpireTime = ? WHERE email = ?";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute([$tokenHash, $expiry, $email]);
     }
+    
 }

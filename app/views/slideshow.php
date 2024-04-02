@@ -9,73 +9,69 @@
                         <?php echo $artist['artistName']; ?> (
                         <?php echo $artist['style']; ?>)
                     </h5>
-                    <div class="row">
-                        <div class="col-md-6 djImgContainer">
-                            <img class="djImg" src="<?php echo $artist['img']; ?>" alt="Image">
-                        </div>
-                        <div class="col-md-6 djTable">
-                            <table class="table t">
-                                <thead class=tH>
-                                    <tr class="tHRow">
-                                        <th class="tHData">Date</th>
-                                        <th class="tHData">Time</th>
-                                        <th class="tHData">Venue</th>
-                                        <th class="tHData">Price</th>
-                                        <th class="tHData">  add event</th>
-                                        <th class="tHData">  day access</th>
-                                        <th class="tHData">  all access</th>
-                                       
+                    <div class="c">
+                        <img class="djImg" src="<?php echo $artist['img']; ?>" alt="Image">
+                        <table class="table t">
+                            <thead class=tH>
+                                <tr class="tHRow">
+                                    <th class="tHData">Date</th>
+                                    <th class="tHData">Time</th>
+                                    <th class="tHData">Venue</th>
+                                    <th class="tHData">Price</th>
+                                    <th class="tHData"> add event</th>
+                                    <th class="tHData"> day access</th>
+                                    <th class="tHData"> all access</th>
+
+                                </tr>
+                            </thead>
+                            <tbody class="tB">
+                                <?php foreach ($ticketsByArtist[$artist['artistId']] as $ticket): ?>
+
+                                    <tr>
+                                        <td class="tBData">
+                                            <?php
+                                            $timestamp = strtotime($ticket['date']);
+                                            $weekDay = date('l', $timestamp); // Full textual representation of the day of the week
+                                            $month = date('F', $timestamp); // Full textual representation of the month
+                                            $dayNumber = date('j', $timestamp); // Day of the month without leading zeros
+                                            echo $weekDay . ', ' . $month . ' ' . $dayNumber;
+                                            ?>
+                                        </td>
+                                        <td class="tBData">
+                                            <?php
+                                            $time = date('H:i', strtotime($ticket['time'])); // Format time as 'hour:minute'
+                                            echo $time;
+                                            ?>
+                                        </td>
+                                        <td><a href="https://www.google.com/maps/search/?api=1&query=<?php echo urlencode($ticket['venueName']); ?>"
+                                                target="_blank">
+                                                <?php echo $ticket['venueName']; ?>
+                                            </a></td>
+
+                                        <td class="tBData">
+                                            €
+                                            <?php echo number_format($ticket['price'], 0, '.', ''); ?>
+                                        </td>
+                                        <td class="tBData">
+                                            <button class="btn btn-primary add-to-cart" type="button"
+                                                data-ticket-id="<?php echo $ticket['eventId']; ?>">Add to
+                                                program
+                                            </button>
+                                        </td>
+                                        <td>
+                                            <button class="btn btn-primary add-oneDay-to-cart" type="button"
+                                                data-ticket-id="<?php echo $ticket['eventId']; ?>">Add to
+                                                program</button>
+
+                                        </td>
+                                        <td>
+                                            <button class="btn btn-primary add-allDays-to-cart" type="button"
+                                                data-ticket-id="<?php echo $ticket['eventId']; ?>">Add to program</button>
+                                        </td>
                                     </tr>
-                                </thead>
-                                <tbody class="tB">
-                                    <?php foreach ($ticketsByArtist[$artist['artistId']] as $ticket): ?>
-
-                                        <tr>
-                                            <td class="tBData">
-                                                <?php
-                                                $timestamp = strtotime($ticket['date']);
-                                                $weekDay = date('l', $timestamp); // Full textual representation of the day of the week
-                                                $month = date('F', $timestamp); // Full textual representation of the month
-                                                $dayNumber = date('j', $timestamp); // Day of the month without leading zeros
-                                                echo $weekDay . ', ' . $month . ' ' . $dayNumber;
-                                                ?>
-                                            </td>
-                                            <td class="tBData">
-                                                <?php
-                                                $time = date('H:i', strtotime($ticket['time'])); // Format time as 'hour:minute'
-                                                echo $time;
-                                                ?>
-                                            </td>
-                                            <td><a href="https://www.google.com/maps/search/?api=1&query=<?php echo urlencode($ticket['venueName']); ?>"
-                                                    target="_blank">
-                                                    <?php echo $ticket['venueName']; ?>
-                                                </a></td>
-
-                                            <td class="tBData">
-                                                €
-                                                <?php echo number_format($ticket['price'], 0, '.', ''); ?>
-                                            </td>
-                                            <td class="tBData">
-                                                <button class="btn btn-primary add-to-cart" type="button"
-                                                    data-ticket-id="<?php echo $ticket['eventId']; ?>">Add to
-                                                    program
-                                                </button>
-                                            </td>
-                                            <td> 
-                                                <button class="btn btn-primary add-oneDay-to-cart" type="button"
-                                                    data-ticket-id="<?php echo $ticket['eventId']; ?>">Add to
-                                                    program</button>
-
-                                            </td>
-                                            <td>
-                                                <button class="btn btn-primary add-allDays-to-cart" type="button"
-                                                    data-ticket-id="<?php echo $ticket['eventId']; ?>">Add to program</button>
-                                            </td>
-                                        </tr>
-                                    <?php endforeach; ?>
-                                </tbody>
-                            </table>
-                        </div>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>

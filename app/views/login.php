@@ -13,7 +13,7 @@
             <div class="col-md-6">
 
                 <h2>Login</h2>
-                <?php if (isset ($error)): ?>
+                <?php if (isset($error)): ?>
                     <div class="alert alert-danger">
                         <?= $error ?>
                     </div>
@@ -21,11 +21,13 @@
                 <form method="post">
                     <div class="mb-3">
                         <label for="username" class="form-label">Username</label>
-                        <input type="text" class="form-control" id="username" name="username" required autocomplete="username">
+                        <input type="text" class="form-control" id="username" name="username" required
+                            autocomplete="username">
                     </div>
                     <div class="mb-3">
                         <label for="password" class="form-label">Password</label>
-                        <input type="password" class="form-control" id="password" name="password" required autocomplete="current-password">
+                        <input type="password" class="form-control" id="password" name="password" required
+                            autocomplete="current-password">
                     </div>
                     <button type="submit" class="btn btn-primary">Login</button>
                 </form>
@@ -35,19 +37,24 @@
         <div class="container mt-5">
             <div class="row justify-content-center">
                 <div class="col-md-6">
+
                     <h2>Forgot Password</h2>
-                    <form method="post" action="forgot-password">
+                    <form method="post" action="/forgot-password">
                         <div class="mb-3">
                             <label for="email" class="form-label">Email</label>
                             <input type="email" class="form-control" id="email" name="email" required>
                         </div>
                         <button type="submit" class="btn btn-primary">Reset Password</button>
                     </form>
+                    
+                    <a href="/manageAccount">Manage your account</a>
                 </div>
+               
             </div>
+           
         </div>
-    </div>
-
+      
+    </div>    
 </body>
 
 </html>

@@ -34,13 +34,17 @@ class LoginController extends Controller {
                     exit();
                 }
             }
-            
-
             // Authentication failed
             $error = 'Invalid username or password';
         }
 
-        include '../views/login.php';
+        if(isset($_SESSION['user'])) {
+            include '../views/logout.php';
+        } else {
+            // If not logged in, show the login form
+            include '../views/login.php';
+        }
+
     }
 
     public static function getUserId() {
@@ -51,4 +55,4 @@ class LoginController extends Controller {
         }
     }
 }
-?>
+

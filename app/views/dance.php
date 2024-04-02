@@ -13,7 +13,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/dance.css">
-    <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="css/home.css">
 
 </head>
 
@@ -37,56 +37,22 @@
 
             <div class="djHead">Our DJs</div>
 
+            <?php foreach ($danceArtists as $artist): ?>
 
-            <div class="navigation-cards">
-                <a href="/nicky">
-                    <div class="navigation-card-container">
-                        <div class="navigation-card-backdrop"></div>
-                        <div class="navigation-card" style="background-image: url('/img/d1.png');">
-
+                <div class="navigation-cards">
+                    <a href="/<?php echo $artist['artistName']; ?>">
+                        <div class="navigation-card-container">
+                            <div class="navigation-card-backdrop"></div>
+                            <div class="navigation-card" style="background-image: url('<?php echo $artist['img']; ?>');">
+                                <h3 class="dj">
+                                    <?php echo $artist['artistName']; ?>
+                                </h3>
+                            </div>
                         </div>
-                </a>
-            </div>
-
-            <div class="navigation-card-container">
-                <a href="/martin">
-                    <div class="navigation-card-backdrop"></div>
-                    <div class="navigation-card" style="background-image: url('/img/d2.jpg');">
-
-                    </div>
-                </a>
-            </div>
-
-            <div class="navigation-card-container">
-                <div class="navigation-card-backdrop"></div>
-                <div class="navigation-card" style="background-image: url('/img/d3.jpg');">
-
-                </div>
-            </div>
-
-            <div class="navigation-cards">
-                <div class="navigation-card-container">
-                    <div class="navigation-card-backdrop"></div>
-                    <div class="navigation-card" style="background-image: url('/img/d4.jpg');">
-
-                    </div>
+                    </a>
                 </div>
 
-                <div class="navigation-card-container">
-                    <div class="navigation-card-backdrop"></div>
-                    <div class="navigation-card" style="background-image: url('/img/d5.jpg');">
-
-                    </div>
-                </div>
-
-                <div class="navigation-card-container">
-                    <div class="navigation-card-backdrop"></div>
-                    <div class="navigation-card" style="background-image: url('/img/d6.jpg');">
-
-                    </div>
-                </div>
-            </div>
-
+            <?php endforeach; ?>
 
         </div>
 
@@ -135,20 +101,21 @@
                 <h3>A STROLL THROUGH HISTORY</h3>
             </div>
         </div>
+    </div>
 
-        <!--  <div class="kid">
+    <!--  <div class="kid">
             <img src="img/kid.png" alt="Image">
         </div> -->
 
-       <!-- <?php
-        include __DIR__ . '/footer.php';
-        ?> -->
+    <!-- <?php
+    include __DIR__ . '/footer.php';
+    ?> -->
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-            crossorigin="anonymous"></script>
-        <script src="/javascript/script.js"></script>
-        <script src="/javascript/slideshow.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script src="/javascript/script.js"></script>
+    <script src="/javascript/slideshow.js"></script>
 </body>
 
 </html>

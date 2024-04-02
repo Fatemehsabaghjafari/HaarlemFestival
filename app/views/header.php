@@ -19,7 +19,7 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="/">Home</a>
           </li>
-          <!--<li class="nav-item dropdown">
+          <li class="nav-item dropdown">
             <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdown" role="button"
               data-bs-toggle="dropdown" aria-expanded="false">
               Discover Haarlem
@@ -32,7 +32,7 @@
               </ul>
             </div>
           </li>
--->
+
           <li class="nav-item dropdown">
             <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdown" role="button"
               data-bs-toggle="dropdown" aria-expanded="false">
@@ -45,19 +45,16 @@
               </ul>
               <ul>
                 <li><a class="dropdown-item" href="#">HAARLEM JAZZ</a></li>
-                <li><a class="dropdown-item" href="#">YUMMY!</a></li>
+                <li><a class="dropdown-item" href="/yummy">YUMMY!</a></li>
                 <li><a class="dropdown-item" href="#">A STROLL THROUGH HISTORY</a></li>
                 <li><a class="dropdown-item" href="/dance">DANCE!</a></li>
               </ul>
             </div>
           </li>
-
-        </ul>
-
-
-        <li class="nav-item">
+          <li class="nav-item">
           <a class="nav-link active" href="/personalProgram">Personal Program</a>
         </li>
+        </ul>
         </ul>
 
         <li class="nav-item logo_language">

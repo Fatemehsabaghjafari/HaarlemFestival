@@ -10,7 +10,10 @@
 <body>
     <div class="container mt-5">
 
-        <h2>Logout</h2>
+        <a href="/manageAccount">Manage your account</a>
+
+
+        <a href="/logout">Logout</a>
 
     </div>
 

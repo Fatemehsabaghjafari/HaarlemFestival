@@ -63,12 +63,12 @@ class ArrayRouter {
                  'method' => 'index'
             ),
 
-            'nicky' => array(
+            'NickyRomero' => array(
                 'controller' => 'dancecontroller', 
                  'method' => 'nicky'
             ),
 
-            'martin' => array(
+            'MartinGarrix' => array(
                 'controller' => 'dancecontroller', 
                  'method' => 'martin'
             ),
@@ -111,24 +111,40 @@ class ArrayRouter {
                 'controller' => 'forgotPasswordcontroller', 
                  'method' => 'index'
             ),
-            
-
-            
+ 
             'yummy' => array(
                 'controller' => 'yummycontroller', 
                  'method' => 'index'
             ),
+
             'ratatouille' => array(
                 'controller' => 'ratatouillecontroller', 
                  'method' => 'index'
             ),
+
             'toujours' => array(
                 'controller' => 'toujourscontroller', 
                  'method' => 'index'
             ),
+            
             'reservation' => array(
                 'controller' => 'reservationcontroller', 
                  'method' => 'index'
+            ),
+
+            'manageAccount' => array(
+                'controller' => 'manageUserAccountcontroller', 
+                 'method' => 'index'
+            ),
+
+            'manageAccount/api' => array(
+                'controller' => 'manageUserAccountApicontroller', 
+                 'method' => 'index'
+            ),
+
+            'userAdmin' => array(
+                'controller' => 'admincontroller', 
+                 'method' => 'userAdmin'
             ),
         );
 

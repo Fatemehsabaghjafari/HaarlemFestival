@@ -28,14 +28,11 @@ class LoginService
     public function isEmailTaken($email) {
        return $this->repository->isEmailTaken($email);
     }
-    public function generatePasswordResetToken($email) {
-        // Generate a random token
-        $token = bin2hex(random_bytes(32)); // Generate a 64-character hexadecimal token
-    
-        // Store the token in the database along with the user's email
-        $this->repository->storePasswordResetToken($email, $token);
-    
-        return $token;
+    public function storePasswordResetToken($email, $tokenHash, $expiry){
+        $this->repository->storePasswordResetToken($email, $tokenHash, $expiry);
+    }
+    public function getUserById($userId){
+        return $this->repository->getUserById($userId);
     }
 
 }

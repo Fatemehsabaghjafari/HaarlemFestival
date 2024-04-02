@@ -20,40 +20,31 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="/admin">Home</a>
                     </li>
-                </ul>
-                <li class="nav-item dropdown">
-                    <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        Dance
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <ul>
-                            <li><a class="dropdown-item" href="/artCulture">Events</a></li>
-                            <li><a class="dropdown-item" href="/danceVenues">Venues</a></li>
-                            <li><a class="dropdown-item" href="/danceAdmin">Artists</a></li>
-                        </ul>
-                    </div>
-                </li>
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link active dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Dance
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <ul>
+                                <li><a class="dropdown-item" href="/artCulture">Events</a></li>
+                                <li><a class="dropdown-item" href="/danceVenues">Venues</a></li>
+                                <li><a class="dropdown-item" href="/danceAdmin">Artists</a></li>
+                            </ul>
+                        </div>
+                    </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/">Users</a>
+                        <a class="nav-link active" aria-current="page" href="/userAdmin">Users</a>
                     </li>
                 </ul>
+
+               
                 <li class="nav-item logo_language">
                     <a class="nav-link" href="/login" role="button">
                         <img src="/img/user-icon.png" alt="user icon" class="logo_language_img">
                     </a>
                 </li>
 
-                <li class="nav-item dropdown logo_language">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src="/img/NL.png" alt="Logo" class="logo_language_img">
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <img src="/img/NL.png" alt="Logo" class="logo_language_img">
-                    </div>
-                </li>
 
             </div>
         </div>
