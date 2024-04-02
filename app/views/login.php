@@ -46,15 +46,15 @@
                         </div>
                         <button type="submit" class="btn btn-primary">Reset Password</button>
                     </form>
-                    
+
                     <a href="/manageAccount">Manage your account</a>
                 </div>
-               
+
             </div>
-           
+
         </div>
-      
-    </div>    
+
+    </div>
 </body>
 
 </html>

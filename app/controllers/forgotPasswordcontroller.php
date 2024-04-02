@@ -34,27 +34,25 @@ class ForgotPasswordController extends Controller
 
         $mail->isSMTP();
         $mail->SMTPAuth = true;
-        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-        $mail->Username = 'your@example.com';
-        $mail->Password = 'your_password';
-        $mail->Port = 587;
+        $mail->Host = 'smtp.gmail.com';
+        $mail->SMTPSecure = 'ssl';
+        $mail->Username = 'haarlemfestival5@gmail.com';
+        $mail->Password = 'svwa oxwy leip kwtt';
+        $mail->Port = 465;
         $mail->isHTML(true);
-        $mail->setFrom("no-reply@example.com");
+        $mail->setFrom("haarlemfestival5@gmail.com");
 
         $mail->addAddress($email);
         $mail->Subject = 'Password Reset';
         $mail->Body = 'Click the following link to reset your password: http://example.com/reset_password.php?token=' . $token;
         try {
             $mail->send();
-            // Email sent successfully
-            header('Location: /forgot-password');
             exit();
-        } 
-        catch(Exception $e) {
+        } catch (Exception $e) {
             // Failed to send email
             echo 'Error: ' . $mail->ErrorInfo;
         }
-        
+
         include '../views/forgot_password_sent.php';
     }
 
