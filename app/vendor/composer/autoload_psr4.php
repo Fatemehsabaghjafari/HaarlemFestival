@@ -6,6 +6,8 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Roozbehk\\HaarlemFestival\\' => array($baseDir . '/src'),
+    'Root\\App\\' => array($baseDir . '/src'),
     'PHPMailer\\PHPMailer\\' => array($vendorDir . '/phpmailer/phpmailer/src'),
+    'Mollie\\Api\\' => array($vendorDir . '/mollie/mollie-api-php/src'),
+    'Composer\\CaBundle\\' => array($vendorDir . '/composer/ca-bundle/src'),
 );

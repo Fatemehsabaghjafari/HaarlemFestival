@@ -15,4 +15,16 @@ class YummyTicket {
     public $kidPrice;
     public $adultPrice;
     public $image;
+
+    function getTicketId() {
+        return $this->ticketId;
+    }
+
+    function getTotalPrice() {
+        return ($this->kidsQuantity * $this->kidPrice) + ($this->adultsQuantity * $this->adultPrice);
+    }
+
+    function getEventType() {
+        return "yummy";
+    }
 }

@@ -55,6 +55,18 @@ class ArrayRouter
                 'method' => 'index'
             ),
 
+            'checkout' => array(
+                'controller' => 'checkoutcontroller', 
+                 'method' => 'index'
+            ),
+            'pay' => array(
+                'controller' => 'paymentcontroller', 
+                'method' => 'pay'
+            ),
+            'order-confirmation' => array(
+                'controller' => 'paymentcontroller', 
+                'method' => 'orderConfirmation'
+            ),        
             'dance' => array(
                 'controller' => 'dancecontroller',
                 'method' => 'index'

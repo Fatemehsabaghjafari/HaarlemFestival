@@ -1,15 +1,33 @@
 <?php return array(
     'root' => array(
-        'name' => 'roozbehk/haarlem-festival',
-        'pretty_version' => 'dev-main',
-        'version' => 'dev-main',
-        'reference' => '5ff8da4a9c3b5385335c616521827acb38da5a5e',
+        'name' => 'root/app',
+        'pretty_version' => '1.0.0+no-version-set',
+        'version' => '1.0.0.0',
+        'reference' => null,
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
         'dev' => true,
     ),
     'versions' => array(
+        'composer/ca-bundle' => array(
+            'pretty_version' => '1.5.0',
+            'version' => '1.5.0.0',
+            'reference' => '0c5ccfcfea312b5c5a190a21ac5cef93f74baf99',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/./ca-bundle',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'mollie/mollie-api-php' => array(
+            'pretty_version' => 'v2.66.0',
+            'version' => '2.66.0.0',
+            'reference' => 'd7d09ac62a565e818bf49d04acb2f0432da758a9',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../mollie/mollie-api-php',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'phpmailer/phpmailer' => array(
             'pretty_version' => 'v6.9.1',
             'version' => '6.9.1.0',
@@ -19,10 +37,10 @@
             'aliases' => array(),
             'dev_requirement' => false,
         ),
-        'roozbehk/haarlem-festival' => array(
-            'pretty_version' => 'dev-main',
-            'version' => 'dev-main',
-            'reference' => '5ff8da4a9c3b5385335c616521827acb38da5a5e',
+        'root/app' => array(
+            'pretty_version' => '1.0.0+no-version-set',
+            'version' => '1.0.0.0',
+            'reference' => null,
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

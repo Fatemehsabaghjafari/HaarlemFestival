@@ -1,0 +1,85 @@
+.list-view {
+    width: 50%;
+    max-width: 600px;
+    padding: 1.5rem;
+    margin: 2rem 1rem;
+}
+
+.checkout-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.days {
+    margin-bottom: 1rem;
+}
+
+.checkout-form {
+    width: 50%;
+    max-width: 800px;
+    border-radius: 30px;
+    border: 5px solid #D58386;
+    background: #FFF;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    margin: 2rem 1rem;
+    padding: 2rem;
+}
+
+.checkout-form h2 {
+    color: #C0373C;
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.checkout-form input[type="email"], .checkout-form input[type="text"], .checkout-form input[type="tel"], .checkout-form input[type="number"], .checkout-form input[type="password"] {
+    display: block;
+    width: 250px;
+    padding: 0.5rem;
+    border: unset;
+    background-color: rgb(217 217 217 / 50%);
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    margin-right: 0;
+    box-shadow: unset;
+}
+
+.personal-info-row {
+    display: flex;
+    gap: 15px;
+}
+
+.btn-pay {
+    background: #C0373C;
+    color: #FFF;
+    padding: 0.5rem 1rem;
+    border: unset;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.order-confirmation-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 4rem;
+}
+
+.order-confirmation-container .fa-circle-check {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    color: #189340;
+}
+
+.order-confirmation-container .fa-circle-xmark {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    color: #C0373C;
+}
