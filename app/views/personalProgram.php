@@ -26,14 +26,14 @@
     </script>
     
     <div class="title">
-        <div class="checkout-button">
+        <a class="checkout-button" href="/checkout">
             <div>
                 <i class="fa-solid fa-cart-shopping"></i> Checkout Program
             </div>
             <div>
                 <div class="total-price">€0</div>
             </div>
-        </div>
+        </a>
 
         <h1>PERSONAL PROGRAM</h1>
     </div>

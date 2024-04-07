@@ -23,59 +23,71 @@
     <script>
         const personalProgram = <?php echo json_encode($personalProgram); ?>;
     </script>
-    
-    <div class="checkout-container">
-        <div class="order-items list-view">
-            <?php foreach ($personalProgram as $date => $events): ?>
-                <div class="days">
-                    <div class="date"><?php echo date('d F l', strtotime($date)); ?></div>
-                    <?php if (empty($events)): ?>
-                        <div class="no-event">
-                            <div>You don’t have any events booked on <?php echo date('d F l', strtotime($date)); ?></div>
-                            <a href="">View Festival Overview</a>
-                        </div>
-                    <?php else: ?>
-                        <?php $checkoutItem = new CheckoutItem() ?>
-                        <?php foreach ($events as $event): ?>
-                            <?php
-                                $data = $event;
-                                $html = $checkoutItem->render($date, $data);
-                                echo $html;
-                            ?>
-                        <?php endforeach; ?>
-                    <?php endif; ?>
-                </div>
-            <?php endforeach; ?>
-        </div>
-        <div class="checkout-form">
-            <h2>Personal Information</h2>
-            <div class="personal-info-row">
-                <div>
-                    <label for="firstname">First Name</label>
-                    <input type="text" id="firstname">
-                </div>
-                <div>
-                    <label for="lastname">Last Name</label>
-                    <input type="text" id="lastname">
-                </div>
-            </div>
-            <div class="personal-info-row">
-                <div>
-                    <label for="email">Email</label>
-                    <input type="email" id="email">
-                </div>
-                <div>
-                    <label for="tel">Phone</label>
-                    <input type="tel" id="tel" placeholder="+31 6 12 34 56 78">
-                </div>
-            </div>
-            
-            
-        </div>
-    </div>
 
+    <?php if (!empty($personalProgram)): ?>
+        <div class="checkout-container">
+            <div class="order-items list-view">
+                <?php foreach ($personalProgram as $date => $events): ?>
+                    <div class="days">
+                        <div class="date"><?php echo date('d F l', strtotime($date)); ?></div>
+                        <?php if (empty($events)): ?>
+                            <div class="no-event">
+                                <div>You don’t have any events booked on <?php echo date('d F l', strtotime($date)); ?></div>
+                                <a href="">View Personal Program</a>
+                            </div>
+                        <?php else: ?>
+                            <?php $checkoutItem = new CheckoutItem() ?>
+                            <?php foreach ($events as $event): ?>
+                                <?php
+                                    $data = $event;
+                                    $html = $checkoutItem->render($date, $data);
+                                    echo $html;
+                                ?>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+            <div class="checkout-form">
+                <h2>Personal Information</h2>
+                <div class="personal-info-row">
+                    <div>
+                        <label for="firstname">First Name</label>
+                        <input type="text" id="firstname">
+                    </div>
+                    <div>
+                        <label for="lastname">Last Name</label>
+                        <input type="text" id="lastname">
+                    </div>
+                </div>
+                <div class="personal-info-row">
+                    <div>
+                        <label for="email">Email</label>
+                        <input type="email" id="email">
+                    </div>
+                    <div>
+                        <label for="tel">Phone</label>
+                        <input type="tel" id="tel" placeholder="+31 6 12 34 56 78">
+                    </div>
+                </div>
+                
+                <form action="/pay" method="post">
+                    <button type="submit" class="btn-pay">Pay <span class="pay-amount">€225</span></button>
+                </form>
+            </div>
+        </div>
+    <?php else: ?>
+        <div class="checkout-container">
+            <div class="order-items list-view">
+                <div class="no-event">
+                    <div>You don’t have any events booked</div>
+                    <a href="/personalProgram">View Personal Program</a>
+                </div>
+            </div>
+        </div>
+    <?php endif; ?>
     <script src="/javascript/personalProgram.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 
-</html>
+</html> 

@@ -136,11 +136,11 @@ class PersonalProgramService
         }
     }
 
-    public function getPersonalProgram()
+    public function getPersonalProgram($userId, $isActive = false, $isPurchased = false)
     {
-        $musicTickets = $this->repository->getMusicTickets(1);
-        $yummyTickets = $this->repository->getYummyTickets(1);
-        $historyTickets = $this->repository->getHistoryTickets(1);
+        $musicTickets = $this->repository->getMusicTickets($userId, $isActive, $isPurchased);
+        $yummyTickets = $this->repository->getYummyTickets($userId, $isActive, $isPurchased);
+        $historyTickets = $this->repository->getHistoryTickets($userId, $isActive, $isPurchased);
 
         $this->groupMusicTickets($musicTickets);
         $this->groupYummyTickets($yummyTickets);
@@ -197,5 +197,13 @@ class PersonalProgramService
 
     function setActiveStatus($userId, $ticketId, $eventType, $status) {
         return $this->repository->setActiveStatus($userId, $ticketId, $eventType, $status);
+    }
+
+    function setPurchasedStatus($userId, $events, $status) {
+        foreach ($events as $event) {
+            $ticketId = $event['ticketId'];
+            $eventType = $event['eventType'];
+            $this->repository->setPurchasedStatus($userId, $ticketId, $eventType, $status);
+        }
     }
 }

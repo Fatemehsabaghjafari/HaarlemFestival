@@ -11,7 +11,6 @@ class ArtCultureController extends Controller
     public function __construct()
     {
         $this->artcultureService = new \App\Services\ArtCultureService();
-
     }
 
     public function index()

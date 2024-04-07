@@ -19,7 +19,7 @@ class CheckoutController extends Controller
 
     public function index()
     {      
-        $personalProgram = $this->personalProgramService->getPersonalProgram();
+        $personalProgram = $this->personalProgramService->getPersonalProgram(1, true, true);
 
         // Convert to JSON
         // $personalProgram = json_encode($grouped, JSON_PRETTY_PRINT);

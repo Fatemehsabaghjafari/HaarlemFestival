@@ -13,7 +13,10 @@ class PersonalProgramRepository {
         $this->db = new PDO("$type:server=$servername;Database=$dbname", $username, $password);
     }
 
-    function getMusicTickets($userId) {
+    function getMusicTickets($userId, $isActive = false, $isPurchased = false) {
+        $isActiveCondition = $isActive ? "AND musicTickets.isActive = 1" : "";
+        $isPurchasedCondition = $isPurchased ? "AND musicTickets.isPurchased = 0" : "";
+    
         $stmt = $this->db->prepare("
             SELECT musicTickets.ticketId, 
                 musicTickets.oneDayAccessTicketQuantity, 
@@ -35,6 +38,8 @@ class PersonalProgramRepository {
             LEFT JOIN participatingArtists ON musicTickets.ticketId = participatingArtists.ticketId
             LEFT JOIN artists ON participatingArtists.artistId = artists.artistId
             WHERE musicTickets.userId = :userId
+            $isActiveCondition 
+            $isPurchasedCondition
         ");
         $stmt->execute([':userId' => $userId]);
     
@@ -43,8 +48,11 @@ class PersonalProgramRepository {
     
         return $tickets;
     }
-
-    function getYummyTickets($userId) {
+    
+    function getYummyTickets($userId, $isActive = false, $isPurchased = false) {
+        $isActiveCondition = $isActive ? "AND yummyTickets.isActive = 1" : "";
+        $isPurchasedCondition = $isPurchased ? "AND yummyTickets.isPurchased = 0" : "";
+    
         $stmt = $this->db->prepare("
             SELECT
                 yummyTickets.ticketId,
@@ -62,6 +70,8 @@ class PersonalProgramRepository {
             FROM yummyTickets
             INNER JOIN yummyRestaurants ON yummyTickets.ticketId = yummyRestaurants.restaurantId
             WHERE yummyTickets.userId = :userId
+            $isActiveCondition 
+            $isPurchasedCondition
         ");
         $stmt->execute([':userId' => $userId]);
     
@@ -70,8 +80,11 @@ class PersonalProgramRepository {
     
         return $tickets;
     }
-
-    function getHistoryTickets($userId) {
+    
+    function getHistoryTickets($userId, $isActive = false, $isPurchased = false) {
+        $isActiveCondition = $isActive ? "AND historyTickets.isActive = 1" : "";
+        $isPurchasedCondition = $isPurchased ? "AND historyTickets.isPurchased = 0" : "";
+    
         $stmt = $this->db->prepare("
             SELECT
                 historyTickets.ticketId,
@@ -87,6 +100,8 @@ class PersonalProgramRepository {
             FROM historyTickets
             INNER JOIN historyTours ON historyTickets.ticketId = historyTours.tourId
             WHERE historyTickets.userId = :userId
+            $isActiveCondition
+            $isPurchasedCondition
         ");
         $stmt->execute([':userId' => $userId]);
     
@@ -127,6 +142,20 @@ class PersonalProgramRepository {
         $stmt = $this->db->prepare("
             UPDATE $tableName
             SET isActive = :status
+            WHERE userId = :userId AND ticketId = :ticketId
+        ");
+        return $stmt->execute([
+            ':status' => $status,
+            ':userId' => $userId,
+            ':ticketId' => $ticketId
+        ]);
+    }
+
+    function setPurchasedStatus($userId, $ticketId, $eventType, $status) {
+        $tableName = $eventType . 'Tickets';
+        $stmt = $this->db->prepare("
+            UPDATE $tableName
+            SET isPurchased = :status
             WHERE userId = :userId AND ticketId = :ticketId
         ");
         return $stmt->execute([
