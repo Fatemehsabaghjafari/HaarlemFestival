@@ -31,29 +31,54 @@ class ProgramListViewItem {
 
         $opacity = $data['isActive'] ? '' : 'style="opacity: 0.5;"';
         $checkbox = $data['isActive'] ? 'fa-circle-check' : 'fa-circle';
+        $isActive = $data['isActive'] ? 'isActive' : '';
 
-        $html = 
-        "
-        <div class='event color-red' data-ticket-id='$ticketId' data-event-type='music' data-single-quantity='$quantity' data-single-price='$price' $opacity>
-            <div class='left'>
-                <i class='fa-solid $checkbox'></i>
-                <div class='time'>$time</div>
-                <div class='name'>
-                    $artists
-                    ($venueName)
+        $html = "";
+
+        if ($data['isPurchased']) {
+            $html = 
+            "
+            <div class='event color-red' data-ticket-id='$ticketId' data-is-purchased='true' data-event-type='music' data-single-quantity='$quantity' data-single-price='$price'>
+                <div class='left'>
+                    <div class='time'>$time</div>
+                    <div class='name'>
+                        $artists
+                        ($venueName)
+                    </div>
+                </div>
+                <div class='right'>
+                    <div class='amount-selector' data-ticket-type='single'>
+                        <div class='amount'><span class='ticket-amount'>$quantity</span> Ticket</div>
+                    </div>
+                    <div class='price'>€$totalPrice</div>
+                    <div class='btn-ticket-overview'>Ticket Overview</div>
                 </div>
             </div>
-            <div class='right'>
-                <div class='amount-selector' data-ticket-type='single'>
-                    <i class='fa-solid fa-circle-minus'></i>
-                    <div class='amount'><span class='ticket-amount'>$quantity</span> Ticket</div>
-                    <i class='fa-solid fa-circle-plus'></i>
+            ";
+        } else {
+            $html = 
+            "
+            <div class='event color-red $isActive' data-ticket-id='$ticketId' data-is-purchased='false' data-event-type='music' data-single-quantity='$quantity' data-single-price='$price' $opacity>
+                <div class='left'>
+                    <i class='fa-solid $checkbox'></i>
+                    <div class='time'>$time</div>
+                    <div class='name'>
+                        $artists
+                        ($venueName)
+                    </div>
                 </div>
-                <div class='price'>€$totalPrice</div>
-                <i class='fa-solid fa-trash-can'></i>
+                <div class='right'>
+                    <div class='amount-selector' data-ticket-type='single'>
+                        <i class='fa-solid fa-circle-minus'></i>
+                        <div class='amount'><span class='ticket-amount'>$quantity</span> Ticket</div>
+                        <i class='fa-solid fa-circle-plus'></i>
+                    </div>
+                    <div class='price'>€$totalPrice</div>
+                    <i class='fa-solid fa-trash-can'></i>
+                </div>
             </div>
-        </div>
-        ";
+            ";
+        }
 
         return $html;
     }
@@ -70,31 +95,57 @@ class ProgramListViewItem {
 
         $opacity = $data['isActive'] ? '' : 'style="opacity: 0.5;"';
         $checkbox = $data['isActive'] ? 'fa-circle-check' : 'fa-circle';
+        $isActive = $data['isActive'] ? 'isActive' : '';
 
-        $html = 
-        "
-        <div class='event color-green' data-ticket-id='$ticketId' data-event-type='yummy' data-adult-quantity='$adultsQuantity' data-adult-price='$adultPrice' data-kid-quantity='$kidsQuantity' data-kid-price='$kidPrice' $opacity>
-            <div class='left'>
-                <i class='fa-solid $checkbox'></i>
-                <div class='time'>$time</div>
-                <div class='name'>$name</div>
-            </div>
-            <div class='right'>
-                <div class='amount-selector' data-ticket-type='adult'>
-                    <i class='fa-solid fa-circle-minus'></i>
-                    <div class='amount'><span class='ticket-amount'>$adultsQuantity</span> Adults</div>
-                    <i class='fa-solid fa-circle-plus'></i>
+        $html = "";
+
+        if ($data['isPurchased']) {
+            $html = 
+            "
+            <div class='event color-green' data-ticket-id='$ticketId' data-is-purchased='true' data-event-type='yummy' data-adult-quantity='$adultsQuantity' data-adult-price='$adultPrice' data-kid-quantity='$kidsQuantity' data-kid-price='$kidPrice' $opacity>
+                <div class='left'>
+                    <div class='time'>$time</div>
+                    <div class='name'>$name</div>
                 </div>
-                <div class='amount-selector' data-ticket-type='kid'>
-                    <i class='fa-solid fa-circle-minus'></i>
-                    <div class='amount'><span class='ticket-amount'>$kidsQuantity</span> Kids</div>
-                    <i class='fa-solid fa-circle-plus'></i>
+                <div class='right'>
+                    <div class='amount-selector' data-ticket-type='adult'>
+                        <div class='amount'><span class='ticket-amount'>$adultsQuantity</span> Adults</div>
+                    </div>
+                    <div class='amount-selector' data-ticket-type='kid'>
+                        <div class='amount'><span class='ticket-amount'>$kidsQuantity</span> Kids</div>
+                    </div>
+                    <div class='price'>€$totalPrice</div>
+                    <div class='btn-ticket-overview'>Ticket Overview</div>
                 </div>
-                <div class='price'>€$totalPrice</div>
-                <i class='fa-solid fa-trash-can'></i>
             </div>
-        </div>
-        ";
+            ";
+        } else {
+            $html = 
+            "
+            <div class='event color-green $isActive' data-ticket-id='$ticketId' data-is-purchased='false' data-event-type='yummy' data-adult-quantity='$adultsQuantity' data-adult-price='$adultPrice' data-kid-quantity='$kidsQuantity' data-kid-price='$kidPrice' $opacity>
+                <div class='left'>
+                    <i class='fa-solid $checkbox'></i>
+                    <div class='time'>$time</div>
+                    <div class='name'>$name</div>
+                </div>
+                <div class='right'>
+                    <div class='amount-selector' data-ticket-type='adult'>
+                        <i class='fa-solid fa-circle-minus'></i>
+                        <div class='amount'><span class='ticket-amount'>$adultsQuantity</span> Adults</div>
+                        <i class='fa-solid fa-circle-plus'></i>
+                    </div>
+                    <div class='amount-selector' data-ticket-type='kid'>
+                        <i class='fa-solid fa-circle-minus'></i>
+                        <div class='amount'><span class='ticket-amount'>$kidsQuantity</span> Kids</div>
+                        <i class='fa-solid fa-circle-plus'></i>
+                    </div>
+                    <div class='price'>€$totalPrice</div>
+                    <i class='fa-solid fa-trash-can'></i>
+                </div>
+            </div>
+            ";
+        }
+        
 
         return $html;
     }
@@ -111,31 +162,57 @@ class ProgramListViewItem {
 
         $opacity = $data['isActive'] ? '' : 'style="opacity: 0.5;"';
         $checkbox = $data['isActive'] ? 'fa-circle-check' : 'fa-circle';
+        $isActive = $data['isActive'] ? 'isActive' : '';
 
-        $html = 
-        "
-        <div class='event color-blue' data-ticket-id='$ticketId' data-event-type='history' data-single-quantity='$singleTicketQuantity' data-single-price='$singlePrice' data-family-quantity='$familyTicketQuantity' data-family-price='$familyPrice' $opacity>
-            <div class='left'>
-                <i class='fa-solid $checkbox'></i>
-                <div class='time'>$time</div>
-                <div class='name'>$startLocation</div>
-            </div>
-            <div class='right'>
-                <div class='amount-selector' data-ticket-type='family'>
-                    <i class='fa-solid fa-circle-minus'></i>
-                    <div class='amount'><span class='ticket-amount'>$familyTicketQuantity</span> Family Ticket</div>
-                    <i class='fa-solid fa-circle-plus'></i>
+        $html = "";
+
+        if ($data['isPurchased']) {
+            $html = 
+            "
+            <div class='event color-blue' data-ticket-id='$ticketId' data-is-purchased='true' data-event-type='history' data-single-quantity='$singleTicketQuantity' data-single-price='$singlePrice' data-family-quantity='$familyTicketQuantity' data-family-price='$familyPrice' $opacity>
+                <div class='left'>
+                    <div class='time'>$time</div>
+                    <div class='name'>$startLocation</div>
                 </div>
-                <div class='amount-selector' data-ticket-type='single'>
-                    <i class='fa-solid fa-circle-minus'></i>
-                    <div class='amount'><span class='ticket-amount'>$singleTicketQuantity</span> Regular Ticket</div>
-                    <i class='fa-solid fa-circle-plus'></i>
+                <div class='right'>
+                    <div class='amount-selector' data-ticket-type='family'>
+                        <div class='amount'><span class='ticket-amount'>$familyTicketQuantity</span> Family Ticket</div>
+                    </div>
+                    <div class='amount-selector' data-ticket-type='single'>
+                        <div class='amount'><span class='ticket-amount'>$singleTicketQuantity</span> Regular Ticket</div>
+                    </div>
+                    <div class='price'>€$totalPrice</div>
+                    <div class='btn-ticket-overview'>Ticket Overview</div>
                 </div>
-                <div class='price'>€$totalPrice</div>
-                <i class='fa-solid fa-trash-can'></i>
             </div>
-        </div>
-        ";
+            ";
+        } else {
+            $html = 
+            "
+            <div class='event color-blue $isActive' data-ticket-id='$ticketId' data-is-purchased='false' data-event-type='history' data-single-quantity='$singleTicketQuantity' data-single-price='$singlePrice' data-family-quantity='$familyTicketQuantity' data-family-price='$familyPrice' $opacity>
+                <div class='left'>
+                    <i class='fa-solid $checkbox'></i>
+                    <div class='time'>$time</div>
+                    <div class='name'>$startLocation</div>
+                </div>
+                <div class='right'>
+                    <div class='amount-selector' data-ticket-type='family'>
+                        <i class='fa-solid fa-circle-minus'></i>
+                        <div class='amount'><span class='ticket-amount'>$familyTicketQuantity</span> Family Ticket</div>
+                        <i class='fa-solid fa-circle-plus'></i>
+                    </div>
+                    <div class='amount-selector' data-ticket-type='single'>
+                        <i class='fa-solid fa-circle-minus'></i>
+                        <div class='amount'><span class='ticket-amount'>$singleTicketQuantity</span> Regular Ticket</div>
+                        <i class='fa-solid fa-circle-plus'></i>
+                    </div>
+                    <div class='price'>€$totalPrice</div>
+                    <i class='fa-solid fa-trash-can'></i>
+                </div>
+            </div>
+            ";
+        }
+        
 
         return $html;
     }

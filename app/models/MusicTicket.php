@@ -16,4 +16,16 @@ class MusicTicket {
     public $artistName;
     public $venueName;
     public $image;
+
+    function getTicketId() {
+        return $this->ticketId;
+    }
+
+    function getTotalPrice() {
+        return ($this->quantity * $this->price) + ($this->oneDayAccessTicketQuantity * $this->oneDayAccessPrice) + ($this->allDaysAccessTicketQuantity * $this->allDaysAccessPrice);
+    }
+
+    function getEventType() {
+        return "music";
+    }
 }

@@ -92,7 +92,7 @@ class ProgramAgendaViewItem {
                 $html .= $column;
             }
 
-            $html .= '</div></div>';
+            $html .= '</div>';
         }
         
         return $html;

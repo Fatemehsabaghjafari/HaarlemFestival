@@ -1,4 +1,5 @@
 $(".agenda-view").hide();
+calculateCartPrice();
 
 $(document).on("click", ".btn-list-view", function() {
     $(".list-view").show();
@@ -18,6 +19,7 @@ $(document).on("click", ".fa-circle-check", function() {
     const event = $(this).closest(".event");
     $(this).removeClass("fa-circle-check");
     $(this).addClass("fa-circle");
+    event.removeClass("isActive");
     event[0].style.opacity = "0.5";
     const ticketId = event.attr("data-ticket-id");
     const eventType = event.attr("data-event-type");
@@ -28,6 +30,7 @@ $(document).on("click", ".fa-circle", function() {
     const event = $(this).closest(".event");
     $(this).removeClass("fa-circle");
     $(this).addClass("fa-circle-check");
+    event.addClass("isActive");
     event[0].style.opacity = "1";
     const ticketId = event.attr("data-ticket-id");
     const eventType = event.attr("data-event-type");
@@ -39,6 +42,7 @@ function setActiveStatus($ticketId, $eventType, $status) {
     formData.append("ticketId", $ticketId);
     formData.append("eventType", $eventType);
     formData.append("status", $status);
+    calculateCartPrice();
 
     fetch("/api/personalprogram/setactivestatus", {
         method: "POST",
@@ -48,6 +52,39 @@ function setActiveStatus($ticketId, $eventType, $status) {
     .then(data => {
         console.log(data);
     });
+}
+
+function calculateCartPrice() {
+    let totalPrice = 0;
+    $(".event.isActive").each(function() {
+        const eventType = $(this).attr("data-event-type");
+        let price = 0;
+
+        if (eventType === "music") {
+            const musicQuantity = parseInt($(this).attr("data-single-quantity"));
+            const musicPrice = parseFloat($(this).attr("data-single-price"));
+            
+            price = musicQuantity * musicPrice;
+        } else if (eventType === "yummy") {
+            const adultQuantity = parseInt($(this).attr("data-adult-quantity"));
+            const adultPrice = parseFloat($(this).attr("data-adult-price"));
+            const kidQuantity = parseInt($(this).attr("data-kid-quantity"));
+            const kidPrice = parseFloat($(this).attr("data-kid-price"));
+
+            price = (adultQuantity * adultPrice) + (kidQuantity * kidPrice);
+        } else if (eventType == "history") {
+            const singleQuantity = parseInt($(this).attr("data-single-quantity"));
+            const singlePrice = parseFloat($(this).attr("data-single-price"));
+            const familyQuantity = parseInt($(this).attr("data-family-quantity"));
+            const familyPrice = parseFloat($(this).attr("data-family-price"));
+
+            price = (singleQuantity * singlePrice) + (familyQuantity * familyPrice);
+        }
+
+        totalPrice += price;
+    });
+
+    $(".total-price").text(`€${totalPrice}`);
 }
 
 function updateTicketQuantityAndPrice(eventType, ticketType, newAmount, element) {
@@ -99,6 +136,7 @@ function updateTicketQuantityAndPrice(eventType, ticketType, newAmount, element)
             }
 
             element.closest(".event").find(".price").text(`€${price}`);
+            calculateCartPrice();
         }
     });
 }
@@ -141,7 +179,8 @@ $(document).on("click", ".fa-trash-can", function() {
     const formData = new FormData();
     formData.append("ticketId", ticketId);
     formData.append("eventType", eventType);
-
+    calculateCartPrice();
+    
     fetch("/api/personalprogram/deleteticket", {
         method: "POST",
         body: formData
