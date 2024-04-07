@@ -44,21 +44,19 @@
         </div>
     </div>
     <h1 class="nickyTopHead"> Martin’s schedule in festival</h1>
-    <div class="topSongContainer">
+    <div class="scheduleContainer">
         <?php foreach ($artistTickets as $t): ?>
-            <div class="eventH">
-                <?php
-                $timestamp = strtotime($t['date']);
-                $weekDay = date('l', $timestamp); // Full textual representation of the day of the week
-                $month = date('F', $timestamp); // Full textual representation of the month
-                $dayNumber = date('j', $timestamp); // Day of the month without leading zeros
-                echo $weekDay . ', ' . $month . ' ' . $dayNumber;
-                ?>
-            </div>
             <div class="eventContainer">
-
+                <div class="eventH">
+                    <?php
+                    $timestamp = strtotime($t['date']);
+                    $weekDay = date('l', $timestamp); // Full textual representation of the day of the week
+                    $month = date('F', $timestamp); // Full textual representation of the month
+                    $dayNumber = date('j', $timestamp); // Day of the month without leading zeros
+                    echo $weekDay . ', ' . $month . ' ' . $dayNumber;
+                    ?>
+                </div>
                 <div class="eventDetailContainer">
-
                     <p class="eventDetail"> Time:
                         <?php echo date('H:i', strtotime($t['time'])); ?>
                     </p>
@@ -77,6 +75,7 @@
                     <a class="eventLocation"
                         href="https://www.google.com/maps/search/?api=1&query=<?php echo urlencode($t['venueName']); ?>"
                         target="_blank">📍location</a>
+
                 </div>
                 <button class="btn btn-primary add-to-cart add-to-cartNicky" type="button"
                     data-ticket-id="<?php echo $t['eventId']; ?>">Add to program</button>

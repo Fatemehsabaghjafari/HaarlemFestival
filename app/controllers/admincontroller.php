@@ -1,19 +1,26 @@
 <?php
 require_once __DIR__ . '/../models/user.php';
 session_start();
-require_once __DIR__ . '/../services/adminservice.php';
+
 require_once __DIR__ . '/../services/loginservice.php';
+require_once __DIR__ . '/../services/danceEventsAdminservice.php';
+require_once __DIR__ . '/../services/danceArtistAdminservice.php';
+require_once __DIR__ . '/../services/danceVenueAdminservice.php';
 require_once __DIR__ . '/controller.php';
 
 class AdminController extends Controller
 {
-    private $adminService;
+    private $danceVenueAdminService;
+    private $danceArtistAdminService;
+    private $danceEventsAdminService;
     private $loginService;
 
     public function __construct()
     {
-        $this->adminService = new \App\Services\AdminService();
         $this->loginService = new \App\Services\LoginService();
+        $this->danceEventsAdminService = new \App\Services\DanceEventsAdminService();
+        $this->danceVenueAdminService = new \App\Services\DanceVenueAdminService();
+        $this->danceArtistAdminService = new \App\Services\DanceArtistAdminService();
     }
 
     private function checkAuthorization()
@@ -34,7 +41,6 @@ class AdminController extends Controller
     public function index()
     {
         if ($this->checkAuthorization()) {
-            $danceVenues = $this->adminService->getAllVenues();
             include '../views/adminView.php';
         }
     }
@@ -42,7 +48,7 @@ class AdminController extends Controller
     public function danceAdmin()
     {
         if ($this->checkAuthorization()) {
-            $danceArtists = $this->adminService->getAllArtists();
+            $danceArtists = $this->danceArtistAdminService->getAllArtists();
             include '../views/danceArtistsAdmin.php';
         }
     }
@@ -50,8 +56,16 @@ class AdminController extends Controller
     public function danceVenueAdmin()
     {
         if ($this->checkAuthorization()) {
-            $danceVenues = $this->adminService->getAllVenues();
+            $danceVenues = $this->danceVenueAdminService->getAllVenues();
             include '../views/danceVenueAdmin.php';
+        }
+    }
+
+    public function danceEventAdmin()
+    {
+        if ($this->checkAuthorization()) {
+            $danceEvents = $this->danceEventsAdminService->getAllEvents();
+            include '../views/danceEventAdmin.php';
         }
     }
 

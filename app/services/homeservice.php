@@ -13,5 +13,9 @@ class HomeService
         $this->repository = new \App\Repositories\HomeRepository();
     }
 
-  
+
+
+
+
+   
 }

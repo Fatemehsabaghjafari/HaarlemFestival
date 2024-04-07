@@ -1,7 +1,9 @@
 <?php
-class ArrayRouter {
-    public function route($uri) {
-      
+class ArrayRouter
+{
+    public function route($uri)
+    {
+
         $routes = array(
             '' => array(
                 'controller' => 'homecontroller',
@@ -19,144 +21,165 @@ class ArrayRouter {
             ),
 
             'register' => array(
-               'controller' => 'registercontroller', 
+                'controller' => 'registercontroller',
                 'method' => 'index'
-             ),
-
-            'artCulture' => array(
-                'controller' => 'artCulturecontroller', 
-                 'method' => 'index'
             ),
 
             'personalProgram' => array(
-                'controller' => 'personalProgramcontroller', 
-                 'method' => 'index'
+                'controller' => 'personalProgramcontroller',
+                'method' => 'index'
             ),
             'api/personalprogram' => array(
-                'controller' => 'personalProgramAPIController', 
+                'controller' => 'personalProgramAPIController',
                 'method' => 'index',
                 'api' => true
             ),
             'api/personalprogram/updateticket' => array(
-                'controller' => 'personalProgramAPIController', 
+                'controller' => 'personalProgramAPIController',
                 'method' => 'updateTicketQuantity',
                 'api' => true
             ),
             'api/personalprogram/deleteticket' => array(
-                'controller' => 'personalProgramAPIController', 
+                'controller' => 'personalProgramAPIController',
                 'method' => 'deleteTicket',
                 'api' => true
             ),
             'api/personalprogram/setactivestatus' => array(
-                'controller' => 'personalProgramAPIController', 
+                'controller' => 'personalProgramAPIController',
                 'method' => 'setActiveStatus',
                 'api' => true
             ),
 
             'foodies' => array(
-                'controller' => 'foodiescontroller', 
-                 'method' => 'index'
+                'controller' => 'foodiescontroller',
+                'method' => 'index'
             ),
-                      
+
             'dance' => array(
-                'controller' => 'dancecontroller', 
-                 'method' => 'index'
+                'controller' => 'dancecontroller',
+                'method' => 'index'
             ),
 
             'NickyRomero' => array(
-                'controller' => 'dancecontroller', 
-                 'method' => 'nicky'
+                'controller' => 'dancecontroller',
+                'method' => 'nicky'
             ),
 
             'MartinGarrix' => array(
-                'controller' => 'dancecontroller', 
-                 'method' => 'martin'
+                'controller' => 'dancecontroller',
+                'method' => 'martin'
             ),
 
             'danceapi' => array(
-                'controller' => 'danceapicontroller', 
-                 'method' => 'index'
+                'controller' => 'danceapicontroller',
+                'method' => 'index'
             ),
 
             'dancePersonalProgramApi' => array(
-                'controller' => 'dancePersonalProgramApicontroller', 
-                 'method' => 'index'
+                'controller' => 'dancePersonalProgramApicontroller',
+                'method' => 'index'
             ),
 
             'admin' => array(
-                'controller' => 'admincontroller', 
-                 'method' => 'index'
+                'controller' => 'admincontroller',
+                'method' => 'index'
             ),
 
-            'adminApi' => array(
-                'controller' => 'adminApicontroller', 
-                 'method' => 'index'
+            'danceArtistAdminApi' => array(
+                'controller' => 'danceArtistAdminApicontroller',
+                'method' => 'index'
             ),
 
             'danceAdmin' => array(
-                'controller' => 'admincontroller', 
-                 'method' => 'danceAdmin'
+                'controller' => 'admincontroller',
+                'method' => 'danceAdmin'
             ),
+
             'danceVenues' => array(
-                'controller' => 'admincontroller', 
-                 'method' => 'danceVenueAdmin'
+                'controller' => 'admincontroller',
+                'method' => 'danceVenueAdmin'
+            ),
+
+            'danceEvents' => array(
+                'controller' => 'admincontroller',
+                'method' => 'danceEventAdmin'
             ),
 
             'adminDanceVenueApi' => array(
-                'controller' => 'adminDanceVenueApicontroller', 
-                 'method' => 'index'
+                'controller' => 'adminDanceVenueApicontroller',
+                'method' => 'index'
+            ),
+
+            'adminDanceEventApi' => array(
+                'controller' => 'adminDanceEventApicontroller',
+                'method' => 'index'
             ),
 
             'forgot-password' => array(
-                'controller' => 'forgotPasswordcontroller', 
-                 'method' => 'index'
+                'controller' => 'forgotPasswordcontroller',
+                'method' => 'index'
             ),
- 
+
             'yummy' => array(
-                'controller' => 'yummycontroller', 
-                 'method' => 'index'
+                'controller' => 'yummycontroller',
+                'method' => 'index'
             ),
 
             'ratatouille' => array(
-                'controller' => 'ratatouillecontroller', 
-                 'method' => 'index'
+                'controller' => 'ratatouillecontroller',
+                'method' => 'index'
             ),
 
             'toujours' => array(
-                'controller' => 'toujourscontroller', 
-                 'method' => 'index'
+                'controller' => 'toujourscontroller',
+                'method' => 'index'
             ),
-            
+
             'reservation' => array(
-                'controller' => 'reservationcontroller', 
-                 'method' => 'index'
+                'controller' => 'reservationcontroller',
+                'method' => 'index'
             ),
 
             'manageAccount' => array(
-                'controller' => 'manageUserAccountcontroller', 
-                 'method' => 'index'
+                'controller' => 'manageUserAccountcontroller',
+                'method' => 'index'
             ),
 
             'manageAccount/api' => array(
-                'controller' => 'manageUserAccountApicontroller', 
-                 'method' => 'index'
+                'controller' => 'manageUserAccountApicontroller',
+                'method' => 'index'
             ),
 
             'userAdmin' => array(
-                'controller' => 'admincontroller', 
-                 'method' => 'userAdmin'
+                'controller' => 'admincontroller',
+                'method' => 'userAdmin'
+            ),
+
+            'userAdminApi' => array(
+                'controller' => 'userAdminApicontroller',
+                'method' => 'index'
+            ),
+
+            'resetPassword' => array(
+                'controller' => 'resetPasswordcontroller',
+                'method' => 'reset'
+            ),
+
+            'resetPasswordSuccess' => array(
+                'controller' => 'resetPasswordcontroller',
+                'method' => 'updatePassword'
             ),
         );
-
         // Add this method to handle JSON responses
-     function jsonResponse($data) {
-        header('Content-Type: application/json');
-        echo json_encode($data);
-        exit;
-    }
+        function jsonResponse($data)
+        {
+            header('Content-Type: application/json');
+            echo json_encode($data);
+            exit;
+        }
 
         // deal with undefined paths first
-        if(!isset($routes[$uri]['controller']) || !isset($routes[$uri]['method'])) {
+        if (!isset($routes[$uri]['controller']) || !isset($routes[$uri]['method'])) {
             http_response_code(404);
             die();
         }
@@ -171,9 +194,10 @@ class ArrayRouter {
         } else {
             require __DIR__ . '/controllers/' . $controller . '.php';
         }
-        
+
         $controllerObj = new $controller;
-        $controllerObj->$method();
+         $controllerObj->$method();
+       
     }
 }
 ?>
