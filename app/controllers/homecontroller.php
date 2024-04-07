@@ -7,11 +7,9 @@ class HomeController extends Controller
 {
     private $homeService;
 
-
     public function __construct()
     {
         $this->homeService = new \App\Services\HomeService();
-
     }
 
     public function index()

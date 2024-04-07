@@ -18,8 +18,21 @@ class LoginService
         return $this->repository->getAllUsers();
     }
 
-    public function insertUser($username, $hashedPassword){
-        return $this->repository->insertUser($username, $hashedPassword);
+    public function insertUser($username, $email, $hashedPassword){
+        return $this->repository->insertUser($username, $email, $hashedPassword);
+    }
+    public function isUsernameTaken($username) {
+       return $this->repository->isUsernameTaken($username);
+    }
+
+    public function isEmailTaken($email) {
+       return $this->repository->isEmailTaken($email);
+    }
+    public function storePasswordResetToken($email, $tokenHash, $expiry){
+        $this->repository->storePasswordResetToken($email, $tokenHash, $expiry);
+    }
+    public function getUserById($userId){
+        return $this->repository->getUserById($userId);
     }
 
 }

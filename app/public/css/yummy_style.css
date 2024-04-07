@@ -1,0 +1,63 @@
+h1{
+    text-align: center;
+    padding: 20px;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: Inter;
+    font-size: 96px;
+    font-weight: 800;
+}
+
+.background{
+    border-radius: 15px;
+    background: rgba(224, 203, 160, 0.50);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 1807px;
+    height: 200px;
+    flex-shrink: 0;
+}
+
+.text{
+    color: #000;
+    text-align: center;
+    font-family: Inter;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    padding: 35px;
+}
+
+.container .card:nth-child(odd) {
+    max-width: 1807px;
+    border-radius: 15px;
+    background: rgba(224, 203, 160, 0.50);
+  }
+
+  .container .card:nth-child(even) {
+    max-width: 1807px;
+    border-radius: 15px;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%), #FFF;
+
+  }
+  .card:nth-child(odd) .col-md-4 {
+    order: 0;
+  }
+  
+  .card:nth-child(even) .col-md-4 {
+    order: 1;
+  }
+
+  .card-body{
+    margin: 15px;
+  }
+
+.rounded-start{
+    padding-top: 25px;
+    padding-left: 10px;
+}
+
+.link{
+    text-decoration: none;
+    color: #FFF;
+}

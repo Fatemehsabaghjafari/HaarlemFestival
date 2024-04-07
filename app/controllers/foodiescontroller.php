@@ -7,7 +7,6 @@ class FoodiesController extends Controller
 {
     private $foodiesService;
 
-
     public function __construct()
     {
         $this->foodiesService = new \App\Services\FoodiesService();

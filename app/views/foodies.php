@@ -17,10 +17,35 @@
     <?php
     include __DIR__ . '/header.php';
     ?>
+    <img class="headPic" src="/img/foodie.png" alt="Museum">
+    <div class="orange">Food And Drinks</div>
+    &nbsp;&nbsp;&nbsp;
+    <h1 class="artCultureHead"> DUTCH FOOD AND DRINK
+    EXPERIENCES </h1>
+    <p class="artCultureHeadP"> Dutch food is all about cheese and bread, beside this they have some unique food recipe
+    which is famous all over the Netherlands. Haarlem is one of the aged city and all the
+    Dutch dishes are available here.
+    </p>
+
+    <div class="foodie-headers" >TOP DISHES IN HAARLEM</div>
+    <div class="top-dish">
+    <ul class="nav nav-pills nav-fill top-dish-h">
+            <li class="nav-item">
+                <a class="nav-link active" href="#">Traditional</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Vegan</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Halal</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="foodie-headers">TOP RESTAURANTS IN HAARLEM</div>
+    <div class="foodie-headers">TOP PLACES TO DRINK IN HAARLEM</div>
     
    
-    
-    <h1 > Foodies </h1>
 
 
 
@@ -34,7 +59,9 @@
 
     
          
-      
+    <?php
+    include __DIR__ . '/footer.php';
+    ?>  
    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>

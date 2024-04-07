@@ -38,7 +38,6 @@
 footer {
     text-align: center;
     padding: 10px 0;
-    position: fixed;
     bottom: 0;
     height: 200px;
     width: 100%;
@@ -83,7 +82,8 @@ input[type="submit"] {
     display: inline-block;
 }
 
-.headPic {
+        
+.headPic{
     height: 500px;
     width: 100%;
 }
@@ -218,4 +218,46 @@ input[type="submit"] {
 
 .Frans {
     padding: 50px;
+}
+
+.orange{
+    border-radius: 0px 110px 110px 0px;
+    background: #FF7A00;
+    width: 400px;
+    height: 147px;
+    flex-shrink: 0;
+    color: white;
+    font-size: 40px;
+    font-family: Inter;
+    font-weight: 700;
+    word-wrap: break-word;
+    padding: 35px;
+    position: absolute; 
+    bottom: 70px;
+}
+
+
+
+.top-dish-h{
+    display: flex;
+    width: 1230px;
+    height: 110px;
+    padding: 25px;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 20px;
+    background: rgba(232, 145, 79, 0.50);
+}
+
+.foodie-headers{
+    margin-left: 50px;
+    color: #FF7A00;
+    font-size: 60px;
+    font-family: Figtree;
+    font-weight: 900;
+    word-wrap: break-word
+}
+
+.black_background{
+    background: black;
 }

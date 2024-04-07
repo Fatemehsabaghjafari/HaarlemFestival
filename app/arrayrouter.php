@@ -13,6 +13,11 @@ class ArrayRouter {
                 'method' => 'index'
             ),
 
+            'logout' => array(
+                'controller' => 'logoutcontroller',
+                'method' => 'index'
+            ),
+
             'register' => array(
                'controller' => 'registercontroller', 
                 'method' => 'index'
@@ -47,10 +52,6 @@ class ArrayRouter {
                 'method' => 'setActiveStatus',
                 'api' => true
             ),
-            'history' => array(
-                'controller' => 'historycontroller', 
-                 'method' => 'index'
-            ),
 
             'foodies' => array(
                 'controller' => 'foodiescontroller', 
@@ -67,7 +68,95 @@ class ArrayRouter {
             'order-confirmation' => array(
                 'controller' => 'paymentcontroller', 
                 'method' => 'orderConfirmation'
-            )
+            ),        
+            'dance' => array(
+                'controller' => 'dancecontroller', 
+                 'method' => 'index'
+            ),
+
+            'NickyRomero' => array(
+                'controller' => 'dancecontroller', 
+                 'method' => 'nicky'
+            ),
+
+            'MartinGarrix' => array(
+                'controller' => 'dancecontroller', 
+                 'method' => 'martin'
+            ),
+
+            'danceapi' => array(
+                'controller' => 'danceapicontroller', 
+                 'method' => 'index'
+            ),
+
+            'dancePersonalProgramApi' => array(
+                'controller' => 'dancePersonalProgramApicontroller', 
+                 'method' => 'index'
+            ),
+
+            'admin' => array(
+                'controller' => 'admincontroller', 
+                 'method' => 'index'
+            ),
+
+            'adminApi' => array(
+                'controller' => 'adminApicontroller', 
+                 'method' => 'index'
+            ),
+
+            'danceAdmin' => array(
+                'controller' => 'admincontroller', 
+                 'method' => 'danceAdmin'
+            ),
+            'danceVenues' => array(
+                'controller' => 'admincontroller', 
+                 'method' => 'danceVenueAdmin'
+            ),
+
+            'adminDanceVenueApi' => array(
+                'controller' => 'adminDanceVenueApicontroller', 
+                 'method' => 'index'
+            ),
+
+            'forgot-password' => array(
+                'controller' => 'forgotPasswordcontroller', 
+                 'method' => 'index'
+            ),
+ 
+            'yummy' => array(
+                'controller' => 'yummycontroller', 
+                 'method' => 'index'
+            ),
+
+            'ratatouille' => array(
+                'controller' => 'ratatouillecontroller', 
+                 'method' => 'index'
+            ),
+
+            'toujours' => array(
+                'controller' => 'toujourscontroller', 
+                 'method' => 'index'
+            ),
+            
+            'reservation' => array(
+                'controller' => 'reservationcontroller', 
+                 'method' => 'index'
+            ),
+
+            'manageAccount' => array(
+                'controller' => 'manageUserAccountcontroller', 
+                 'method' => 'index'
+            ),
+
+            'manageAccount/api' => array(
+                'controller' => 'manageUserAccountApicontroller', 
+                 'method' => 'index'
+            ),
+
+            'userAdmin' => array(
+                'controller' => 'admincontroller', 
+                 'method' => 'userAdmin'
+            ),
         );
 
         // Add this method to handle JSON responses

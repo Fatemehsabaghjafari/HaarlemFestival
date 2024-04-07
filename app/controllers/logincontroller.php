@@ -26,16 +26,33 @@ class LoginController extends Controller {
                 if ($username === $user->username && password_verify($password, $user->password)) {
                     // Authentication successful
                     $_SESSION['user'] = $user;
-                    header('Location: /'); // Redirect to the main page
+                    if ($user->roleId == 1) {
+                        header('Location: /admin'); // Redirect to the admin page
+                    } else {
+                        header('Location: /'); // Redirect to the main page
+                    }
                     exit();
                 }
             }
-
             // Authentication failed
             $error = 'Invalid username or password';
         }
 
-        include '../views/login.php';
+        if(isset($_SESSION['user'])) {
+            include '../views/logout.php';
+        } else {
+            // If not logged in, show the login form
+            include '../views/login.php';
+        }
+
+    }
+
+    public static function getUserId() {
+        if (isset($_SESSION['user'])) {
+            return $_SESSION['user']->id;
+        } else {
+            return null; // User not logged in
+        }
     }
 }
-?>
+

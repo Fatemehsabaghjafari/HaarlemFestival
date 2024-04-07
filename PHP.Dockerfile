@@ -21,10 +21,12 @@ RUN apt-get update && ACCEPT_EULA=Y apt-get install -y \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 
-RUN apt-get update -y && apt-get install -y zlib1g-dev libpng-dev libfreetype6-dev libjpeg62-turbo-dev
+RUN apt-get update -y && apt-get install -y libpng-dev zlib1g-dev libpng-dev libfreetype6-dev libjpeg62-turbo-dev
 
 # Install GD library for image generating
-RUN docker-php-ext-configure gd --enable-gd --with-freetype
+#RUN docker-php-ext-configure gd --enable-gd --with-freetype
+RUN docker-php-ext-configure gd --with-freetype --with-jpeg && docker-php-ext-install -j$(nproc) gd
+
 
 RUN docker-php-ext-install gd pdo pdo_mysql mysqli
 
