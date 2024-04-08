@@ -26,7 +26,7 @@
             <h1>Order Confirmation</h1>
             <p>The ticket and invoice has been sent to your email address</p>
             <div class="buttons">
-                <a href="/personalProgram" class="btn btn-primary">Download Ticket</a>
+                <!-- <a href="/personalProgram" class="btn btn-primary">Download Ticket</a> -->
                 <a href="/personalProgram" class="btn btn-primary">View Personal Program</a>
             </div>
         <?php else: ?>

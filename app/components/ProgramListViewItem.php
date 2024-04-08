@@ -21,67 +21,67 @@ class ProgramListViewItem {
         $time = $data['time'];
         $artists = implode(', ', $data['artists']);
         $venueName = rtrim($data['venueName']);
-        // $allDaysAccessTicketQuantity = $data['allDaysAccessTicketQuantity'];
-        // $oneDayAccessTicketQuantity = $data['oneDayAccessTicketQuantity'];
         $quantity = $data['quantity'];
-        $allDaysAccessPrice = $data['allDaysAccessPrice'];
-        $oneDayAccessPrice = $data['oneDayAccessPrice'];
         $price = $data['price'];
-        $totalPrice = ($quantity * $price);
-
+        $totalPrice = $quantity * $price;
+    
         $opacity = $data['isActive'] ? '' : 'style="opacity: 0.5;"';
         $checkbox = $data['isActive'] ? 'fa-circle-check' : 'fa-circle';
         $isActive = $data['isActive'] ? 'isActive' : '';
-
+    
         $html = "";
-
+    
         if ($data['isPurchased']) {
-            $html = 
-            "
-            <div class='event color-red' data-ticket-id='$ticketId' data-is-purchased='true' data-event-type='music' data-single-quantity='$quantity' data-single-price='$price'>
-                <div class='left'>
-                    <div class='time'>$time</div>
-                    <div class='name'>
-                        $artists
-                        ($venueName)
+            $ticketType = $data['oneDayAccessTicketQuantity'] > 0 ? 'one-day' : 'single';
+            $ticketQuantity = $data['oneDayAccessTicketQuantity'] ?: $quantity;
+            $ticketPrice = $data['oneDayAccessTicketQuantity'] > 0 ? $data['oneDayAccessPrice'] : $price;
+    
+            $html = "
+                <div class='event color-red' data-ticket-id='$ticketId' data-is-purchased='true' data-event-type='music' data-$ticketType-quantity='$ticketQuantity' data-$ticketType-price='$ticketPrice'>
+                    <div class='left'>
+                        <div class='time'>$time</div>
+                        <div class='name'>
+                            $artists ($venueName)
+                        </div>
+                    </div>
+                    <div class='right'>
+                        <div class='amount-selector' data-ticket-type='$ticketType'>
+                            <div class='amount'><span class='ticket-amount'>$ticketQuantity</span> ".($ticketType === 'one-day' ? 'One Day Ticket' : 'Ticket')."</div>
+                        </div>
+                        <div class='price'>€$totalPrice</div>
+                        <div class='btn-ticket-overview'>Ticket Overview</div>
                     </div>
                 </div>
-                <div class='right'>
-                    <div class='amount-selector' data-ticket-type='single'>
-                        <div class='amount'><span class='ticket-amount'>$quantity</span> Ticket</div>
-                    </div>
-                    <div class='price'>€$totalPrice</div>
-                    <div class='btn-ticket-overview'>Ticket Overview</div>
-                </div>
-            </div>
             ";
         } else {
-            $html = 
-            "
-            <div class='event color-red $isActive' data-ticket-id='$ticketId' data-is-purchased='false' data-event-type='music' data-single-quantity='$quantity' data-single-price='$price' $opacity>
-                <div class='left'>
-                    <i class='fa-solid $checkbox'></i>
-                    <div class='time'>$time</div>
-                    <div class='name'>
-                        $artists
-                        ($venueName)
+            $ticketType = $data['oneDayAccessTicketQuantity'] > 0 ? 'one-day' : 'single';
+            $ticketQuantity = $data['oneDayAccessTicketQuantity'] ?: $quantity;
+            $ticketPrice = $data['oneDayAccessTicketQuantity'] > 0 ? $data['oneDayAccessPrice'] : $price;
+    
+            $html = "
+                <div class='event color-red $isActive' data-ticket-id='$ticketId' data-is-purchased='false' data-event-type='music' data-$ticketType-quantity='$ticketQuantity' data-$ticketType-price='$ticketPrice' $opacity>
+                    <div class='left'>
+                        <i class='fa-solid $checkbox'></i>
+                        <div class='time'>$time</div>
+                        <div class='name'>
+                            $artists ($venueName)
+                        </div>
+                    </div>
+                    <div class='right'>
+                        <div class='amount-selector' data-ticket-type='$ticketType'>
+                            <i class='fa-solid fa-circle-minus'></i>
+                            <div class='amount'><span class='ticket-amount'>$ticketQuantity</span> ".($ticketType === 'one-day' ? 'One Day Ticket' : 'Ticket')."</div>
+                            <i class='fa-solid fa-circle-plus'></i>
+                        </div>
+                        <div class='price'>€$totalPrice</div>
+                        <i class='fa-solid fa-trash-can'></i>
                     </div>
                 </div>
-                <div class='right'>
-                    <div class='amount-selector' data-ticket-type='single'>
-                        <i class='fa-solid fa-circle-minus'></i>
-                        <div class='amount'><span class='ticket-amount'>$quantity</span> Ticket</div>
-                        <i class='fa-solid fa-circle-plus'></i>
-                    </div>
-                    <div class='price'>€$totalPrice</div>
-                    <i class='fa-solid fa-trash-can'></i>
-                </div>
-            </div>
             ";
         }
-
+    
         return $html;
-    }
+    }    
 
     private function renderYummy($date, $data) {
         $ticketId = $data['ticketId'];

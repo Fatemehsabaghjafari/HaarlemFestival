@@ -123,4 +123,20 @@ class UserRepository
         // Optionally, you can return true or false based on the success of the deletion
         return $stmt->rowCount() > 0; // Returns true if at least one row was affected
     }
+
+    public function setUserDetails($userId, $firstName, $lastName, $address, $phone)
+    {
+        try {
+            $stmt = $this->db->prepare("UPDATE dbo.users SET firstName = :firstName, lastName = :lastName, phone = :phone, address = :address WHERE id = :userId");
+            $stmt->bindParam(':firstName', $firstName);
+            $stmt->bindParam(':lastName', $lastName);
+            $stmt->bindParam(':phone', $phone);
+            $stmt->bindParam(':address', $address);
+            $stmt->bindParam(':userId', $userId, PDO::PARAM_INT);
+            $stmt->execute();
+            return true;
+        } catch (\Throwable $th) {
+            return false;
+        }
+    }
 }

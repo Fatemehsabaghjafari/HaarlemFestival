@@ -2,6 +2,8 @@
 
 require_once __DIR__ . '/../services/personalProgramservice.php';
 require_once __DIR__ . '/controller.php';
+require_once __DIR__ . '/../models/user.php';
+require '../vendor/autoload.php';
 
 class PersonalProgramController extends Controller
 {
@@ -13,8 +15,17 @@ class PersonalProgramController extends Controller
     }
 
     public function index()
-    {      
-        $personalProgram = $this->personalProgramService->getPersonalProgram(1);
+    {   
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+        
+        if (!isset($_SESSION['user'])) {
+            header('Location: /login');
+            exit();
+        }
+        $userId = $_SESSION['user']->getId();
+        $personalProgram = $this->personalProgramService->getPersonalProgram($userId);
 
         // Convert to JSON
         // $personalProgram = json_encode($grouped, JSON_PRETTY_PRINT);

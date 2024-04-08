@@ -2,6 +2,7 @@
 
 require_once __DIR__ . '/../../services/personalProgramservice.php';
 require_once __DIR__ . '/../../controllers/controller.php';
+require_once __DIR__ . '/../../models/user.php';
 
 class PersonalProgramAPIController extends Controller
 {
@@ -32,7 +33,12 @@ class PersonalProgramAPIController extends Controller
                 return;
             }
 
-            $result = $this->personalProgramService->updateTicketQuantity("1", $ticketId, $eventType, $ticketType, $quantity);
+            if (session_status() === PHP_SESSION_NONE) {
+                session_start();
+            }
+
+            $userId = $_SESSION['user']->getId();
+            $result = $this->personalProgramService->updateTicketQuantity($userId, $ticketId, $eventType, $ticketType, $quantity);
 
             if ($result) {
                 http_response_code(200);
@@ -56,7 +62,12 @@ class PersonalProgramAPIController extends Controller
                 return;
             }
 
-            $result = $this->personalProgramService->deleteTicket("1", $ticketId, $eventType);
+            if (session_status() === PHP_SESSION_NONE) {
+                session_start();
+            }
+
+            $userId = $_SESSION['user']->getId();
+            $result = $this->personalProgramService->deleteTicket($userId, $ticketId, $eventType);
 
             if ($result) {
                 http_response_code(200);
@@ -81,7 +92,12 @@ class PersonalProgramAPIController extends Controller
                 return;
             }
 
-            $result = $this->personalProgramService->setActiveStatus("1", $ticketId, $eventType, $status);
+            if (session_status() === PHP_SESSION_NONE) {
+                session_start();
+            }
+
+            $userId = $_SESSION['user']->getId();
+            $result = $this->personalProgramService->setActiveStatus($userId, $ticketId, $eventType, $status);
 
             if ($result) {
                 http_response_code(200);
