@@ -36,10 +36,8 @@
         <div class="top-djs">
 
             <div class="djHead">Our DJs</div>
-
-            <?php foreach ($danceArtists as $artist): ?>
-
-                <div class="navigation-cards">
+            <div class="navigation-cards">
+                <?php foreach ($danceArtists as $artist): ?>
                     <a href="/<?php echo $artist['artistName']; ?>">
                         <div class="navigation-card-container">
                             <div class="navigation-card-backdrop"></div>
@@ -50,19 +48,16 @@
                             </div>
                         </div>
                     </a>
-                </div>
-
-            <?php endforeach; ?>
-
+                <?php endforeach; ?>
+            </div>
         </div>
-
     </div>
 
 
     <h1 class="danceHeadT">Tickets overview </h1>
 
     <?php
-    include __DIR__ . '/slideshow.php';
+    include __DIR__ . '/danceSlideshow.php';
     ?>
     <div class="allAccessInfo1">
         All-Access pass for Friday €125,00, Saturday or Sunday €150,00
@@ -81,19 +76,21 @@
 
     <h1 class="danceHeadT">Other festivals to enjoy </h1>
     <div class="navigation-cards">
-        <div class="navigation-card-container">
-            <div class="navigation-card-backdrop"></div>
-            <div class="navigation-card" style="background-image: url('/img/art_culture_card.png');">
-                <h3>HAARLEM JAZZE</h3>
-            </div>
-        </div>
 
         <div class="navigation-card-container">
             <div class="navigation-card-backdrop"></div>
-            <div class="navigation-card" style="background-image: url('/img/foodies_card.png');">
-                <h3>YUMMI!</h3>
+            <div class="navigation-card" style="background-image: url('/img/Jazz.png');">
+                <h3>HAARLEM JAZZE</h3>
             </div>
         </div>
+        <a href="/yummy">
+            <div class="navigation-card-container">
+                <div class="navigation-card-backdrop"></div>
+                <div class="navigation-card" style="background-image: url('/img/Yummi!.png');">
+                    <h3>YUMMI!</h3>
+                </div>
+            </div>
+        </a>
 
         <div class="navigation-card-container">
             <div class="navigation-card-backdrop"></div>
@@ -103,19 +100,18 @@
         </div>
     </div>
 
-    <!--  <div class="kid">
-            <img src="img/kid.png" alt="Image">
-        </div> -->
+    <div class="kid">
+        <img class="kidPic" src="img/kid.png" alt="Image">
+    </div>
 
-    <!-- <?php
+    <?php
     include __DIR__ . '/footer.php';
-    ?> -->
+    ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
     <script src="/javascript/script.js"></script>
-    <script src="/javascript/slideshow.js"></script>
 </body>
 
 </html>

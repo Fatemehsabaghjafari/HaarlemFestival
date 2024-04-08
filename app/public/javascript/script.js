@@ -92,11 +92,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-
-
-
-
-
     function addNewOneDayTicketToCart(eventId, quantity, oneDayAccessTicketQuantity, allDaysAccessTicketQuantity, isPurchased) {
         fetch('http://localhost/dancePersonalProgramApi', {
             method: 'POST',

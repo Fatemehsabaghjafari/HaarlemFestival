@@ -45,8 +45,7 @@ h2.title {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    margin: 1rem auto;
-    max-width: 900px;
+    max-width: 1300px;
 }
 
 .banner-card {
@@ -58,14 +57,14 @@ h2.title {
 }
 
 .navigation-card-container {
-    width: 405px;
+    width: 355px;
     height: 305px;
     position: relative;
     margin: 1rem;
 }
 
 .navigation-card-backdrop {
-    width: 400px;
+    width: 350px;
     height: 300px;
     border-radius: 15px;
     background: #000;
@@ -75,7 +74,7 @@ h2.title {
 }
 
 .navigation-card {
-    width: 400px;
+    width: 350px;
     height: 300px;
     border-radius: 15px;
     border: 5px solid #D58386;

@@ -34,5 +34,10 @@ class LoginService
     public function getUserById($userId){
         return $this->repository->getUserById($userId);
     }
-
+    public function getPasswordResetToken($token){
+        return $this->repository->getPasswordResetToken($token);
+    }
+    public function resetPassword($token, $newPassword){
+        $this->repository->resetPassword($token, $newPassword);
+    }
 }

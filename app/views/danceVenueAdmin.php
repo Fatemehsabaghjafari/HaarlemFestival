@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
         integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/admin.css">
 
 </head>
 
@@ -20,23 +20,24 @@
     <?php
     include __DIR__ . '/adminHeader.php';
     ?>
-    <h2>Add New Venue</h2>
-    <!-- Form for adding new venue -->
-    <form id="addVenueForm">
-        <div class="form-group">
-            <label for="venueName">Name:</label>
-            <input type="text" class="form-control" id="venueName" name="venueName" required>
-        </div>
-        <div class="form-group">
-            <label for="venueAddress">Address:</label>
-            <input type="text" class="form-control" id="venueAddress" name="venueAddress" required>
-        </div>
+    <div class="container mt-5">
+        <h2>Add New Venue</h2>
+        <!-- Form for adding new venue -->
+        <form id="addVenueForm">
+            <div class="form-group venue">
+                <label for="venueName">Name:</label>
+                <input type="text" class="form-control" id="venueName" name="venueName" required>
+            </div>
+            <div class="form-group">
+                <label for="venueAddress">Address:</label>
+                <input type="text" class="form-control" id="venueAddress" name="venueAddress" required>
+            </div>
 
-        <button type="submit" class="btn btn-primary addVenue">Add Venue</button>
-    </form>
+            <button type="submit" class="btn btn-primary addArtist">Add Venue</button>
+        </form>
 
-    <hr>
-    <h2>All Venues</h2>
+        <hr>
+        <h2>All Venues</h2>
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -89,7 +90,7 @@
                 </form>
             </div>
         </div>
-
+    </div>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"

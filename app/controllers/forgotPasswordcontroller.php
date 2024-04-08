@@ -44,18 +44,15 @@ class ForgotPasswordController extends Controller
 
         $mail->addAddress($email);
         $mail->Subject = 'Password Reset';
-        $mail->Body = 'Click the following link to reset your password: http://example.com/reset_password.php?token=' . $token;
+        $mail->Body = 'Click the following link to reset your password: http://localhost/resetPassword?token=' . $token;
         try {
             $mail->send();
+            include '../views/forgot_password_sent.php';
             exit();
         } catch (Exception $e) {
             // Failed to send email
             echo 'Error: ' . $mail->ErrorInfo;
         }
-
-        include '../views/forgot_password_sent.php';
     }
-
-
 }
 

@@ -27,7 +27,7 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <ul>
-                                <li><a class="dropdown-item" href="/artCulture">Events</a></li>
+                                <li><a class="dropdown-item" href="/danceEvents">Events</a></li>
                                 <li><a class="dropdown-item" href="/danceVenues">Venues</a></li>
                                 <li><a class="dropdown-item" href="/danceAdmin">Artists</a></li>
                             </ul>
