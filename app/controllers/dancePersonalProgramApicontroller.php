@@ -1,26 +1,17 @@
 <?php
 require_once __DIR__ . '/../models/user.php';
-session_start();
-require_once __DIR__ . '/../services/loginservice.php';
+
 require_once __DIR__ . '/../services/danceservice.php';
 
 class DancePersonalProgramApiController
 {
     private $danceService;
-    private $loginService;
+
 
     public function __construct()
     {
-        $this->loginService = new \App\Services\LoginService();
+        
         $this->danceService = new \App\Services\DanceService();
-    }
-    private function checkAuthorization()
-    {
-        if (!isset($_SESSION['user'])) {
-            header("Location: /login.php");
-            return false;
-        }
-        return true;
     }
     public function index()
     {
@@ -31,8 +22,7 @@ class DancePersonalProgramApiController
             $myJSON = json_encode($danceitems);
             echo $myJSON;
         }
-      //  if ($this->checkAuthorization()) {
-            // Additional logic for handling adding new tickets for logged-in users
+    
             if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($postData['action']) && $postData['action'] === 'add_new_ticket') {
                 try {
                     // Check if required parameters are provided
@@ -56,9 +46,10 @@ class DancePersonalProgramApiController
                     if ($result) {
                         echo json_encode(['status' => 'success', 'message' => 'Ticket added successfully']);
                     } else {
-                        echo json_encode(['status' => 'error', 'message' => 'Failed to add ticket']);
+                        echo json_encode(['status' => 'error', 'message' => 'Failed to add ticket. Please login first!']);
                     }
                     exit;
+
                 } catch (Exception $e) {
                     // Handle the exception
                     http_response_code(500); // Internal Server Error
@@ -68,7 +59,6 @@ class DancePersonalProgramApiController
 
             }
 
-   //     }
 
 
 
@@ -95,7 +85,7 @@ class DancePersonalProgramApiController
                 if ($result) {
                     echo json_encode(['status' => 'success', 'message' => 'Ticket added successfully']);
                 } else {
-                    echo json_encode(['status' => 'error', 'message' => 'Failed to add ticket']);
+                    echo json_encode(['status' => 'error', 'message' => 'Failed to add ticket. Please login first!']);
                 }
                 exit;
             } catch (Exception $e) {
@@ -135,7 +125,7 @@ class DancePersonalProgramApiController
                 if ($result) {
                     echo json_encode(['status' => 'success', 'message' => 'Ticket added successfully']);
                 } else {
-                    echo json_encode(['status' => 'error', 'message' => 'Failed to add ticket']);
+                    echo json_encode(['status' => 'error', 'message' => 'Failed to add ticket. Please login first!']);
                 }
                 exit;
             } catch (Exception $e) {

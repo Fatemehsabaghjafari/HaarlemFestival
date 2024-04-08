@@ -4,7 +4,7 @@
         <?php $isFirst = true; ?>
         <?php foreach ($danceArtists as $artist): ?>
             <div class="carousel-item <?php echo $isFirst ? 'active' : ''; ?>">
-                <div class="carousel-caption d-none d-md-block">
+                <div class="carousel-caption d-md-block">
                     <h5 class="djName">
                         <?php echo $artist['artistName']; ?> (
                         <?php echo $artist['style']; ?>)
@@ -13,7 +13,7 @@
                         <img class="djImg" src="<?php echo $artist['img']; ?>" alt="Image">
                         <table class="table t">
                             <thead class=tH>
-                                <tr class="tHRow">
+                                <tr class="tHRow" >
                                     <th class="tHData">Date</th>
                                     <th class="tHData">Time</th>
                                     <th class="tHData">Venue</th>
@@ -26,7 +26,7 @@
                             <tbody class="tB">
                                 <?php foreach ($ticketsByArtist[$artist['artistId']] as $ticket): ?>
 
-                                    <tr>
+                                    <tr class="tBData">
                                         <td class="tBData">
                                             <?php
                                             $timestamp = strtotime($ticket['date']);

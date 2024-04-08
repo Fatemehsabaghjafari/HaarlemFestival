@@ -406,6 +406,12 @@
   bottom: 5px;
   cursor: pointer;
 }
+@media (max-width: 500px){
+  .table.t {
+    margin-top: 5px;
+    font-size: 5px;
+  }
+}
 
 @media (max-width: 1310px) {
   .kid {

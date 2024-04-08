@@ -189,6 +189,8 @@ class ArrayRouter
             echo json_encode($data);
             exit;
         }
+        
+        $uri = explode('?', $uri)[0];
 
         $uri = explode('?', $uri)[0];
         
