@@ -189,6 +189,8 @@ class ArrayRouter
             echo json_encode($data);
             exit;
         }
+        
+        $uri = explode('?', $uri)[0];
 
         // deal with undefined paths first
         if (!isset($routes[$uri]['controller']) || !isset($routes[$uri]['method'])) {

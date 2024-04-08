@@ -6,20 +6,20 @@ require_once __DIR__ . '/controller.php';
 
 class UserAdminApiController extends Controller
 {
-    private $adminService;
+    private $userAdminService;
     private $loginService;
     private $errorMsg;
 
     public function __construct()
     {
-        $this->adminService = new \App\Services\UserAdminService();
+        $this->userAdminService = new \App\Services\UserAdminService();
         $this->loginService = new \App\Services\LoginService();
     }
 
     public function index()
     {
         if ($_SERVER["REQUEST_METHOD"] == "GET") {
-            $users = $this->adminService->getAllUsers();
+            $users = $this->userAdminService->getAllUsers();
             $myJSON = json_encode($users);
             echo $myJSON;
         }
@@ -50,7 +50,7 @@ class UserAdminApiController extends Controller
 
                 $userId = $_POST['userId'];
 
-                $result = $this->adminService->deleteUserById($userId);
+                $result = $this->userAdminService->deleteUserById($userId);
 
                 if ($result) {
                     $display_message = "user deleted successfully!";
@@ -78,10 +78,7 @@ class UserAdminApiController extends Controller
 
                     // Move uploaded file to desired directory
                     if (move_uploaded_file($image['tmp_name'], $targetPath)) {
-                        // Image upload successful, now insert user data into database
-                        // $email = $_POST['email'];
-                        // $username = $_POST['username'];
-                        // $password = $_POST['password'];
+
                         $roleId = $_POST['roleId'];
 
                         $password = filter_var($_POST["password"], FILTER_SANITIZE_SPECIAL_CHARS);
@@ -92,25 +89,9 @@ class UserAdminApiController extends Controller
                         $username = filter_var($_POST["username"], FILTER_SANITIZE_SPECIAL_CHARS);
                         $email = filter_var($_POST["email"], FILTER_SANITIZE_EMAIL);
 
-                        if ($this->loginService->isUsernameTaken($username)) {
-                            $this->errorMsg = "Username is already in use.";
 
-                            return;
-                        }
-
-                        if ($this->loginService->isEmailTaken($email)) {
-                            $this->errorMsg = "Email is already in use.";
-
-                            return;
-                        }
-
-                        if (strcasecmp($_SESSION['captcha'], $_POST['captcha']) != 0) {
-                            $this->errorMsg = "The captcha code isn't correct. Please try again";
-                            include '../views/register.php';
-                            return;
-                        }
                         // Insert user data into the database
-                        $result = $this->adminService->addUser($email, $username, $hashedPassword, $roleId, "/img/" . $filename);
+                        $result = $this->userAdminService->addUser($email, $username, $hashedPassword, $roleId, "/img/" . $filename);
 
                         if ($result) {
                             // Success response
@@ -150,8 +131,7 @@ class UserAdminApiController extends Controller
                     if (move_uploaded_file($image['tmp_name'], $targetPath)) {
                         // Image upload successful, now update user data in the database
                         $userId = $_POST['userId'];
-                        // $email = $_POST['email'];
-                        // $username = $_POST['username'];
+
                         $roleId = $_POST['roleId'];
 
                         $username = filter_var($_POST["username"], FILTER_SANITIZE_SPECIAL_CHARS);
@@ -170,7 +150,7 @@ class UserAdminApiController extends Controller
                         }
 
                         // Update user data in the database
-                        $result = $this->adminService->updateUser($userId, $email, $username, $roleId, "/img/" . $filename);
+                        $result = $this->userAdminService->updateUser($userId, $email, $username, $roleId, "/img/" . $filename);
 
                         if ($result) {
                             // Success response

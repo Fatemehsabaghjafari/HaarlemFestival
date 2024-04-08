@@ -79,11 +79,13 @@ document.addEventListener('DOMContentLoaded', function () {
         .then(response => response.json())
         .then(data => {
             console.log(data);
+            const displayMessage = data.message;
+
             if (data.status === 'success') {
                 // Access the display message
-                const displayMessage = data.message;
                 alert(displayMessage);
             } else {
+                alert(displayMessage);
                 console.error('Error adding ticket:', data.message);
             }
         })
@@ -110,11 +112,15 @@ document.addEventListener('DOMContentLoaded', function () {
         .then(response => response.json())
         .then(data => {
             console.log(data);
+            const displayMessage = data.message;
             if (data.status === 'success') {
-                // Access the display message
-                const displayMessage = data.message;
+               
                 alert(displayMessage);
+
             } else {
+
+                alert(displayMessage);
+
                 console.error('Error adding ticket:', data.message);
             }
         })
@@ -141,11 +147,14 @@ document.addEventListener('DOMContentLoaded', function () {
         .then(response => response.json())
         .then(data => {
             console.log(data);
+             // Access the display message
+             const displayMessage = data.message;
+
             if (data.status === 'success') {
-                // Access the display message
-                const displayMessage = data.message;
+               
                 alert(displayMessage);
             } else {
+                alert(displayMessage);
                 console.error('Error adding ticket:', data.message);
             }
         })

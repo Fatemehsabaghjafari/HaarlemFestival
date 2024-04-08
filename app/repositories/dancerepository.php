@@ -105,8 +105,7 @@ class DanceRepository {
         
 
         if ($userId === null) {
-            header('Location: /login'); 
-            exit();
+            return false;
         }
     
 
@@ -142,8 +141,7 @@ class DanceRepository {
         
 
         if ($userId === null) {
-            header('Location: /login');
-            exit();
+            return false;
         }
     
 
@@ -179,8 +177,7 @@ class DanceRepository {
         
 
         if ($userId === null) {
-            header('Location: /login');
-            exit();
+            return false;
         }
     
         $isPurchased = false;
