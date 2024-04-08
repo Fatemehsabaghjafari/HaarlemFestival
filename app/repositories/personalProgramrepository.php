@@ -13,6 +13,42 @@ class PersonalProgramRepository {
         $this->db = new PDO("$type:server=$servername;Database=$dbname", $username, $password);
     }
 
+    // function getMusicTickets($userId, $isActive = false, $isPurchased = false) {
+    //     $isActiveCondition = $isActive ? "AND musicTickets.isActive = 1" : "";
+    //     $isPurchasedCondition = $isPurchased ? "AND musicTickets.isPurchased = 0" : "";
+    
+    //     $stmt = $this->db->prepare("
+    //         SELECT musicTickets.ticketId, 
+    //             musicTickets.oneDayAccessTicketQuantity, 
+    //             musicEvents.oneDayAccessPrice,
+    //             musicTickets.allDaysAccessTicketQuantity,
+    //             musicEvents.allDaysAccessPrice,
+    //             musicTickets.isPurchased, 
+    //             musicTickets.isActive, 
+    //             musicTickets.quantity, 
+    //             musicEvents.price,
+    //             musicEvents.dateTime,
+    //             musicEvents.duration,
+    //             artists.artistName,
+    //             venues.venueName,
+    //             musicEvents.image
+    //         FROM musicTickets
+    //         INNER JOIN musicEvents ON musicTickets.eventId = musicEvents.eventId
+    //         INNER JOIN venues ON venues.venueId = musicEvents.venueId
+    //         LEFT JOIN participatingArtists ON musicEvents.eventId = participatingArtists.ticketId
+    //         LEFT JOIN artists ON participatingArtists.artistId = artists.artistId
+    //         WHERE musicTickets.userId = :userId
+    //         $isActiveCondition 
+    //         $isPurchasedCondition
+    //     ");
+    //     $stmt->execute([':userId' => $userId]);
+    
+    //     $stmt->setFetchMode(PDO::FETCH_CLASS, 'App\\Models\\MusicTicket');
+    //     $tickets = $stmt->fetchAll();
+    
+    //     return $tickets;
+    // }
+
     function getMusicTickets($userId, $isActive = false, $isPurchased = false) {
         $isActiveCondition = $isActive ? "AND musicTickets.isActive = 1" : "";
         $isPurchasedCondition = $isPurchased ? "AND musicTickets.isPurchased = 0" : "";
@@ -29,17 +65,30 @@ class PersonalProgramRepository {
                 musicEvents.price,
                 musicEvents.dateTime,
                 musicEvents.duration,
-                artists.artistName,
+                STRING_AGG(artists.artistName, ',') AS artists,
                 venues.venueName,
                 musicEvents.image
             FROM musicTickets
             INNER JOIN musicEvents ON musicTickets.eventId = musicEvents.eventId
             INNER JOIN venues ON venues.venueId = musicEvents.venueId
-            LEFT JOIN participatingArtists ON musicTickets.ticketId = participatingArtists.ticketId
+            LEFT JOIN participatingArtists ON musicEvents.eventId = participatingArtists.ticketId
             LEFT JOIN artists ON participatingArtists.artistId = artists.artistId
             WHERE musicTickets.userId = :userId
             $isActiveCondition 
             $isPurchasedCondition
+            GROUP BY musicTickets.ticketId, 
+                musicTickets.oneDayAccessTicketQuantity, 
+                musicEvents.oneDayAccessPrice,
+                musicTickets.allDaysAccessTicketQuantity,
+                musicEvents.allDaysAccessPrice,
+                musicTickets.isPurchased, 
+                musicTickets.isActive, 
+                musicTickets.quantity, 
+                musicEvents.price,
+                musicEvents.dateTime,
+                musicEvents.duration,
+                venues.venueName,
+                musicEvents.image
         ");
         $stmt->execute([':userId' => $userId]);
     
@@ -47,6 +96,50 @@ class PersonalProgramRepository {
         $tickets = $stmt->fetchAll();
     
         return $tickets;
+    }
+
+    function getMusicTicketById($ticketId) {
+        $stmt = $this->db->prepare("
+            SELECT musicTickets.ticketId, 
+                musicTickets.oneDayAccessTicketQuantity, 
+                musicEvents.oneDayAccessPrice,
+                musicTickets.allDaysAccessTicketQuantity,
+                musicEvents.allDaysAccessPrice,
+                musicTickets.isPurchased, 
+                musicTickets.isActive, 
+                musicTickets.quantity, 
+                musicEvents.price,
+                musicEvents.dateTime,
+                musicEvents.duration,
+                STRING_AGG(artists.artistName, ',') AS artists,
+                venues.venueName,
+                musicEvents.image
+            FROM musicTickets
+            INNER JOIN musicEvents ON musicTickets.eventId = musicEvents.eventId
+            INNER JOIN venues ON venues.venueId = musicEvents.venueId
+            LEFT JOIN participatingArtists ON musicEvents.eventId = participatingArtists.ticketId
+            LEFT JOIN artists ON participatingArtists.artistId = artists.artistId
+            WHERE musicTickets.ticketId = :ticketId
+            GROUP BY musicTickets.ticketId, 
+                musicTickets.oneDayAccessTicketQuantity, 
+                musicEvents.oneDayAccessPrice,
+                musicTickets.allDaysAccessTicketQuantity,
+                musicEvents.allDaysAccessPrice,
+                musicTickets.isPurchased, 
+                musicTickets.isActive, 
+                musicTickets.quantity, 
+                musicEvents.price,
+                musicEvents.dateTime,
+                musicEvents.duration,
+                venues.venueName,
+                musicEvents.image
+        ");
+        $stmt->execute([':ticketId' => $ticketId]);
+    
+        $stmt->setFetchMode(PDO::FETCH_CLASS, 'App\\Models\\MusicTicket');
+        $ticket = $stmt->fetch();
+    
+        return $ticket;
     }
     
     function getYummyTickets($userId, $isActive = false, $isPurchased = false) {
@@ -80,6 +173,33 @@ class PersonalProgramRepository {
     
         return $tickets;
     }
+
+    function getYummyTicketById($ticketId) {
+        $stmt = $this->db->prepare("
+            SELECT
+                yummyTickets.ticketId,
+                yummyTickets.kidsQuantity,
+                yummyTickets.adultsQuantity, 
+                yummyTickets.isPurchased, 
+                yummyTickets.isActive,
+                yummyTickets.notes,
+                yummyTickets.dateTime,
+                yummyRestaurants.name,
+                yummyRestaurants.kidPrice,
+                yummyRestaurants.adultPrice,
+                yummyRestaurants.duration,
+                yummyRestaurants.image
+            FROM yummyTickets
+            INNER JOIN yummyRestaurants ON yummyTickets.ticketId = yummyRestaurants.restaurantId
+            WHERE yummyTickets.ticketId = :ticketId
+        ");
+        $stmt->execute([':ticketId' => $ticketId]);
+    
+        $stmt->setFetchMode(PDO::FETCH_CLASS, 'App\\Models\\YummyTicket');
+        $ticket = $stmt->fetch();
+    
+        return $ticket;
+    }
     
     function getHistoryTickets($userId, $isActive = false, $isPurchased = false) {
         $isActiveCondition = $isActive ? "AND historyTickets.isActive = 1" : "";
@@ -109,6 +229,31 @@ class PersonalProgramRepository {
         $tickets = $stmt->fetchAll();
     
         return $tickets;
+    }
+
+    function getHistoryTicketById($ticketId) {
+        $stmt = $this->db->prepare("
+            SELECT
+                historyTickets.ticketId,
+                historyTours.dateTime,
+                historyTickets.singleTicketQuantity,
+                historyTickets.familyTicketQuantity,
+                historyTickets.isPurchased,
+                historyTickets.isActive,
+                historyTours.startLocation,
+                historyTours.singlePrice,
+                historyTours.familyPrice,
+                historyTours.image
+            FROM historyTickets
+            INNER JOIN historyTours ON historyTickets.ticketId = historyTours.tourId
+            WHERE historyTickets.ticketId = :ticketId
+        ");
+        $stmt->execute([':ticketId' => $ticketId]);
+    
+        $stmt->setFetchMode(PDO::FETCH_CLASS, 'App\\Models\\HistoryTicket');
+        $ticket = $stmt->fetch();
+    
+        return $ticket;
     }
 
     function updateTicketQuantity($userId, $ticketId, $eventType, $ticketType, $quantity) {

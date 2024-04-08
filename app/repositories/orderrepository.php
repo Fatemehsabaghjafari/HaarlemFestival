@@ -66,6 +66,34 @@ class OrderRepository {
         $order = $stmt->fetchAll();
 
         return $order;
-    } 
+    }
+
+    function getOrderItem($orderId, $ticketId) {
+        $stmt = $this->db->prepare("
+            SELECT * FROM orders
+            WHERE orderId = :orderId AND ticketId = :ticketId
+        ");
+        $stmt->execute([
+            ':orderId' => $orderId,
+            ':ticketId' => $ticketId
+        ]);
+
+        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        $order = $stmt->fetch();
+
+        return $order;
+    }
+
+    function setQRCodeHash($id, $hash) {
+        $stmt = $this->db->prepare("
+            UPDATE orders
+            SET qrCode = :hash
+            WHERE id = :id
+        ");
+        $stmt->execute([
+            ':hash' => $hash,
+            ':id' => $id
+        ]);
+    }
 }
 ?>

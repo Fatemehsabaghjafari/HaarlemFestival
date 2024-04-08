@@ -34,7 +34,7 @@
     letter-spacing: 2px;
 }
 
-.checkout-form input[type="email"], .checkout-form input[type="text"], .checkout-form input[type="tel"], .checkout-form input[type="number"], .checkout-form input[type="password"] {
+.checkout-form input[type="email"], .checkout-form input[type="text"], .checkout-form input[type="tel"], .checkout-form input[type="number"], .checkout-form input[type="password"], #address {
     display: block;
     width: 250px;
     padding: 0.5rem;
@@ -82,4 +82,8 @@
     font-size: 4rem;
     margin-bottom: 1rem;
     color: #C0373C;
+}
+
+.checkout-form form {
+    text-align: left;
 }

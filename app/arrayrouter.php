@@ -192,6 +192,8 @@ class ArrayRouter
         
         $uri = explode('?', $uri)[0];
 
+        $uri = explode('?', $uri)[0];
+        
         // deal with undefined paths first
         if (!isset($routes[$uri]['controller']) || !isset($routes[$uri]['method'])) {
             http_response_code(404);

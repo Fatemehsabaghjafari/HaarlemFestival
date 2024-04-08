@@ -117,9 +117,9 @@ class DanceRepository {
     
         $stmt = $this->db->prepare("
             INSERT INTO musicTickets 
-            (userId, eventId, oneDayAccessTicketQuantity, allDaysAccessTicketQuantity, isPurchased, quantity) 
+            (userId, eventId, oneDayAccessTicketQuantity, allDaysAccessTicketQuantity, isPurchased, quantity, isActive) 
             VALUES 
-            (:userId, :eventId, :oneDayAccessTicketQuantity, :allDaysAccessTicketQuantity, :isPurchased, :quantity)
+            (:userId, :eventId, :oneDayAccessTicketQuantity, :allDaysAccessTicketQuantity, :isPurchased, :quantity, 1)
         ");
     
         $stmt->bindParam(':userId', $userId);

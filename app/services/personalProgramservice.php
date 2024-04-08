@@ -28,7 +28,7 @@ class PersonalProgramService
             $found = false;
             foreach ($this->grouped[$date] as &$group) {
                 if ($group['ticketId'] === $object->ticketId && $group['type'] === 'music') {
-                    $group['artists'][] = $object->artistName;
+                    $group['artists'][] = $object->artists;
                     $found = true;
                     break;
                 }
@@ -39,7 +39,7 @@ class PersonalProgramService
                 $this->grouped[$date][] = [
                     'ticketId' => $object->ticketId,
                     'venueName' => $object->venueName,
-                    'artists' => [$object->artistName],
+                    'artists' => [$object->artists],
                     'type' => 'music',
                     'oneDayAccessTicketQuantity' => 0,
                     'oneDayAccessPrice' => (float)$object->oneDayAccessPrice,

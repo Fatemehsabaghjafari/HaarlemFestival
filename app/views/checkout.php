@@ -50,29 +50,29 @@
             </div>
             <div class="checkout-form">
                 <h2>Personal Information</h2>
-                <div class="personal-info-row">
-                    <div>
-                        <label for="firstname">First Name</label>
-                        <input type="text" id="firstname">
-                    </div>
-                    <div>
-                        <label for="lastname">Last Name</label>
-                        <input type="text" id="lastname">
-                    </div>
-                </div>
-                <div class="personal-info-row">
-                    <div>
-                        <label for="email">Email</label>
-                        <input type="email" id="email">
-                    </div>
-                    <div>
-                        <label for="tel">Phone</label>
-                        <input type="tel" id="tel" placeholder="+31 6 12 34 56 78">
-                    </div>
-                </div>
-                
                 <form action="/pay" method="post">
-                    <button type="submit" class="btn-pay">Pay <span class="pay-amount">€225</span></button>
+                    <div class="personal-info-row">
+                        <div>
+                            <label for="firstname">First Name</label>
+                            <input type="text" id="firstname" name="firstName">
+                        </div>
+                        <div>
+                            <label for="lastname">Last Name</label>
+                            <input type="text" id="lastname" name="lastName">
+                        </div>
+                    </div>
+                    <div class="personal-info-row">
+                        <div>
+                            <label for="address">Address</label>
+                            <input type="address" id="address" name="address">
+                        </div>
+                        <div>
+                            <label for="tel">Phone</label>
+                            <input type="tel" id="tel" placeholder="+31 6 12 34 56 78" name="phone">
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn-pay">Pay <span class="pay-amount"></span></button>
                 </form>
             </div>
         </div>

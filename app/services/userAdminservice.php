@@ -26,4 +26,7 @@ class UserAdminservice
     public function updateUser($userId, $email, $username, $roleId, $image){
         $this->repository->updateUser($userId, $email, $username, $roleId, $image);
     }
+    public function setUserDetails($userId, $firstName, $lastName, $address, $phone){
+        $this->repository->setUserDetails($userId, $firstName, $lastName, $address, $phone);
+    }
 }

@@ -46,7 +46,6 @@ class CheckoutItem {
                         <div class='amount'><span class='ticket-amount'>$quantity</span> Ticket</div>
                     </div>
                     <div class='price'>€$totalPrice</div>
-                    <i class='fa-solid fa-trash-can'></i>
                 </div>
             </div>
             ";
@@ -83,7 +82,6 @@ class CheckoutItem {
                         <div class='amount'><span class='ticket-amount'>$kidsQuantity</span> Kids</div>
                     </div>
                     <div class='price'>€$totalPrice</div>
-                    <i class='fa-solid fa-trash-can'></i>
                 </div>
             </div>
             ";
@@ -120,7 +118,6 @@ class CheckoutItem {
                         <div class='amount'><span class='ticket-amount'>$singleTicketQuantity</span> Regular Ticket</div>
                     </div>
                     <div class='price'>€$totalPrice</div>
-                    <i class='fa-solid fa-trash-can'></i>
                 </div>
             </div>
             ";

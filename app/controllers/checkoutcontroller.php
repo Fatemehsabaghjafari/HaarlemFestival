@@ -2,6 +2,7 @@
 
 require_once __DIR__ . '/../services/personalProgramservice.php';
 require_once __DIR__ . '/controller.php';
+require_once __DIR__ . '/../models/user.php';
 require '../vendor/autoload.php';
 
 use Mollie\Api\MollieApiClient;
@@ -18,8 +19,13 @@ class CheckoutController extends Controller
     }
 
     public function index()
-    {      
-        $personalProgram = $this->personalProgramService->getPersonalProgram(1, true, true);
+    {   
+        if (session_status() === PHP_SESSION_NONE) {
+            session_start();
+        }
+
+        $userId = $_SESSION['user']->getId();
+        $personalProgram = $this->personalProgramService->getPersonalProgram($userId, true, true);
 
         // Convert to JSON
         // $personalProgram = json_encode($grouped, JSON_PRETTY_PRINT);
