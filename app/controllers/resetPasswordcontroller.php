@@ -17,15 +17,15 @@ class ResetPasswordController extends Controller
     {
         if (isset($_GET['token'])) {
             $token = $_GET["token"]; // Retrieve the token from the URL parameter
-            echo "Token from URL: " . $token;
+           // echo "Token from URL: " . $token;
             $tokenHash = hash("sha256", $token);
             // Check if the token exists in the database and is not expired
             $passwordReset = $this->loginService->getPasswordResetToken($tokenHash);
 
-            if ($passwordReset && strtotime($passwordReset['expiry']) > time()) {
+           // if ($passwordReset && strtotime($passwordReset['expiry']) > time()) {
                 // Token is valid, allow the user to reset their password
                 include '../views/reset_password_form.php'; // Display the password reset form
-            }
+            //}
         }else{
             echo 'Invalid or expired token.';
         }   

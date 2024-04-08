@@ -95,11 +95,14 @@ document.addEventListener('DOMContentLoaded', function () {
         })
         .then(response => response.json())
         .then(data => {
+            const displayMessage = data.message;
             if (data.status === 'success') {
-                const displayMessage = data.message;
+                
                 alert(displayMessage);
                 fetchUserTable();
             } else {
+               // alert(displayMessage);
+                fetchUserTable();
                 console.error('Error editing user:', data.message);
             }
         })
@@ -135,11 +138,20 @@ document.addEventListener('DOMContentLoaded', function () {
         })
             .then(response => response.json())
             .then(data => {
+                const displayMessage = data.message;
+
                 if (data.status === 'success') {
-                    const displayMessage = data.message;
+                   
                     alert(displayMessage);
                     fetchUserTable();
+
                 } else {
+                 //   if (data.message.includes('username') || data.message.includes('email')) {
+                       // alert('Username or email is already in use.');
+                   // } else {
+                      //  alert(displayMessage); // Display generic error message
+                 //   }
+                    fetchUserTable();
                     console.error('Error adding user:', data.message);
                 }
             })
@@ -167,12 +179,16 @@ document.addEventListener('DOMContentLoaded', function () {
         })
             .then(response => response.json())
             .then(data => {
+                const displayMessage = data.message;
                 if (data.status === 'success') {
-                    const displayMessage = data.message;
+                    
                     alert(displayMessage);
                     fetchUserTable();
                 } else {
+                   // alert(displayMessage);
+                    fetchUserTable();
                     console.error('Error deleting user:', data.message);
+                    
                 }
             })
             .catch(error => console.error('Error deleting user:', error));

@@ -84,6 +84,10 @@ class UserRepository
     public function updateUser($userId, $email, $username, $roleId, $image)
     {
         try {
+            if ($this->isUsernameTaken($username) || $this->isEmailTaken($email)) {
+                return false; // Username or email already in use, return false
+            }
+            
             $stmt = $this->db->prepare("UPDATE dbo.users SET email = :email, username = :username, roleId = :roleId, img = :img WHERE id = :userId");
             $stmt->bindParam(':email', $email);
             $stmt->bindParam(':username', $username);
@@ -100,6 +104,11 @@ class UserRepository
     public function addUser($email, $username, $password, $roleId, $image)
     {
         try {
+
+            if ($this->isUsernameTaken($username) || $this->isEmailTaken($email)) {
+                return false; // Username or email already in use, return false
+            }
+
             $registrationDate = date("Y-m-d H:i:s");
             $stmt = $this->db->prepare("INSERT INTO dbo.users (email, username, password, roleId, registrationDate, img) VALUES (:email, :username, :password, :roleId, :registrationDate, :img)");
             $stmt->bindParam(':email', $email);

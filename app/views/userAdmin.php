@@ -89,8 +89,10 @@
                         </td>
                         <td>
                             <?php echo $user->registrationDate; ?>
-                        </td> <!-- Display registration date -->
-                        <td><img class="djImg" src="<?php echo $user->img; ?>" alt="Image"></td>
+                        </td> 
+                        <td>
+                            <img class="djImg" src="<?php echo $user->img; ?>" alt="Image">
+                        </td>
                         <td>
                             <button class="btn btn-danger btn-sm mr-2 delete-user"
                                 data-user-id="<?php echo $user->id; ?>">Delete</button>
