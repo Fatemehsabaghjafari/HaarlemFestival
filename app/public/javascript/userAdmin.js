@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
             tableBody.appendChild(row);
         });
     }
-     
+   // fetchUserTable();
     const editButtons = document.querySelectorAll('.edit-user');
     const modal = document.getElementById("editUserModal");
     const span = document.getElementsByClassName("close")[0];
