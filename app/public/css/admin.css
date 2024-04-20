@@ -4,3 +4,29 @@
 .form-group.uploadImg{
     margin-top: 40px;
 }
+
+.btn.btn-danger.btn-sm.mr-2.delete-event{
+    margin-bottom: 20px;
+}
+#addEventForm{
+    margin: 30px;
+}
+.form-group{
+    max-width: 700px;
+    min-width: 250px;
+  
+    margin-right: 140px;
+}
+.addEvent{
+    margin: 30px;
+}
+.table.table-striped{
+    margin: 30px;
+    max-width: 1200px;
+}
+.djImg {
+    min-height: 235px;
+    width: 220px;
+    margin-top: 30px;
+    margin-right: 10px;
+  }

@@ -64,6 +64,7 @@ class AdminController extends Controller
     public function danceEventAdmin()
     {
         if ($this->checkAuthorization()) {
+            $venueNames = $this->danceEventsAdminService->getVenueNames();
             $danceEvents = $this->danceEventsAdminService->getAllEvents();
             include '../views/danceEventAdmin.php';
         }
