@@ -14,7 +14,6 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/dance.css">
     <link rel="stylesheet" href="css/home.css">
-
 </head>
 
 <body>
@@ -107,11 +106,43 @@
     <?php
     include __DIR__ . '/footer.php';
     ?>
-
+    <div id="messageModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="modal-body">
+                <h2>Message</h2>
+                <p id="messageContent"></p>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        integrity="sha384-0K+0C9ROIdu0xOmIkJfQGSfSfpe8XNZ9MwTfXfM/6MTd0EEXtq2VPFZLVD80p8xX"
         crossorigin="anonymous"></script>
     <script src="/javascript/script.js"></script>
 </body>
 
 </html>
+
+<script>
+    $(document).ready(function () {
+        $('.open-modal').click(function () {
+            $('#myModal').modal('show');
+            // You can pass data to the modal if needed using data attributes
+            var ticketId = $(this).data('ticket-id');
+            // Use ticketId in modal if necessary
+        });
+
+        // Close the modal when clicking on the close button
+        $('#myModal .close').click(function () {
+            $('#myModal').modal('hide');
+        });
+
+        // Handle button clicks
+        $('.add-to-cart, .add-oneDay-to-cart, .add-allDays-to-cart').click(function () {
+            var ticketId = $(this).data('ticket-id');
+            var buttonText = $(this).text();
+            // You can use ticketId and buttonText as needed
+        });
+    });
+</script>

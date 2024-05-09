@@ -17,14 +17,20 @@ class UserAdminservice
     {
         return $this->repository->getAllUsers();
     }
-    public function addUser($email, $username, $password, $roleId, $image){
-        $this->repository->addUser($email, $username, $password, $roleId, $image);
+    public function getUserById($userId){
+        return $this->repository->getUserById($userId);
+    }
+    public function getRoles(){
+        return $this->repository->getRoles();
+    }
+    public function addUser($email, $username, $password, $role, $image){
+        $this->repository->addUser($email, $username, $password, $role, $image);
     }
     public function deleteUserById($userId){
         $this->repository->deleteUserById($userId);
     }
-    public function updateUser($userId, $email, $username, $roleId, $image){
-        $this->repository->updateUser($userId, $email, $username, $roleId, $image);
+    public function updateUser($userId, $email, $username, $role, $image){
+        $this->repository->updateUser($userId, $email, $username, $role, $image);
     }
     public function setUserDetails($userId, $firstName, $lastName, $address, $phone){
         $this->repository->setUserDetails($userId, $firstName, $lastName, $address, $phone);

@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/../services/adminservice.php';
+require_once __DIR__ . '/../services/danceVenueAdminservice.php';
 require_once __DIR__ . '/controller.php';
 
 class AdminDanceVenueApiController extends Controller
@@ -9,99 +9,102 @@ class AdminDanceVenueApiController extends Controller
 
     public function __construct()
     {
-        $this->adminService = new \App\Services\AdminService();
+        $this->adminService = new \App\Services\DanceVenueAdminService();
     }
 
     public function index()
     {
         if ($_SERVER["REQUEST_METHOD"] == "GET") {
-            $venues = $this->adminService->getAllVenues();
-            $myJSON = json_encode($venues);
-            echo $myJSON;
+            $this->handleGetRequest();
         }
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $this->handlePostRequest();
         }
     }
+
+    private function handleGetRequest()
+    {
+        $venues = $this->adminService->getAllVenues();
+        $this->sendResponse($venues);
+    }
+
     private function handlePostRequest()
     {
         //$postData = json_decode(file_get_contents("php://input"), true);
 
         if (!isset ($_POST['action'])) {
-            http_response_code(400);
-            echo json_encode(['status' => 'error', 'message' => 'Invalid request data']);
-            exit;
+            $this->sendErrorResponse('Invalid request data', 400);
         }
 
         switch ($_POST['action']) {
-
             case 'add-venue':
-
-                $venueName = $_POST['venueName'];
-                $venueAddress = $_POST['venueAddress'];
-
-                $result = $this->adminService->addVenue($venueName, $venueAddress);
-
-                if ($result) {
-                    // Success response
-                    echo json_encode(['status' => 'success', 'message' => 'Venue added successfully']);
-                } else {
-                    // Error response
-                    echo json_encode(['status' => 'error', 'message' => 'Failed to add venue']);
-                }
-
+                $this->addVenue();
                 break;
-
             case 'delete-venue':
-                if (!isset ($_POST['venueId'])) {
-                    http_response_code(400);
-                    echo json_encode(['status' => 'error', 'message' => 'Artist ID not provided']);
-                    exit;
-                }
-
-                $venueId = $_POST['venueId'];
-
-                $result = $this->adminService->deleteVenueById($venueId);
-
-                if ($result) {
-                    $display_message = "venue deleted successfully!";
-                    echo json_encode(['status' => 'success', 'message' => $display_message]);
-                } else {
-                    $display_message = "Failed to delete venue.";
-                    echo json_encode(['status' => 'error', 'message' => $display_message]);
-                }
+                $this->deleteVenue();
                 break;
             case 'edit-venue':
-                // Check if all required parameters are provided
-                if (!isset ($_POST['venueId'], $_POST['venueName'], $_POST['venueAddress'])) {
-                    http_response_code(400);
-                    echo json_encode(['status' => 'error', 'message' => 'Missing required parameters']);
-                    exit;
-                }
-
-                        // Image upload successful, now update artist data in the database
-                        $venueId = $_POST['venueId'];
-                        $venueName = $_POST['venueName'];
-                        $venueAddress = $_POST['venueAddress'];
-
-                        // Update artist data in the database
-                        $result = $this->adminService->updateVenue($venueId, $venueName, $venueAddress);
-
-                        if ($result) {
-                            // Success response
-                            echo json_encode(['status' => 'success', 'message' => 'Venue updated successfully']);
-                        } else {
-                            // Error response
-                            echo json_encode(['status' => 'error', 'message' => 'Failed to update venue']);
-                        }
-
+                $this->editVenue();
                 break;
-
             default:
-                http_response_code(400);
-                echo json_encode(['status' => 'error', 'message' => 'Invalid action']);
-                exit;
+                $this->sendErrorResponse('Invalid action', 400);
+                break;
         }
+    }
+
+    private function addVenue()
+    {
+        $venueName = $_POST['venueName'];
+        $venueAddress = $_POST['venueAddress'];
+
+        $result = $this->adminService->addVenue($venueName, $venueAddress);
+
+        $message = $result ? 'Venue added successfully' : 'Failed to add venue';
+        $this->sendResponse(['status' => $result ? 'success' : 'error', 'message' => $message]);
+    }
+
+    private function deleteVenue()
+    {
+        if (!isset ($_POST['venueId'])) {
+            $this->sendErrorResponse('Venue ID not provided', 400);
+        }
+
+        $venueId = $_POST['venueId'];
+
+        $result = $this->adminService->deleteVenueById($venueId);
+
+        $message = $result ? 'Venue deleted successfully' : 'Failed to delete venue';
+        $this->sendResponse(['status' => $result ? 'success' : 'error', 'message' => $message]);
+    }
+
+    private function editVenue()
+    {
+        if (!isset ($_POST['venueId'], $_POST['venueName'], $_POST['venueAddress'])) {
+            $this->sendErrorResponse('Missing required parameters', 400);
+        }
+
+        $venueId = $_POST['venueId'];
+        $venueName = $_POST['venueName'];
+        $venueAddress = $_POST['venueAddress'];
+
+        $result = $this->adminService->updateVenue($venueId, $venueName, $venueAddress);
+
+        $message = $result ? 'Venue updated successfully' : 'Failed to update venue';
+        $this->sendResponse(['status' => $result ? 'success' : 'error', 'message' => $message]);
+    }
+
+    private function sendResponse($data, $statusCode = 200)
+    {
+        http_response_code($statusCode);
+        echo json_encode($data);
+        exit;
+    }
+
+    private function sendErrorResponse($message, $statusCode)
+    {
+        http_response_code($statusCode);
+        echo json_encode(['status' => 'error', 'message' => $message]);
+        exit;
     }
 }

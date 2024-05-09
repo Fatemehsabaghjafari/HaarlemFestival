@@ -2,6 +2,7 @@
 namespace App\Repositories;
 
 require_once __DIR__ . '/../models/user.php';
+require_once __DIR__ . '/../models/role.php';
 use PDO;
 
 class UserRepository
@@ -16,11 +17,23 @@ class UserRepository
 
     public function getAllUsers()
     {
-        $stmt = $this->db->prepare('SELECT * FROM users');
+        $stmt = $this->db->prepare('SELECT u.*, r.role FROM users u INNER JOIN roles r ON u.roleId = r.roleId');
         $stmt->execute();
-        $users = $stmt->fetchAll(PDO::FETCH_CLASS, 'App\\Models\\User');
+        $users = $stmt->fetchAll(PDO::FETCH_OBJ); // Fetch data as objects
         return $users;
     }
+    
+    public function getRoles()
+    {
+        try {
+            $stmt = $this->db->query("SELECT role FROM roles");
+            return $stmt->fetchAll(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            // Handle the exception as needed
+            return [];
+        }
+    }
+
 
     public function insertUser($username, $email, $hashedPassword)
     {
@@ -81,14 +94,19 @@ class UserRepository
             return false; // Token is invalid or expired
         }
     }
-    public function updateUser($userId, $email, $username, $roleId, $image)
+    public function updateUser($userId, $email, $username, $role, $image)
     {
         try {
             if ($this->isUsernameTaken($username) || $this->isEmailTaken($email)) {
                 return false; // Username or email already in use, return false
             }
-            
-            $stmt = $this->db->prepare("UPDATE dbo.users SET email = :email, username = :username, roleId = :roleId, img = :img WHERE id = :userId");
+
+            // Fetch roleId based on role
+            $stmt = $this->db->prepare('SELECT roleId FROM roles WHERE role = ?');
+            $stmt->execute([$role]);
+            $roleId = $stmt->fetchColumn();
+
+            $stmt = $this->db->prepare("UPDATE users SET email = :email, username = :username, roleId = :roleId, img = :img WHERE id = :userId");
             $stmt->bindParam(':email', $email);
             $stmt->bindParam(':username', $username);
             $stmt->bindParam(':roleId', $roleId);
@@ -101,7 +119,7 @@ class UserRepository
         }
     }
 
-    public function addUser($email, $username, $password, $roleId, $image)
+    public function addUser($email, $username, $password, $role, $image)
     {
         try {
 
@@ -109,8 +127,13 @@ class UserRepository
                 return false; // Username or email already in use, return false
             }
 
+            // Fetch roleId based on role
+            $stmt = $this->db->prepare('SELECT roleId FROM roles WHERE role = ?');
+            $stmt->execute([$role]);
+            $roleId = $stmt->fetchColumn();
+
             $registrationDate = date("Y-m-d H:i:s");
-            $stmt = $this->db->prepare("INSERT INTO dbo.users (email, username, password, roleId, registrationDate, img) VALUES (:email, :username, :password, :roleId, :registrationDate, :img)");
+            $stmt = $this->db->prepare("INSERT INTO users (email, username, password, roleId, registrationDate, img) VALUES (:email, :username, :password, :roleId, :registrationDate, :img)");
             $stmt->bindParam(':email', $email);
             $stmt->bindParam(':username', $username);
             $stmt->bindParam(':password', $password);

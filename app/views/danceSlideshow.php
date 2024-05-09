@@ -13,19 +13,16 @@
                         <img class="djImg" src="<?php echo $artist['img']; ?>" alt="Image">
                         <table class="table t">
                             <thead class=tH>
-                                <tr class="tHRow" >
+                                <tr class="tHRow">
                                     <th class="tHData">Date</th>
                                     <th class="tHData">Time</th>
                                     <th class="tHData">Venue</th>
                                     <th class="tHData">Price</th>
-                                    <th class="tHData"> add event</th>
-                                    <th class="tHData"> day access</th>
-                                    <th class="tHData"> all access</th>
+                                    <th class="tHData">Add to Program</th> <!-- Single button here -->
                                 </tr>
                             </thead>
                             <tbody class="tB">
                                 <?php foreach ($ticketsByArtist[$artist['artistId']] as $ticket): ?>
-
                                     <tr class="tBData">
                                         <td class="tBData">
                                             <?php
@@ -46,25 +43,15 @@
                                                 target="_blank">
                                                 <?php echo $ticket['venueName']; ?>
                                             </a></td>
-
                                         <td class="tBData">
                                             €
                                             <?php echo number_format($ticket['price'], 0, '.', ''); ?>
                                         </td>
                                         <td class="tBData">
-                                            <button class="btn btn-primary add-to-cart" type="button"
+                                            <button class="btn btn-primary open-modal" type="button"
                                                 data-ticket-id="<?php echo $ticket['eventId']; ?>">Add to
                                                 program
                                             </button>
-                                        </td>
-                                        <td>
-                                            <button class="btn btn-primary add-oneDay-to-cart" type="button"
-                                                data-ticket-id="<?php echo $ticket['eventId']; ?>">Add to
-                                                program</button>
-                                        </td>
-                                        <td>
-                                            <button class="btn btn-primary add-allDays-to-cart" type="button"
-                                                data-ticket-id="<?php echo $ticket['eventId']; ?>">Add to program</button>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>
@@ -76,6 +63,8 @@
             <?php $isFirst = false; ?>
         <?php endforeach; ?>
     </div>
+
+    <!-- Carousel controls -->
     <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Previous</span>
@@ -84,4 +73,30 @@
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Next</span>
     </button>
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add to Program</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <button class="btn btn-primary add-to-cart" type="button"
+                    data-ticket-id="<?php echo $ticket['eventId']; ?>">Add event</button>
+                <button class="btn btn-primary add-oneDay-to-cart" type="button"
+                    data-ticket-id="<?php echo $ticket['eventId']; ?>">Day access</button>
+                <button class="btn btn-primary add-allDays-to-cart" type="button"
+                    data-ticket-id="<?php echo $ticket['eventId']; ?>">All access</button>
+
+            </div>
+        </div>
+    </div>
 </div>

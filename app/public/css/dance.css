@@ -106,7 +106,14 @@
 .col-md-6.djTable {
   margin-left: 50px;
 }
-
+.btn.btn-primary.open-modal{
+  background-color: #FC8E2E;
+  color: #000;
+  border-radius: 20px;
+  width: 100px;
+  font-size: 12px;
+  font-weight: 900;
+}
 .btn.btn-primary.add-to-cart {
   background-color: #FC8E2E;
   color: #000;
