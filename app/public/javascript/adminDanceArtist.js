@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', function () {
             .then(data => {
                 if (data.status === 'success') {
                     const displayMessage = data.message;
-                    // alert(displayMessage);
+                    
                     showMessageModal(displayMessage);
                     fetchArtists();
                 } else {
