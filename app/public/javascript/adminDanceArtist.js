@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
 
     function fetchArtists() {
-        fetch('http://localhost/adminApi')
+        fetch('http://localhost/danceArtistAdminApi')
             .then(response => response.json())
             .then(data => {
                 // Update the table with the fetched data
@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', function () {
         formData.append("img", img);
         formData.append("action", "edit-artist");
 
-        fetch('http://localhost/adminApi', {
+        fetch('http://localhost/danceArtistAdminApi', {
             method: 'POST',
             body: formData,
         })
@@ -106,7 +106,8 @@ document.addEventListener('DOMContentLoaded', function () {
             .then(data => {
                 if (data.status === 'success') {
                     const displayMessage = data.message;
-                    alert(displayMessage);
+                    // alert(displayMessage);
+                    showMessageModal(displayMessage);
                     fetchArtists();
                 } else {
                     console.error('Error editing artist:', data.message);
@@ -114,6 +115,26 @@ document.addEventListener('DOMContentLoaded', function () {
             })
             .catch(error => console.error('Error editing artist:', error));
     }
+
+    const displayMessageModal = document.getElementById("messageModal");
+    const messageContent = document.getElementById("messageContent");
+    const closeMessageModal = displayMessageModal.querySelector(".close");
+
+    function showMessageModal(message) {
+        messageContent.textContent = message;
+        displayMessageModal.style.display = "block";
+    }
+
+    closeMessageModal.addEventListener("click", function () {
+        displayMessageModal.style.display = "none";
+    });
+
+    window.addEventListener("click", function (event) {
+        if (event.target === displayMessageModal) {
+            displayMessageModal.style.display = "none";
+        }
+    });
+
 
     function addArtist() {
         const artistName = document.getElementById('artistName').value;
@@ -125,7 +146,7 @@ document.addEventListener('DOMContentLoaded', function () {
         formData.append("img", img);
         formData.append("action", "add-artist");
 
-        fetch('http://localhost/adminApi', {
+        fetch('http://localhost/danceArtistAdminApi', {
             method: 'POST',
             body: formData,
         })
@@ -133,7 +154,8 @@ document.addEventListener('DOMContentLoaded', function () {
             .then(data => {
                 if (data.status === 'success') {
                     const displayMessage = data.message;
-                    alert(displayMessage);
+                   // alert(displayMessage);
+                   showMessageModal(displayMessage);
                     fetchArtists();
                 } else {
                     console.error('Error adding artist:', data.message);
@@ -147,7 +169,7 @@ document.addEventListener('DOMContentLoaded', function () {
         formData.append("action", "delete-artist");
         formData.append("artistId", artistId);
 
-        fetch('http://localhost/adminApi', {
+        fetch('http://localhost/danceArtistAdminApi', {
             method: 'POST',
             body: formData,
         })
@@ -155,7 +177,8 @@ document.addEventListener('DOMContentLoaded', function () {
             .then(data => {
                 if (data.status === 'success') {
                     const displayMessage = data.message;
-                    alert(displayMessage);
+                   // alert(displayMessage);
+                   showMessageModal(displayMessage);
                     fetchArtists();
                 } else {
                     console.error('Error deleting artist:', data.message);

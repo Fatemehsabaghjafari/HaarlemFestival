@@ -23,40 +23,19 @@
     ?>
 
     <div class="container mt-5">
-        <h2>Add New User</h2>
-        <!-- Form for adding new user -->
-        <form id="addUserForm" enctype="multipart/form-data">
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" class="form-control" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="username">Username:</label>
-                <input type="text" class="form-control" id="username" name="username" required>
-            </div>
-            <div class="form-group">
-                <label for="password">Password:</label>
-                <input type="password" class="form-control" id="password" name="password" required>
-            </div>
-            <div class="form-group">
-                <label for="roleId">Role ID:</label>
-                <input type="number" class="form-control" id="roleId" name="roleId" required>
-            </div>
-            <div class="form-group uploadImg">
-                <label for="img">Upload Image:</label>
-                <input type="file" class="form-control-file" id="img" name="img" accept="image/*" required>
-            </div>
-            <button type="submit" class="btn btn-primary addArtist">Add User</button>
-        </form>
+        <?php
+        include __DIR__ . '/addUserAdmin.php';
+        ?>
 
         <hr>
+
         <h2>All Users</h2>
         <input type="text" id="searchInput" placeholder="Search...">
         <select id="sortBy">
             <option value="id">ID</option>
             <option value="username">Username</option>
             <option value="email">Email</option>
-            <option value="roleId">Role ID</option>
+            <option value="role">Role</option>
         </select>
 
         <table class="table table-striped" id="userTable">
@@ -65,7 +44,7 @@
                     <th>ID</th>
                     <th>Name</th>
                     <th>Email</th>
-                    <th>RoleId</th>
+                    <th>Role</th>
                     <th>Registration Date</th>
                     <th>Image</th>
                     <th>Actions</th>
@@ -85,11 +64,11 @@
                             <?php echo $user->email; ?>
                         </td>
                         <td>
-                            <?php echo $user->roleId; ?>
+                            <?php echo $user->role; ?>
                         </td>
                         <td>
                             <?php echo $user->registrationDate; ?>
-                        </td> 
+                        </td>
                         <td>
                             <img class="djImg" src="<?php echo $user->img; ?>" alt="Image">
                         </td>
@@ -100,7 +79,7 @@
                             <button class="btn btn-primary btn-sm edit-user" data-user-id="<?php echo $user->id; ?>"
                                 data-user-email="<?php echo $user->email; ?>"
                                 data-user-username="<?php echo $user->username; ?>"
-                                data-user-roleid="<?php echo $user->roleId; ?>"
+                                data-user-role="<?php echo $user->role; ?>"
                                 data-user-img="<?php echo $user->img; ?>">Edit</button>
                         </td>
                     </tr>
@@ -108,27 +87,10 @@
             </tbody>
         </table>
 
-        <div id="editUserModal" class="modal">
-            <div class="modal-content">
-                <span class="close">&times;</span>
-                <form id="editUserForm">
-                    <input type="hidden" id="editUserId" name="editUserId">
-                    <label for="editEmail">Email:</label>
-                    <input type="email" id="editEmail" name="editEmail" required>
-                    <label for="editUsername">Username:</label>
-                    <input type="text" id="editUsername" name="editUsername" required>
-                    <label for="editRoleId">Role ID:</label>
-                    <input type="number" id="editRoleId" name="editRoleId" required>
-                    <div class="form-group uploadImg">
-                        <label for="editUserImage">Upload Image:</label>
-                        <input type="file" class="form-control-file" id="editUserImage" name="editUserImage"
-                            accept="image/*">
-                    </div>
+        <?php
+        include __DIR__ . '/editUserAdmin.php';
+        ?>
 
-                    <button type="submit">Save Changes</button>
-                </form>
-            </div>
-        </div>
     </div>
 
 
@@ -139,6 +101,9 @@
 </body>
 
 </html>
+
+
+
 <script>
     // JavaScript for search/filter and sorting
     document.getElementById('searchInput').addEventListener('input', function () {
@@ -160,8 +125,8 @@
         let rows = Array.from(document.querySelectorAll('#userTable tbody tr'));
 
         rows.sort(function (a, b) {
-            let aValue = a.querySelector('td:nth-child(' + (['id', 'username', 'email', 'roleId'].indexOf(sortBy) + 1) + ')').textContent;
-            let bValue = b.querySelector('td:nth-child(' + (['id', 'username', 'email', 'roleId'].indexOf(sortBy) + 1) + ')').textContent;
+            let aValue = a.querySelector('td:nth-child(' + (['id', 'username', 'email', 'role'].indexOf(sortBy) + 1) + ')').textContent;
+            let bValue = b.querySelector('td:nth-child(' + (['id', 'username', 'email', 'role'].indexOf(sortBy) + 1) + ')').textContent;
             return aValue.localeCompare(bValue);
         });
 

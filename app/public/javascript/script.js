@@ -60,6 +60,25 @@ document.addEventListener('DOMContentLoaded', function () {
         .catch(error => console.error('Error adding ticket:', error));
     }
 
+    const displayMessageModal = document.getElementById("messageModal");
+    const messageContent = document.getElementById("messageContent");
+    const closeMessageModal = displayMessageModal.querySelector(".close");
+
+    function showMessageModal(message) {
+        messageContent.textContent = message;
+        displayMessageModal.style.display = "block";
+    }
+
+    closeMessageModal.addEventListener("click", function () {
+        displayMessageModal.style.display = "none";
+    });
+
+    window.addEventListener("click", function (event) {
+        if (event.target === displayMessageModal) {
+            displayMessageModal.style.display = "none";
+        }
+    });
+
     // Function to handle "Add New Ticket" action
     function addNewTicketToCart(eventId, quantity, oneDayAccessTicketQuantity, allDaysAccessTicketQuantity, isPurchased) {
         fetch('http://localhost/dancePersonalProgramApi', {
@@ -82,10 +101,11 @@ document.addEventListener('DOMContentLoaded', function () {
             const displayMessage = data.message;
 
             if (data.status === 'success') {
-                // Access the display message
-                alert(displayMessage);
+              
+             showMessageModal(displayMessage);
             } else {
-                alert(displayMessage);
+              
+               showMessageModal(displayMessage);
                 console.error('Error adding ticket:', data.message);
             }
         })
@@ -115,11 +135,11 @@ document.addEventListener('DOMContentLoaded', function () {
             const displayMessage = data.message;
             if (data.status === 'success') {
                
-                alert(displayMessage);
+                showMessageModal(displayMessage);
 
             } else {
 
-                alert(displayMessage);
+                showMessageModal(displayMessage);
 
                 console.error('Error adding ticket:', data.message);
             }
@@ -147,14 +167,16 @@ document.addEventListener('DOMContentLoaded', function () {
         .then(response => response.json())
         .then(data => {
             console.log(data);
-             // Access the display message
+
              const displayMessage = data.message;
 
             if (data.status === 'success') {
                
-                alert(displayMessage);
+                showMessageModal(displayMessage);
+
             } else {
-                alert(displayMessage);
+
+                showMessageModal(displayMessage);
                 console.error('Error adding ticket:', data.message);
             }
         })

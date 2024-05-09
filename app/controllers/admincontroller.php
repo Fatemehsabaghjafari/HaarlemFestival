@@ -3,6 +3,7 @@ require_once __DIR__ . '/../models/user.php';
 session_start();
 
 require_once __DIR__ . '/../services/loginservice.php';
+require_once __DIR__ . '/../services/userAdminservice.php';
 require_once __DIR__ . '/../services/danceEventsAdminservice.php';
 require_once __DIR__ . '/../services/danceArtistAdminservice.php';
 require_once __DIR__ . '/../services/danceVenueAdminservice.php';
@@ -11,6 +12,7 @@ require_once __DIR__ . '/controller.php';
 class AdminController extends Controller
 {
     private $danceVenueAdminService;
+    private $userAdminService;
     private $danceArtistAdminService;
     private $danceEventsAdminService;
     private $loginService;
@@ -21,6 +23,7 @@ class AdminController extends Controller
         $this->danceEventsAdminService = new \App\Services\DanceEventsAdminService();
         $this->danceVenueAdminService = new \App\Services\DanceVenueAdminService();
         $this->danceArtistAdminService = new \App\Services\DanceArtistAdminService();
+        $this->userAdminService = new \App\Services\UserAdminService();
     }
 
     private function checkAuthorization()
@@ -73,6 +76,7 @@ class AdminController extends Controller
     public function userAdmin()
     {
         if ($this->checkAuthorization()) {
+            $roles = $this->userAdminService->getRoles();
             $users = $this->loginService->getAllUsers();
             include '../views/userAdmin.php';
         }
