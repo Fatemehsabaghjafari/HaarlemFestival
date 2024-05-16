@@ -1,5 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap');
 
+.picAndOrange{
+    position: relative;
+}       
+.headPic{
+    object-fit: cover;
+    height: 500px;
+    width: 100%;
+}
+.orange{
+    border-radius: 0px 110px 110px 0px;
+    background: #FF7A00;
+    width: 400px;
+    height: 147px;
+    flex-shrink: 0;
+    color: white;
+    font-size: 40px;
+    font-family: Inter;
+    font-weight: 700;
+    word-wrap: break-word;
+    padding: 35px;
+    position: absolute; 
+    bottom: -15px;
+}
+
 .dropdown-menu ul {
     list-style: none;
     padding: 0;
@@ -80,12 +104,6 @@ input[type="submit"] {
 
 .footer_1 {
     display: inline-block;
-}
-
-        
-.headPic{
-    height: 500px;
-    width: 100%;
 }
 
 .artCultureHead {
@@ -220,21 +238,7 @@ input[type="submit"] {
     padding: 50px;
 }
 
-.orange{
-    border-radius: 0px 110px 110px 0px;
-    background: #FF7A00;
-    width: 400px;
-    height: 147px;
-    flex-shrink: 0;
-    color: white;
-    font-size: 40px;
-    font-family: Inter;
-    font-weight: 700;
-    word-wrap: break-word;
-    padding: 35px;
-    position: absolute; 
-    bottom: 70px;
-}
+
 
 
 

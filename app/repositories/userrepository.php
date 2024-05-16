@@ -14,7 +14,22 @@ class UserRepository
         include (__DIR__ . '/../config/dbconfig.php');
         $this->db = new PDO("$type:server=$servername;Database=$dbname", $username, $password);
     }
-
+    public function isUsernameTakenByOtherUsers($userId, $username)
+    {
+        $stmt = $this->db->prepare('SELECT COUNT(*) as count FROM users WHERE username = ? AND id != ?');
+        $stmt->execute([$username, $userId]);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $result['count'] > 0;
+    }
+    
+    public function isEmailTakenByOtherUsers($userId, $email)
+    {
+        $stmt = $this->db->prepare('SELECT COUNT(*) as count FROM users WHERE email = ? AND id != ?');
+        $stmt->execute([$email, $userId]);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $result['count'] > 0;
+    }
+    
     public function getAllUsers()
     {
         $stmt = $this->db->prepare('SELECT u.*, r.role FROM users u INNER JOIN roles r ON u.roleId = r.roleId');
@@ -97,10 +112,7 @@ class UserRepository
     public function updateUser($userId, $email, $username, $role, $image)
     {
         try {
-            if ($this->isUsernameTaken($username) || $this->isEmailTaken($email)) {
-                return false; // Username or email already in use, return false
-            }
-
+            
             // Fetch roleId based on role
             $stmt = $this->db->prepare('SELECT roleId FROM roles WHERE role = ?');
             $stmt->execute([$role]);

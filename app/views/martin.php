@@ -22,8 +22,13 @@
     <?php
     include __DIR__ . '/header.php';
     ?>
-    <img class="headPic" src="/img/martinG.png" alt="nicky">
-    <div class="orange">Martin Garrix</div>
+   <!-- <img class="headPic" src="/img/martinG.png" alt="nicky">
+    <div class="orange">Martin Garrix</div>-->
+    <div class="picAndOrange"> 
+        <img class="headPic" src="/img/martinG.png" alt="nicky">
+        <div class="orange">Martin Garrix</div>
+    </div>
+
     <h1 class="nickyHead">Dance Experience with Martin Garrix! </h1>
     <p class="artCultureHeadP"> Immerse yourself in Martin Garrix's dynamic beats and captivating melodies, where each
         track is a thrilling experience of energy and emotion. From the iconic "Animals" to soulful collaborations like

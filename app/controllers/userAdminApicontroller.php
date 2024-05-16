@@ -104,38 +104,50 @@ class UserAdminApiController extends Controller
             $this->respondWithError(400, 'Missing required parameters');
         }
 
-        if (!isset($_FILES['img'])) {
-            $this->respondWithError(400, 'No image uploaded');
-        }
-
-        $image = $_FILES['img'];
-        $uploadPath = __DIR__ . '/../public/img/';
-        $filename = $image['name'];
-        $targetPath = $uploadPath . basename($filename);
-
-        if (!move_uploaded_file($image['tmp_name'], $targetPath)) {
-            $this->respondWithError(400, 'Failed to upload image');
-        }
-
         $userId = $_POST['userId'];
         $role = $_POST['role'];
         $username = filter_var($_POST["username"], FILTER_SANITIZE_SPECIAL_CHARS);
         $email = filter_var($_POST["email"], FILTER_SANITIZE_EMAIL);
 
-        if ($this->loginService->isUsernameTaken($username)) {
-            $this->errorMsg = "Username is already in use.";
+        // Check if username or email is taken by other users excluding the current user
+        if ($this->userAdminService->isUsernameTakenByOtherUsers($userId, $username)) {
+            $this->errorMsg = "Username is already in use by another user.";
             return;
         }
 
-        if ($this->loginService->isEmailTaken($email)) {
-            $this->errorMsg = "Email is already in use.";
+        if ($this->userAdminService->isEmailTakenByOtherUsers($userId, $email)) {
+            $this->errorMsg = "Email is already in use by another user.";
             return;
         }
 
-        $result = $this->userAdminService->updateUser($userId, $email, $username, $role, "/img/" . $filename);
+        // Check if an image was uploaded
+        if (isset($_FILES['img']) && $_FILES['img']['error'] === UPLOAD_ERR_OK) {
+            $image = $_FILES['img'];
+            $uploadPath = __DIR__ . '/../public/img/';
+            $filename = $image['name'];
+            $targetPath = $uploadPath . basename($filename);
+
+            if (!move_uploaded_file($image['tmp_name'], $targetPath)) {
+                $this->respondWithError(400, 'Failed to upload image');
+            }
+            $imagePath = "/img/" . $filename;
+        } else {
+
+            // $imagePath = null; // Set to null if you want to remove the existing image
+            // No image uploaded, keep the existing image path
+            $existingUserData = $this->userAdminService->getUserById($userId);
+            if (!$existingUserData) {
+                $this->respondWithError(400, 'User not found');
+            }
+            $imagePath = $existingUserData['img'];
+
+        }
+
+        $result = $this->userAdminService->updateUser($userId, $email, $username, $role, $imagePath);
         $message = $result ? 'User updated successfully' : 'Failed to update user';
         echo json_encode(['status' => $result ? 'success' : 'error', 'message' => $message]);
     }
+
 
     private function checkRequiredParameters($params)
     {

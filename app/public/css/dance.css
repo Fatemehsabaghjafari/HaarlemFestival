@@ -1,3 +1,46 @@
+.navigation-cards {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 1300px;
+}
+
+.navigation-card-container {
+  width: 355px;
+  height: 305px;
+  position: relative;
+  margin: 1rem;
+}
+
+.navigation-card-backdrop {
+  width: 350px;
+  height: 300px;
+  border-radius: 15px;
+  background: #000;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.navigation-card {
+  width: 350px;
+  height: 300px;
+  border-radius: 15px;
+  border: 5px solid #D58386;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: left 300ms ease, top 300ms ease, right 300ms ease, bottom 300ms ease;
+  position: absolute;
+  left: 0;
+  right: 5px;
+  top: 0;
+  bottom: 5px;
+  cursor: pointer;
+}
+
 .danceHead {
   text-align: center;
   margin-top: 45px;
@@ -371,48 +414,7 @@
   width: 600px;
 }
 
-.navigation-cards {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  max-width: 1300px;
-}
 
-
-.navigation-card-container {
-  width: 355px;
-  height: 305px;
-  position: relative;
-  margin: 1rem;
-}
-
-.navigation-card-backdrop {
-  width: 350px;
-  height: 300px;
-  border-radius: 15px;
-  background: #000;
-  position: absolute;
-  right: 0;
-  bottom: 0;
-}
-
-.navigation-card {
-  width: 350px;
-  height: 300px;
-  border-radius: 15px;
-  border: 5px solid #D58386;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  transition: left 300ms ease, top 300ms ease, right 300ms ease, bottom 300ms ease;
-  position: absolute;
-  left: 0;
-  right: 5px;
-  top: 0;
-  bottom: 5px;
-  cursor: pointer;
-}
 @media (max-width: 500px){
   .table.t {
     margin-top: 5px;

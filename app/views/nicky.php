@@ -22,8 +22,10 @@
     <?php
     include __DIR__ . '/header.php';
     ?>
-    <img class="headPic" src="/img/nicky.png" alt="nicky">
-    <div class="orange">Nicky Romero</div>
+    <div class="picAndOrange">
+        <img class="headPic" src="/img/nicky.png" alt="nicky">
+        <div class="orange">Nicky Romero</div>
+    </div>
     <h1 class="nickyHead">Dance Experience with Nicky Romero! </h1>
     <p class="artCultureHeadP"> Embark on an exhilarating musical journey with Nicky Romero's chart-topping hits, where
         infectious beats and electrifying melodies converge to create an unforgettable experience—immerse yourself in
