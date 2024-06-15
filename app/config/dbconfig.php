@@ -1,6 +1,5 @@
 <?php
-$type = "sqlsrv";
-$servername = "haarlemfestival.database.windows.net";
-$username = "HaarlemFestival";
+$servername = "213.238.183.134";
+$username = "httpdkgg_haarlemfestival";
 $password = "Haarlem@festival5";
-$dbname = "haarlem_festival";
+$dbname = "httpdkgg_haarlemfestival";
