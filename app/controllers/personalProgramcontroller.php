@@ -24,7 +24,8 @@ class PersonalProgramController extends Controller
             header('Location: /login');
             exit();
         }
-        $userId = $_SESSION['user']->getId();
+
+        $userId = $_SESSION['user']->id;
         $personalProgram = $this->personalProgramService->getPersonalProgram($userId);
 
         // Convert to JSON

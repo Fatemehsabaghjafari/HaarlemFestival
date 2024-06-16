@@ -41,11 +41,30 @@ h2.title {
 }
 
 .navigation-cards {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    max-width: 1300px;
+    width: fit-content;
+    display: grid;
+    grid-template-areas: 
+        "square1 square2 vertical"
+        "square3 square4 vertical";
+    gap: 10px;
+    grid-template-columns: 0fr 0fr 0fr;
+    margin: 0.5rem auto 1rem auto;
+}
+
+.vertical-navigation-card-container {
+    grid-area: vertical;
+}
+.navigation-card-container:nth-child(1) {
+    grid-area: square1;
+}
+.navigation-card-container:nth-child(2) {
+    grid-area: square2;
+}
+.navigation-card-container:nth-child(3) {
+    grid-area: square3;
+}
+.navigation-card-container:nth-child(4) {
+    grid-area: square4;
 }
 
 .banner-card {
@@ -53,12 +72,19 @@ h2.title {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    margin: 1rem auto;
+    margin: 1rem auto 1.5rem auto;
 }
 
 .navigation-card-container {
     width: 355px;
     height: 305px;
+    position: relative;
+    margin: 1rem;
+}
+
+.vertical-navigation-card-container {
+    width: 205px;
+    height: 669px;
     position: relative;
     margin: 1rem;
 }
@@ -71,6 +97,11 @@ h2.title {
     position: absolute;
     right: 0;
     bottom: 0;
+}
+
+.vertical-navigation-card-container .navigation-card-backdrop {
+    width: 200px;
+    height: 664px;
 }
 
 .navigation-card {
@@ -88,6 +119,11 @@ h2.title {
     top: 0;
     bottom: 5px;
     cursor: pointer;
+}
+
+.vertical-navigation-card-container .navigation-card {
+    width: 200px;
+    height: 664px;
 }
 
 .navigation-card-container-big {
@@ -124,6 +160,75 @@ h2.title {
     letter-spacing: 2.5px;
 }
 
+@media (max-width: 1500px) {
+    .navigation-cards {
+        grid-template-areas: 
+            "square1 square2"
+            "square3 square4"
+            "vertical vertical";
+    }
+
+    .vertical-navigation-card-container {
+        width: calc(100% - 16px);
+        height: 305px;
+    }
+
+    .vertical-navigation-card-container .navigation-card, .vertical-navigation-card-container .navigation-card-backdrop {
+        width: calc(100% - 5px);
+        height: 300px;
+    }
+}
+
+@media (max-width: 900px) {
+    h2.title {
+        font-size: 35px;
+    }
+
+    .navigation-cards {
+        grid-template-areas: 
+            "square1" 
+            "square2"
+            "square3" 
+            "square4"
+            "vertical";
+    }
+
+    .vertical-navigation-card-container {
+        width: 355px;
+        height: 305px;
+    }
+
+    .vertical-navigation-card-container .navigation-card, .vertical-navigation-card-container .navigation-card-backdrop {
+        width: 350px;
+        height: 300px;
+    }
+}
+
+@media (max-width: 430px) {
+    h2.title {
+        font-size: 30px;
+    }
+
+    .navigation-card-container, .vertical-navigation-card-container {
+        width: 255px;
+        height: 220px;
+    }
+
+    .navigation-card {
+        width: 250px;
+        height: 215px;
+    }
+
+    .navigation-card-backdrop, .vertical-navigation-card-container .navigation-card, .vertical-navigation-card-container .navigation-card-backdrop {
+        width: 250px;
+        height: 215px;
+    }
+
+    .navigation-card h3 {
+        font-size: 25px;
+    }
+}
+
 h3.festival-card-title {
     font-size: 40px;
     top: 20px;
@@ -136,15 +241,15 @@ h3.festival-card-title {
 
 @media (max-width: 1310px) {
     .navigation-card-container-big {
-        width: 405px;
+        width: calc(90% - 5px);
     }
 
     .navigation-card-backdrop-big {
-        width: 400px;
+        width: calc(100% - 5px);
     }
 
     .navigation-card-big {
-        width: 400px;
+        width: calc(100% - 5px);
     }
 
     h3.festival-card-title {
