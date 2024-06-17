@@ -49,9 +49,7 @@
                                         </td>
                                         <td class="tBData">
                                             <button class="btn btn-primary open-modal" type="button"
-                                                data-ticket-id="<?php echo $ticket['eventId']; ?>">Add to
-                                                program
-                                            </button>
+                                                data-ticket-id="<?php echo $ticket['eventId']; ?>">Add program</button>
                                         </td>
                                     </tr>
                                 <?php endforeach; ?>

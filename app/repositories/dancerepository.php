@@ -11,7 +11,6 @@ require_once __DIR__ . '/../controllers/logincontroller.php';
 use PDO;
 use \App\Models\MusicTickets;
 
-
 class DanceRepository {
 
     private $db;
@@ -39,7 +38,6 @@ class DanceRepository {
     public function getAllTickets() {
         $stmt = $this->db->query("SELECT * FROM musicEvents");
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
-
     }
 
     public function getAllTicketsForArtist($artistId) {
@@ -58,7 +56,7 @@ class DanceRepository {
 
     public function getAllTicketsForDateAndVenue($date, $venueId) {
         $stmt = $this->db->prepare("
-            SELECT m.eventId, m.date, m.time, m.price, m.venueId, v.venueName, STRING_AGG(a.artistName, ', ') AS artistNames
+            SELECT m.eventId, m.date, m.time, m.price, m.venueId, v.venueName, GROUP_CONCAT(a.artistName SEPARATOR ', ') AS artistNames
             FROM musicEvents m 
             INNER JOIN venues v ON m.venueId = v.venueId 
             LEFT JOIN participatingArtists pa ON m.eventId = pa.ticketId
@@ -84,7 +82,6 @@ class DanceRepository {
     }
     
     public function buyTicket($eventId) {
-        
         $stmt = $this->db->prepare("SELECT * FROM musicEvents WHERE eventId = ?");
         $stmt->execute([$eventId]);
         $ticket = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -98,19 +95,15 @@ class DanceRepository {
     
         return true; 
     }
-    public function addNewTicketForLoggedInUser($eventId, $quantity) {
 
+    public function addNewTicketForLoggedInUser($eventId, $quantity) {
         $userId = \LoginController::getUserId();
         
-
         if ($userId === null) {
             return false;
         }
-    
 
         $isPurchased = false;
-    
-
         $oneDayAccessTicketQuantity = 0;
         $allDaysAccessTicketQuantity = 0;
     
@@ -133,21 +126,17 @@ class DanceRepository {
         return true;
     }
 
-    
     public function addNewOneDayTicketForLoggedInUser($eventId) {
-
         $userId = \LoginController::getUserId();
         
-
         if ($userId === null) {
             return false;
         }
-    
 
         $isPurchased = false;
         $oneDayAccessTicketQuantity = 1;
         $allDaysAccessTicketQuantity = 0;
-        $quantity=0;
+        $quantity = 0;
     
         $stmt = $this->db->prepare("
             INSERT INTO musicTickets 
@@ -167,14 +156,10 @@ class DanceRepository {
     
         return true;
     }
-    
-
 
     public function addNewAllDaysTicketForLoggedInUser($eventId) {
-
         $userId = \LoginController::getUserId();
         
-
         if ($userId === null) {
             return false;
         }
@@ -182,7 +167,7 @@ class DanceRepository {
         $isPurchased = false;
         $oneDayAccessTicketQuantity = 0;
         $allDaysAccessTicketQuantity = 1;
-        $quantity=0;
+        $quantity = 0;
     
         $stmt = $this->db->prepare("
             INSERT INTO musicTickets 
@@ -202,10 +187,5 @@ class DanceRepository {
     
         return true;
     }
-    
-    
-
-
-    
 }
 ?>

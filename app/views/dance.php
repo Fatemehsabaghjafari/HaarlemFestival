@@ -106,8 +106,9 @@
     <?php
     include __DIR__ . '/footer.php';
     ?>
+
     <div id="messageModal" class="modal" style="display: none;">
-        <div class="modal-content">
+        <div class="modal-content custom-modal-width">
             <span class="close">&times;</span>
             <div class="modal-body">
                 <h2>Message</h2>
@@ -115,6 +116,8 @@
             </div>
         </div>
     </div>
+
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-0K+0C9ROIdu0xOmIkJfQGSfSfpe8XNZ9MwTfXfM/6MTd0EEXtq2VPFZLVD80p8xX"
@@ -145,4 +148,5 @@
             // You can use ticketId and buttonText as needed
         });
     });
+
 </script>
