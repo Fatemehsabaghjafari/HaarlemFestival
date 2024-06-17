@@ -65,11 +65,17 @@ class UserRepository
         return $result['count'] > 0;
     }
 
-    public function storePasswordResetToken($email, $tokenHash, $expiry)
+    public function storePasswordResetToken($email, $tokenHash, $expiry):bool
     {
         $sql = "UPDATE users SET resetTokenHash = ?, tokenExpireTime = ? WHERE email = ?";
         $stmt = $this->db->prepare($sql);
         $stmt->execute([$tokenHash, $expiry, $email]);
+
+        if ($stmt->rowCount() > 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public function getPasswordResetToken($token)
