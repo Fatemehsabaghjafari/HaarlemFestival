@@ -18,8 +18,7 @@ class DanceRepository {
 
     public function __construct() {
         include(__DIR__ . '/../config/dbconfig.php');
-        $this->db = new PDO("$type:server=$servername;Database=$dbname", $username, $password);
-     
+        $this->db = new PDO("mysql:host=$servername;dbname=$dbname;charset=utf8mb4", $username, $password);
     }
 
     public function getAllTicketsOfPersonalProgram() {
