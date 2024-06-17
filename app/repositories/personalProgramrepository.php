@@ -65,7 +65,7 @@ class PersonalProgramRepository {
                 musicEvents.price,
                 musicEvents.dateTime,
                 musicEvents.duration,
-                STRING_AGG(artists.artistName, ',') AS artists,
+                GROUP_CONCAT(artists.artistName SEPARATOR ',') AS artists,
                 venues.venueName,
                 musicEvents.image
             FROM musicTickets
@@ -97,7 +97,7 @@ class PersonalProgramRepository {
     
         return $tickets;
     }
-
+    
     function getMusicTicketById($ticketId) {
         $stmt = $this->db->prepare("
             SELECT musicTickets.ticketId, 
@@ -111,7 +111,7 @@ class PersonalProgramRepository {
                 musicEvents.price,
                 musicEvents.dateTime,
                 musicEvents.duration,
-                STRING_AGG(artists.artistName, ',') AS artists,
+                GROUP_CONCAT(artists.artistName SEPARATOR ',') AS artists,
                 venues.venueName,
                 musicEvents.image
             FROM musicTickets

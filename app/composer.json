@@ -4,7 +4,8 @@
         "mollie/mollie-api-php": "^2.66",
         "phpmailer/phpmailer": "^6.9",
         "mpdf/mpdf": "^8.2",
-        "chillerlan/php-qrcode": "^5.0"
+        "chillerlan/php-qrcode": "^5.0",
+        "myclabs/deep-copy": "^1.12"
     },
     "autoload": {
         "psr-4": {

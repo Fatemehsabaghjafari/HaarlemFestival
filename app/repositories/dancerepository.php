@@ -58,7 +58,7 @@ class DanceRepository {
 
     public function getAllTicketsForDateAndVenue($date, $venueId) {
         $stmt = $this->db->prepare("
-            SELECT m.eventId, m.date, m.time, m.price, m.venueId, v.venueName, STRING_AGG(a.artistName, ', ') AS artistNames
+            SELECT m.eventId, m.date, m.time, m.price, m.venueId, v.venueName, GROUP_CONCAT(a.artistName SEPARATOR ', ') AS artistNames
             FROM musicEvents m 
             INNER JOIN venues v ON m.venueId = v.venueId 
             LEFT JOIN participatingArtists pa ON m.eventId = pa.ticketId
@@ -70,7 +70,7 @@ class DanceRepository {
         $stmt->bindParam(':venueId', $venueId);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    }
+    }    
 
     public function getTicketsByArtist($artistId) {
         $stmt = $this->db->prepare("SELECT musicEvents.*, venues.venueName 
