@@ -30,7 +30,7 @@
 }
 
 
-/* .picAndOrange{
+.picAndOrange{
     position: relative;
 }       
 .headPic{
@@ -52,7 +52,7 @@
     padding: 35px;
     position: absolute; 
     bottom: -15px;
-} */
+}
 
 .dropdown-item:hover {
     background-color: #FFF;
@@ -204,10 +204,10 @@
     }
 }
 
-/* .headPic{
+.headPic{
     height: 500px;
     width: 100%;
-} */
+} 
 
 .artCultureHead {
     text-align: center;
