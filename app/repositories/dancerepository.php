@@ -80,21 +80,6 @@ class DanceRepository {
         $stmt->execute([$artistId]);
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
-    
-    public function buyTicket($eventId) {
-        $stmt = $this->db->prepare("SELECT * FROM musicEvents WHERE eventId = ?");
-        $stmt->execute([$eventId]);
-        $ticket = $stmt->fetch(PDO::FETCH_ASSOC);
-    
-        if (!$ticket || $ticket['ticketsAvailable'] <= 0) {
-            return false; 
-        }
-    
-        $stmt = $this->db->prepare("UPDATE musicEvents SET ticketsAvailable = ticketsAvailable - 1 WHERE eventId = ?");
-        $stmt->execute([$eventId]);
-    
-        return true; 
-    }
 
     public function addNewTicketForLoggedInUser($eventId, $quantity) {
         $userId = \LoginController::getUserId();
