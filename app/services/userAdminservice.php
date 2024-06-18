@@ -24,15 +24,24 @@ class UserAdminservice
         return $this->repository->getRoles();
     }
     public function addUser($email, $username, $password, $role, $image){
-        $this->repository->addUser($email, $username, $password, $role, $image);
+        return $this->repository->addUser($email, $username, $password, $role, $image);
     }
     public function deleteUserById($userId){
-        $this->repository->deleteUserById($userId);
+        return $this->repository->deleteUserById($userId);
     }
     public function updateUser($userId, $email, $username, $role, $image){
-        $this->repository->updateUser($userId, $email, $username, $role, $image);
+        return $this->repository->updateUser($userId, $email, $username, $role, $image);
     }
     public function setUserDetails($userId, $firstName, $lastName, $address, $phone){
-        $this->repository->setUserDetails($userId, $firstName, $lastName, $address, $phone);
+        return $this->repository->setUserDetails($userId, $firstName, $lastName, $address, $phone);
+    }
+    public function isUsernameTakenByOtherUsers($userId, $username)
+    {
+       return $this->repository->isUsernameTakenByOtherUsers($userId, $username);
+    }
+    
+    public function isEmailTakenByOtherUsers($userId, $email)
+    {
+        return $this->repository->isEmailTakenByOtherUsers($userId, $email);
     }
 }

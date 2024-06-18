@@ -1,3 +1,77 @@
+.custom-modal-width {
+  max-width: 400px; 
+  margin: auto;
+}
+
+.modal-content {
+  position: relative;
+  background-color: #fff;
+  border: 1px solid #888;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  color: #aaa;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.navigation-cards {
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 1300px;
+}
+
+.navigation-card-container {
+  width: 355px;
+  height: 305px;
+  position: relative;
+  margin: 1rem;
+}
+
+.navigation-card-backdrop {
+  width: 350px;
+  height: 300px;
+  border-radius: 15px;
+  background: #000;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.navigation-card {
+  width: 350px;
+  height: 300px;
+  border-radius: 15px;
+  border: 5px solid #D58386;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  transition: left 300ms ease, top 300ms ease, right 300ms ease, bottom 300ms ease;
+  position: absolute;
+  left: 0;
+  right: 5px;
+  top: 0;
+  bottom: 5px;
+  cursor: pointer;
+}
+
 .danceHead {
   text-align: center;
   margin-top: 45px;
@@ -110,16 +184,17 @@
   background-color: #FC8E2E;
   color: #000;
   border-radius: 20px;
-  width: 100px;
+  max-width: 100px;
   font-size: 12px;
   font-weight: 900;
+  max-height: 45px;
 }
 .btn.btn-primary.add-to-cart {
   background-color: #FC8E2E;
   color: #000;
   border-radius: 20px;
   width: 100px;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 900;
 }
 
@@ -371,54 +446,7 @@
   width: 600px;
 }
 
-.navigation-cards {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  max-width: 1300px;
-}
 
-
-.navigation-card-container {
-  width: 355px;
-  height: 305px;
-  position: relative;
-  margin: 1rem;
-}
-
-.navigation-card-backdrop {
-  width: 350px;
-  height: 300px;
-  border-radius: 15px;
-  background: #000;
-  position: absolute;
-  right: 0;
-  bottom: 0;
-}
-
-.navigation-card {
-  width: 350px;
-  height: 300px;
-  border-radius: 15px;
-  border: 5px solid #D58386;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  transition: left 300ms ease, top 300ms ease, right 300ms ease, bottom 300ms ease;
-  position: absolute;
-  left: 0;
-  right: 5px;
-  top: 0;
-  bottom: 5px;
-  cursor: pointer;
-}
-@media (max-width: 500px){
-  .table.t {
-    margin-top: 5px;
-    font-size: 5px;
-  }
-}
 
 @media (max-width: 1310px) {
   .kid {
@@ -646,8 +674,43 @@
     height: 300px;
   }
 
+  .btn.btn-primary.open-modal{
+    background-color: #FC8E2E;
+    color: #000;
+    border-radius: 20px;
+    max-width: 100px;
+    font-size: 9px;
+    font-weight: 900;
+    max-height: 28px;
+  }
+
 }
-@media (max-width: 600px){
+
+
+@media (max-width: 650px){
+  .venue{
+    font-size: 10px;
+  }
+  .btn.btn-primary.add-to-cart {
+    background-color: #FC8E2E;
+    color: #000;
+    border-radius: 20px;
+    max-width: 100px;
+    font-size: 9px;
+    font-weight: 900;
+    max-height: 35px;
+  }
+
+  .btn.btn-primary.open-modal{
+    background-color: #FC8E2E;
+    color: #000;
+    border-radius: 20px;
+    max-width: 100px;
+    font-size: 9px;
+    font-weight: 900;
+    max-height: 20px;
+  }
+
   .eventH {
     display: flex;
     margin-left: 30px;
@@ -683,5 +746,26 @@
     width: 100px;
     height: 200px;
   }
+  .table.t {
+    margin-top: 5px;
+    font-size: 6px;
+    font-weight: 700;
+  }
 
 }
+
+@media (max-width: 500px){
+
+  .btn.btn-primary.open-modal{
+    background-color: #FC8E2E;
+    color: #000;
+    border-radius: 20px;
+    max-width: 100px;
+    font-size: 6px;
+    font-weight: 900;
+    max-height: 25px;
+  }
+  
+}
+
+

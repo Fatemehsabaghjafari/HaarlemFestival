@@ -28,6 +28,10 @@
         ?>
 
         <hr>
+        
+        <?php
+        include __DIR__ . '/editUserAdmin.php';
+        ?>
 
         <h2>All Users</h2>
         <input type="text" id="searchInput" placeholder="Search...">
@@ -70,7 +74,7 @@
                             <?php echo $user->registrationDate; ?>
                         </td>
                         <td>
-                            <img class="djImg" src="<?php echo $user->img; ?>" alt="Image">
+                            <img class="userImg" src="<?php echo $user->img; ?>" alt="Image">
                         </td>
                         <td>
                             <button class="btn btn-danger btn-sm mr-2 delete-user"
@@ -86,10 +90,6 @@
                 <?php endforeach; ?>
             </tbody>
         </table>
-
-        <?php
-        include __DIR__ . '/editUserAdmin.php';
-        ?>
 
     </div>
 

@@ -5,14 +5,16 @@
     ];
     $title = 'Martin Garrix - Dance!';
     include __DIR__ . '/header.php';
-?>
-<img class="headPic" src="/img/nicky.png" alt="nicky">
-<div class="orange">Nicky Romero</div>
-<h1 class="nickyHead">Dance Experience with Nicky Romero! </h1>
-<p class="artCultureHeadP"> Embark on an exhilarating musical journey with Nicky Romero's chart-topping hits, where
-    infectious beats and electrifying melodies converge to create an unforgettable experience—immerse yourself in
-    the pulsating world of his popular tracks and let the music transport you.</p>
-<h1 class="nickyTopHead">Top tracks of Nicky</h1>
+    ?>
+    <div class="picAndOrange">
+        <img class="headPic" src="/img/nicky.png" alt="nicky">
+        <div class="orange">Nicky Romero</div>
+    </div>
+    <h1 class="nickyHead">Dance Experience with Nicky Romero! </h1>
+    <p class="artCultureHeadP"> Embark on an exhilarating musical journey with Nicky Romero's chart-topping hits, where
+        infectious beats and electrifying melodies converge to create an unforgettable experience—immerse yourself in
+        the pulsating world of his popular tracks and let the music transport you.</p>
+    <h1 class="nickyTopHead">Top tracks of Nicky</h1>
 
 <div class="topSongContainer">
     <div class="eventH">Toulouse</div>
@@ -85,11 +87,28 @@
             globally.
         </p>
     </div>
-</div>
-<?php
-    $scripts = [
-        ['src' => '/javascript/script.js' ]
-    ];
 
+    <?php
     include __DIR__ . '/footer.php';
-?>
+    ?>
+
+    <div id="messageModal" class="modal" style="display: none;">
+        <div class="modal-content custom-modal-width">
+            <span class="close">&times;</span>
+            <div class="modal-body">
+                <h2>Message</h2>
+                <p id="messageContent"></p>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+    <script src="/javascript/script.js"></script>
+
+</body>
+
+</html>

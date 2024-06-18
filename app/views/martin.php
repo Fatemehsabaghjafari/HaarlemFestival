@@ -5,7 +5,19 @@
     ];
     $title = 'Martin Garrix - Dance!';
     include __DIR__ . '/header.php';
-?>
+    ?>
+    <!-- <img class="headPic" src="/img/martinG.png" alt="nicky">
+    <div class="orange">Martin Garrix</div>-->
+    <div class="picAndOrange">
+        <img class="headPic" src="/img/martinG.png" alt="nicky">
+        <div class="orange">Martin Garrix</div>
+    </div>
+
+    <h1 class="nickyHead">Dance Experience with Martin Garrix! </h1>
+    <p class="artCultureHeadP"> Immerse yourself in Martin Garrix's dynamic beats and captivating melodies, where each
+        track is a thrilling experience of energy and emotion. From the iconic "Animals" to soulful collaborations like
+        "Don’t look down" his music is a vibrant journey that will ignite your passion for electronic beats.</p>
+    <h1 class="nickyTopHead">Top tracks of Martin</h1>
 
 <img class="headPic" src="/img/martinG.png" alt="nicky">
 <div class="orange">Martin Garrix</div>
@@ -94,4 +106,23 @@
     ];
 
     include __DIR__ . '/footer.php';
-?>
+    ?>
+
+    <div id="messageModal" class="modal" style="display: none;">
+        <div class="modal-content custom-modal-width">
+            <span class="close">&times;</span>
+            <div class="modal-body">
+                <h2>Message</h2>
+                <p id="messageContent"></p>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script src="/javascript/script.js"></script>
+</body>
+
+</html>
