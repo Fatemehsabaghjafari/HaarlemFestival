@@ -29,7 +29,6 @@
                 <button type="submit" class="btn btn-primary">Login</button>
             </form>
             <p class="register">Don't have an account? <a href="/register">Register here</a></p>
-            <a class="manage-account" href="/manageAccount">Manage your account</a>
         </div>
     </div>
     <div class="container mt-5 mb-5">

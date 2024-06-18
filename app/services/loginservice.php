@@ -28,8 +28,8 @@ class LoginService
     public function isEmailTaken($email) {
        return $this->repository->isEmailTaken($email);
     }
-    public function storePasswordResetToken($email, $tokenHash, $expiry){
-        $this->repository->storePasswordResetToken($email, $tokenHash, $expiry);
+    public function storePasswordResetToken($email, $tokenHash, $expiry):bool {
+        return $this->repository->storePasswordResetToken($email, $tokenHash, $expiry);
     }
     public function getUserById($userId){
         return $this->repository->getUserById($userId);
@@ -37,7 +37,8 @@ class LoginService
     public function getPasswordResetToken($token){
         return $this->repository->getPasswordResetToken($token);
     }
-    public function resetPassword($token, $newPassword){
-        $this->repository->resetPassword($token, $newPassword);
+    public function resetPassword($token, $newPassword): bool
+    {
+        return $this->repository->resetPassword($token, $newPassword);
     }
 }

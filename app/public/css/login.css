@@ -4,3 +4,16 @@
 .manage-account{
     font-size: 25px;
 }
+
+.reset-password-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.reset-password-form h2 {
+    color: #C0373C;
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
