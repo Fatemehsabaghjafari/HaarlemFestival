@@ -54,7 +54,9 @@ class PersonalProgramRepository {
         $isPurchasedCondition = $isPurchased ? "AND musicTickets.isPurchased = 0" : "";
     
         $stmt = $this->db->prepare("
-            SELECT musicTickets.ticketId, 
+            SELECT 
+                musicTickets.ticketId, 
+                musicTickets.userId, 
                 musicTickets.oneDayAccessTicketQuantity, 
                 musicEvents.oneDayAccessPrice,
                 musicTickets.allDaysAccessTicketQuantity,
@@ -101,6 +103,7 @@ class PersonalProgramRepository {
     function getMusicTicketById($ticketId) {
         $stmt = $this->db->prepare("
             SELECT musicTickets.ticketId, 
+                musicTickets.userId, 
                 musicTickets.oneDayAccessTicketQuantity, 
                 musicEvents.oneDayAccessPrice,
                 musicTickets.allDaysAccessTicketQuantity,
@@ -149,6 +152,7 @@ class PersonalProgramRepository {
         $stmt = $this->db->prepare("
             SELECT
                 yummyTickets.ticketId,
+                yummyTickets.userId,
                 yummyTickets.kidsQuantity,
                 yummyTickets.adultsQuantity, 
                 yummyTickets.isPurchased, 
@@ -178,6 +182,7 @@ class PersonalProgramRepository {
         $stmt = $this->db->prepare("
             SELECT
                 yummyTickets.ticketId,
+                yummyTickets.userId,
                 yummyTickets.kidsQuantity,
                 yummyTickets.adultsQuantity, 
                 yummyTickets.isPurchased, 
@@ -208,6 +213,7 @@ class PersonalProgramRepository {
         $stmt = $this->db->prepare("
             SELECT
                 historyTickets.ticketId,
+                historyTickets.userId,
                 historyTours.dateTime,
                 historyTickets.singleTicketQuantity,
                 historyTickets.familyTicketQuantity,
@@ -235,6 +241,7 @@ class PersonalProgramRepository {
         $stmt = $this->db->prepare("
             SELECT
                 historyTickets.ticketId,
+                historyTickets.userId,
                 historyTours.dateTime,
                 historyTickets.singleTicketQuantity,
                 historyTickets.familyTicketQuantity,

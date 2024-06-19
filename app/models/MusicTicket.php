@@ -3,6 +3,7 @@ namespace App\Models;
 
 class MusicTicket {
     public $ticketId;
+    public $userId;
     public $dateTime;
     public $duration;
     public $oneDayAccessTicketQuantity;

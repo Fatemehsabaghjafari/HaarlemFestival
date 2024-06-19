@@ -49,7 +49,10 @@ class ArrayRouter
                 'method' => 'setActiveStatus',
                 'api' => true
             ),
-
+            'scan' => array(
+                'controller' => 'orderscontroller',
+                'method' => 'scan'
+            ),
             'foodies' => array(
                 'controller' => 'foodiescontroller',
                 'method' => 'index'
@@ -186,13 +189,16 @@ class ArrayRouter
                 'controller' => 'resetPasswordcontroller',
                 'method' => 'updatePassword'
             ),
+            'api/users' => array(
+                'controller' => 'UserController',
+                'method' => 'getUserById',
+                'api' => true
+            ),
 
             'exportCsv' => array(
                 'controller' => 'exportcontroller',
                 'method' => 'exportToCSV'
             ),
-
-
         );
         // Add this method to handle JSON responses
         function jsonResponse($data)
