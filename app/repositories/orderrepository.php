@@ -154,5 +154,17 @@ class OrderRepository {
             ':id' => $id
         ]);
     }
+
+    function getAllOrders() {
+        $stmt = $this->db->prepare("
+            SELECT * FROM orders
+        ");
+        $stmt->execute();
+
+        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        $orders = $stmt->fetchAll();
+
+        return $orders;
+    }
 }
 ?>

@@ -172,6 +172,11 @@ class ArrayRouter
                 'method' => 'index'
             ),
 
+            'orderAdmin' => array(
+                'controller' => 'admincontroller',
+                'method' => 'orderAdmin'
+            ),
+
             'resetPassword' => array(
                 'controller' => 'resetPasswordcontroller',
                 'method' => 'reset'
