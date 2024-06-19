@@ -186,6 +186,13 @@ class ArrayRouter
                 'controller' => 'resetPasswordcontroller',
                 'method' => 'updatePassword'
             ),
+
+            'exportCsv' => array(
+                'controller' => 'exportcontroller',
+                'method' => 'exportToCSV'
+            ),
+
+
         );
         // Add this method to handle JSON responses
         function jsonResponse($data)
@@ -216,7 +223,7 @@ class ArrayRouter
             require __DIR__ . '/controllers/' . $controller . '.php';
         }
 
-        $controllerObj = new $controller;
+         $controllerObj = new $controller;
          $controllerObj->$method();
        
     }

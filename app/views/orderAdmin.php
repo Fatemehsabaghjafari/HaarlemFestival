@@ -21,26 +21,36 @@
 
     <div class="container mt-5">
         <h1>Orders</h1>
-        <table class="table table-bordered">
+        
+        <form method="post" action="/exportCsv">
+            <label for="columns">Select columns to export:</label>
+            <input type="checkbox" name="columns[]" value="orderId"> Order ID
+            <input type="checkbox" name="columns[]" value="eventType"> Event Type
+            <input type="checkbox" name="columns[]" value="ticketId"> Ticket ID
+            <input type="checkbox" name="columns[]" value="username"> Username
+            <input type="checkbox" name="columns[]" value="paymentId"> Payment ID
+            <button type="submit">Export to CSV</button>
+        </form>
+
+
+        <table class="table table-bordered mt-5">
             <thead>
                 <tr>
                     <th>Order ID</th>
                     <th>Event Type</th>
-                    <th>Ticket </th>
-                    <th>User </th>
-                    <th>Payment </th>
-                    <th>QR Code</th>
+                    <th>Ticket ID</th>
+                    <th>Username</th>
+                    <th>Payment ID</th>
                 </tr>
             </thead>
             <tbody>
                 <?php foreach ($orders as $order): ?>
                     <tr>
-                        <!-- <td><?php echo htmlspecialchars($order['orderId']); ?></td>
+                        <td><?php echo htmlspecialchars($order['orderId']); ?></td>
                         <td><?php echo htmlspecialchars($order['eventType']); ?></td>
                         <td><?php echo htmlspecialchars($order['ticketId']); ?></td>
-                        <td><?php echo htmlspecialchars($order['userId']); ?></td>
+                        <td><?php echo htmlspecialchars($order['username']); ?></td>
                         <td><?php echo htmlspecialchars($order['paymentId']); ?></td>
-                        <td><?php echo htmlspecialchars($order['qrCode']); ?></td> -->
                     </tr>
                 <?php endforeach; ?>
             </tbody>

@@ -155,16 +155,14 @@ class OrderRepository {
         ]);
     }
 
-    function getAllOrders() {
+    public function getAllOrders() {
         $stmt = $this->db->prepare("
-            SELECT * FROM orders
+            SELECT orders.*, users.username 
+            FROM orders 
+            JOIN users ON orders.userId = users.id
         ");
         $stmt->execute();
-
-        $stmt->setFetchMode(PDO::FETCH_ASSOC);
-        $orders = $stmt->fetchAll();
-
-        return $orders;
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 }
 ?>

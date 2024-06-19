@@ -3,7 +3,7 @@ require_once __DIR__ . '/../models/user.php';
 session_start();
 
 require_once __DIR__ . '/../services/loginservice.php';
-//require_once __DIR__ . '/../services/orderservice.php';
+require_once __DIR__ . '/../services/orderservice.php';
 require_once __DIR__ . '/../services/userAdminservice.php';
 require_once __DIR__ . '/../services/danceEventsAdminservice.php';
 require_once __DIR__ . '/../services/danceArtistAdminservice.php';
@@ -18,7 +18,7 @@ class AdminController extends Controller
     private $danceEventsAdminService;
     private $loginService;
 
-  //  private $orderService;
+    private $orderService;
 
     public function __construct()
     {
@@ -27,7 +27,7 @@ class AdminController extends Controller
         $this->danceVenueAdminService = new \App\Services\DanceVenueAdminService();
         $this->danceArtistAdminService = new \App\Services\DanceArtistAdminService();
         $this->userAdminService = new \App\Services\UserAdminService();
-      //  $this->orderService = new \App\Services\OrderService();
+        $this->orderService = new \App\Services\OrderService();
     }
 
     private function checkAuthorization()
@@ -89,7 +89,7 @@ class AdminController extends Controller
     public function orderAdmin()
     {
         if ($this->checkAuthorization()) {
-        //    $orders = $this->orderService->getAllOrders();
+            $orders = $this->orderService->getAllOrders();
             include '../views/orderAdmin.php';
         }
     }
