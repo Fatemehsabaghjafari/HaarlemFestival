@@ -34,6 +34,9 @@
                         </div>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/orderAdmin">Orders</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="/userAdmin">Users</a>
                     </li>
                 </ul>

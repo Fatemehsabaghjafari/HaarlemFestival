@@ -154,5 +154,15 @@ class OrderRepository {
             ':id' => $id
         ]);
     }
+
+    public function getAllOrders() {
+        $stmt = $this->db->prepare("
+            SELECT orders.*, users.username 
+            FROM orders 
+            JOIN users ON orders.userId = users.id
+        ");
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }
 ?>
