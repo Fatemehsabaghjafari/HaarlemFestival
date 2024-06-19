@@ -1,5 +1,6 @@
 <?php
 namespace App\Repositories;
+
 require_once __DIR__ . '/personalProgramrepository.php';
 use PDO;
 
@@ -12,7 +13,59 @@ class OrderRepository {
         $this->db = new PDO("mysql:host=$servername;dbname=$dbname;charset=utf8mb4", $username, $password);
         $this->personalProgramRepository = new \App\Repositories\PersonalProgramRepository();
     }
-    
+
+    // Function to check ticket availability
+    private function checkTicketAvailability($ticket) {
+        $eventId = $ticket->getEventId();
+        $eventType = $ticket->getEventType();
+        $quantity = $ticket->getQuantity();
+
+        switch ($eventType) {
+            case 'music':
+                $stmt = $this->db->prepare("
+                    SELECT ticketsAvailable 
+                    FROM musicEvents 
+                    WHERE eventId = :eventId
+                ");
+                break;
+            case 'yummy':
+                $stmt = $this->db->prepare("
+                    SELECT seats 
+                    FROM yummyRestaurants 
+                    WHERE restaurantId = :eventId
+                ");
+                break;
+            case 'history':
+                $stmt = $this->db->prepare("
+                    SELECT seatsPerTour 
+                    FROM HistoryTours 
+                    WHERE tourId = :eventId
+                ");
+                break;
+            default:
+                return false;
+        }
+
+        $stmt->execute([':eventId' => $eventId]);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if (!$result) {
+            return false;
+        }
+
+        $availableTickets = $result['ticketsAvailable'] ?? $result['seats'] ?? $result['seatsPerTour'];
+
+        // Calculate the 90% threshold for single tickets
+        $maxSingleTickets = floor($availableTickets * 0.9);
+
+        // Check if the requested quantity exceeds the available tickets or the 90% threshold
+        if ($quantity > $maxSingleTickets) {
+            return false;
+        }
+
+        return true;
+    }
+
     function createOrder($userId) {
         $orderId = uniqid('', true);
         $musicTickets = $this->personalProgramRepository->getMusicTickets($userId, true, true);
@@ -23,6 +76,12 @@ class OrderRepository {
         $totalPrice = 0;
 
         foreach ($tickets as $ticket) {
+            if (!$this->checkTicketAvailability($ticket)) {
+                return json_encode([
+                    'error' => 'Ticket availability exceeded for ' . $ticket->getEventType() . ' event.'
+                ]);
+            }
+
             $totalPrice += $ticket->getTotalPrice();
 
             $stmt = $this->db->prepare("
@@ -117,6 +176,14 @@ class OrderRepository {
             WHERE orderId = :orderId
         ");
         $stmt->execute([':orderId' => $orderId]);
+    public function getAllOrders() {
+        $stmt = $this->db->prepare("
+            SELECT orders.*, users.username 
+            FROM orders 
+            JOIN users ON orders.userId = users.id
+        ");
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 }
 ?>

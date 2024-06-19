@@ -175,6 +175,11 @@ class ArrayRouter
                 'method' => 'index'
             ),
 
+            'orderAdmin' => array(
+                'controller' => 'admincontroller',
+                'method' => 'orderAdmin'
+            ),
+
             'resetPassword' => array(
                 'controller' => 'resetPasswordcontroller',
                 'method' => 'reset'
@@ -188,6 +193,11 @@ class ArrayRouter
                 'controller' => 'UserController',
                 'method' => 'getUserById',
                 'api' => true
+            ),
+
+            'exportCsv' => array(
+                'controller' => 'exportcontroller',
+                'method' => 'exportToCSV'
             ),
         );
         // Add this method to handle JSON responses
@@ -219,7 +229,7 @@ class ArrayRouter
             require __DIR__ . '/controllers/' . $controller . '.php';
         }
 
-        $controllerObj = new $controller;
+         $controllerObj = new $controller;
          $controllerObj->$method();
        
     }

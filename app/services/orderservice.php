@@ -25,6 +25,10 @@ class OrderService
         $this->emailService = new \App\Services\EmailService();
     }
 
+    function getAllOrders() {
+        return $this->repository->getAllOrders();
+    }
+
     public function createOrder($userId) {
         return $this->repository->createOrder($userId);
     }
@@ -167,4 +171,5 @@ class OrderService
     public function setScannedStatus($orderId) {
         return $this->repository->setScannedStatus($orderId);
     }
+
 }
