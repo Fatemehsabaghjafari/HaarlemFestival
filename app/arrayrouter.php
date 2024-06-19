@@ -49,7 +49,10 @@ class ArrayRouter
                 'method' => 'setActiveStatus',
                 'api' => true
             ),
-
+            'scan' => array(
+                'controller' => 'orderscontroller',
+                'method' => 'scan'
+            ),
             'foodies' => array(
                 'controller' => 'foodiescontroller',
                 'method' => 'index'
@@ -180,6 +183,11 @@ class ArrayRouter
             'resetPasswordSuccess' => array(
                 'controller' => 'resetPasswordcontroller',
                 'method' => 'updatePassword'
+            ),
+            'api/users' => array(
+                'controller' => 'UserController',
+                'method' => 'getUserById',
+                'api' => true
             ),
         );
         // Add this method to handle JSON responses

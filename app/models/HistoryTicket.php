@@ -3,6 +3,7 @@ namespace App\Models;
 
 class HistoryTicket {
     public $ticketId;
+    public $userId;
     public $dateTime;
     public $singleTicketQuantity;
     public $familyTicketQuantity;

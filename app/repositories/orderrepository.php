@@ -95,5 +95,28 @@ class OrderRepository {
             ':id' => $id
         ]);
     }
+
+    public function getOrderByQRCode($qrCode)
+    {
+        $stmt = $this->db->prepare("
+            SELECT * FROM orders
+            WHERE qrCode = :qrCode
+        ");
+        $stmt->execute([':qrCode' => $qrCode]);
+
+        $stmt->setFetchMode(PDO::FETCH_ASSOC);
+        $order = $stmt->fetch();
+
+        return $order;
+    }
+
+    public function setScannedStatus($orderId) {
+        $stmt = $this->db->prepare("
+            UPDATE orders
+            SET isScanned = 1
+            WHERE orderId = :orderId
+        ");
+        $stmt->execute([':orderId' => $orderId]);
+    }
 }
 ?>

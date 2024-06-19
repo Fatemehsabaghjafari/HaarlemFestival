@@ -149,4 +149,22 @@ class OrderService
             $this->repository->setQRCodeHash($order['id'], $data);
         }
     }
+
+    public function getOrderByQRCode($qrCode) {
+        return $this->repository->getOrderByQRCode($qrCode);
+    }
+
+    public function getTicketByOrder($order) {
+        if ($order['eventType'] == "music") {
+            return $this->myProgramRepository->getMusicTicketById($order['ticketId']);
+        } else if ($order['eventType'] == "history") {
+            return $this->myProgramRepository->getHistoryTicketById($order['ticketId']);
+        } else if ($order['eventType'] == "yummy") {
+            return $this->myProgramRepository->getYummyTicketById($order['ticketId']);
+        }
+    }
+
+    public function setScannedStatus($orderId) {
+        return $this->repository->setScannedStatus($orderId);
+    }
 }
