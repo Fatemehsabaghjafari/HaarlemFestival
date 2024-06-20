@@ -4,6 +4,7 @@ namespace App\Repositories;
 require_once __DIR__ . '/../models/user.php';
 require_once __DIR__ . '/../models/role.php';
 use PDO;
+use PDOException;
 
 class UserRepository
 {
@@ -12,8 +13,15 @@ class UserRepository
     public function __construct()
     {
         include (__DIR__ . '/../config/dbconfig.php');
-        $this->db = new PDO("mysql:host=$servername;dbname=$dbname;charset=utf8mb4", $username, $password);
+        try {
+            $this->db = new PDO("mysql:host=$servername;dbname=$dbname;charset=utf8mb4", $username, $password);
+            $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        } catch (PDOException $e) {
+            // Handle the exception as needed
+            die("Database connection failed: " . $e->getMessage());
+        }
     }
+
     public function isUsernameTakenByOtherUsers($userId, $username)
     {
         $stmt = $this->db->prepare('SELECT COUNT(*) as count FROM users WHERE username = ? AND id != ?');
@@ -21,7 +29,7 @@ class UserRepository
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
         return $result['count'] > 0;
     }
-    
+
     public function isEmailTakenByOtherUsers($userId, $email)
     {
         $stmt = $this->db->prepare('SELECT COUNT(*) as count FROM users WHERE email = ? AND id != ?');
@@ -29,7 +37,7 @@ class UserRepository
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
         return $result['count'] > 0;
     }
-    
+
     public function getAllUsers()
     {
         $stmt = $this->db->prepare('SELECT u.*, r.role FROM users u INNER JOIN roles r ON u.roleId = r.roleId');
@@ -37,7 +45,7 @@ class UserRepository
         $users = $stmt->fetchAll(PDO::FETCH_OBJ); // Fetch data as objects
         return $users;
     }
-    
+
     public function getRoles()
     {
         try {
@@ -48,7 +56,6 @@ class UserRepository
             return [];
         }
     }
-
 
     public function insertUser($username, $email, $hashedPassword)
     {
@@ -80,17 +87,13 @@ class UserRepository
         return $result['count'] > 0;
     }
 
-    public function storePasswordResetToken($email, $tokenHash, $expiry):bool
+    public function storePasswordResetToken($email, $tokenHash, $expiry): bool
     {
         $sql = "UPDATE users SET resetTokenHash = ?, tokenExpireTime = ? WHERE email = ?";
         $stmt = $this->db->prepare($sql);
         $stmt->execute([$tokenHash, $expiry, $email]);
 
-        if ($stmt->rowCount() > 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return $stmt->rowCount() > 0;
     }
 
     public function getPasswordResetToken($token)
@@ -100,26 +103,24 @@ class UserRepository
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
         return $user;
     }
+
     public function resetPassword($token, $newPassword)
     {
-        // Check if the token exists and is not expired
         $user = $this->getPasswordResetToken($token);
 
         if ($user && strtotime($user['tokenExpireTime']) > time()) {
-            // Token is valid, update the user's password
             $hashedPassword = password_hash($newPassword, PASSWORD_DEFAULT);
             $stmt = $this->db->prepare('UPDATE users SET password = ?, resetTokenHash = NULL, tokenExpireTime = NULL WHERE resetTokenHash = ?');
             $stmt->execute([$hashedPassword, $token]);
-            return true; // Password reset successful
+            return true;
         } else {
-            return false; // Token is invalid or expired
+            return false;
         }
     }
+
     public function updateUser($userId, $email, $username, $role, $image)
     {
         try {
-            
-            // Fetch roleId based on role
             $stmt = $this->db->prepare('SELECT roleId FROM roles WHERE role = ?');
             $stmt->execute([$role]);
             $roleId = $stmt->fetchColumn();
@@ -131,21 +132,19 @@ class UserRepository
             $stmt->bindParam(':img', $image);
             $stmt->bindParam(':userId', $userId, PDO::PARAM_INT);
             $stmt->execute();
-            return true; // Success
+            return true;
         } catch (PDOException $e) {
-            return false; // Error
+            return false;
         }
     }
 
     public function addUser($email, $username, $password, $role, $image)
     {
         try {
-
             if ($this->isUsernameTaken($username) || $this->isEmailTaken($email)) {
-                return false; // Username or email already in use, return false
+                return false;
             }
 
-            // Fetch roleId based on role
             $stmt = $this->db->prepare('SELECT roleId FROM roles WHERE role = ?');
             $stmt->execute([$role]);
             $roleId = $stmt->fetchColumn();
@@ -159,25 +158,28 @@ class UserRepository
             $stmt->bindParam(':registrationDate', $registrationDate);
             $stmt->bindParam(':img', $image);
             $stmt->execute();
-            return true; // Success
+            return true;
         } catch (PDOException $e) {
-            return false; // Error
+            return false;
         }
     }
 
     public function deleteUserById($userId)
     {
-        $stmt = $this->db->prepare("DELETE FROM dbo.users WHERE id = :id");
-        $stmt->bindParam(':id', $userId, PDO::PARAM_INT);
-        $stmt->execute();
-        // Optionally, you can return true or false based on the success of the deletion
-        return $stmt->rowCount() > 0; // Returns true if at least one row was affected
+        try {
+            $stmt = $this->db->prepare("DELETE FROM users WHERE id = :id");
+            $stmt->bindParam(':id', $userId, PDO::PARAM_INT);
+            $stmt->execute();
+            return $stmt->rowCount() > 0;
+        } catch (PDOException $e) {
+            return false;
+        }
     }
 
     public function setUserDetails($userId, $firstName, $lastName, $address, $phone)
     {
         try {
-            $stmt = $this->db->prepare("UPDATE dbo.users SET firstName = :firstName, lastName = :lastName, phone = :phone, address = :address WHERE id = :userId");
+            $stmt = $this->db->prepare("UPDATE users SET firstName = :firstName, lastName = :lastName, phone = :phone, address = :address WHERE id = :userId");
             $stmt->bindParam(':firstName', $firstName);
             $stmt->bindParam(':lastName', $lastName);
             $stmt->bindParam(':phone', $phone);
@@ -185,7 +187,7 @@ class UserRepository
             $stmt->bindParam(':userId', $userId, PDO::PARAM_INT);
             $stmt->execute();
             return true;
-        } catch (\Throwable $th) {
+        } catch (PDOException $e) {
             return false;
         }
     }
