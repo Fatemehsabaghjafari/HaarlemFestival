@@ -3,7 +3,7 @@
         <h5 class="modal-title">Edit User</h5>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
     </div>
-    <form id="editUserForm">
+    <form id="editUserForm" onsubmit="return validateEditForm()">
         <input type="hidden" id="editUserId" name="editUserId">
         <div class="modal-body">
             <div class="form-group">
@@ -12,7 +12,7 @@
             </div>
             <div class="form-group">
                 <label for="editUsername">Username:</label>
-                <input type="text" class="form-control" id="editUsername" name="editUsername" required>
+                <input type="text" class="form-control" id="editUsername" name="editUsername" required minlength="3" maxlength="20">
             </div>
             <div class="form-group">
                 <label for="editRole">Role:</label>
@@ -32,3 +32,19 @@
         </div>
     </form>
 </div>
+
+<script>
+    function validateEditForm() {
+        const img = document.getElementById('editUserImage').files[0];
+
+        if (img) {
+            const allowedImageTypes = ['image/jpeg', 'image/png', 'image/gif'];
+            if (!allowedImageTypes.includes(img.type)) {
+                alert('Invalid image type. Allowed types are JPEG, PNG, GIF.');
+                return false;
+            }
+        }
+
+        return true;
+    }
+</script>
