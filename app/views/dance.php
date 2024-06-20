@@ -53,19 +53,11 @@
     </div>
 
 
-    <h1 class="danceHeadT">Tickets overview </h1>
-
-    <?php
-    include __DIR__ . '/danceSlideshow.php';
-    ?>
-    <div class="allAccessInfo1">
-        All-Access pass for Friday €125,00, Saturday or Sunday €150,00
-
-    </div>
-    <div class="allAccessInfo2">
-
-        All-Access pass for Friday, Saturday and Sunday €250,00
-
+    <div class="content-section">
+        <h1 class="danceHeadT">Tickets overview </h1>
+        <?php include __DIR__ . '/danceSlideshow.php'; ?>
+        <div class="allAccessInfo1">All-Access pass for Friday €125,00, Saturday or Sunday €150,00</div>
+        <div class="allAccessInfo2">All-Access pass for Friday, Saturday and Sunday €250,00</div>
     </div>
 
     <h1 class="danceHeadT">Venues overview </h1>
