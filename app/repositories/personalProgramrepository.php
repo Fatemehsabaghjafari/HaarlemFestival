@@ -99,7 +99,7 @@ class PersonalProgramRepository {
     
         return $tickets;
     }
-    
+
     function getMusicTicketById($ticketId) {
         $stmt = $this->db->prepare("
             SELECT musicTickets.ticketId, 

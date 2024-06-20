@@ -37,7 +37,7 @@ class PaymentController extends Controller
                 session_start();
             }
     
-            $userId = $_SESSION['user']->getId();
+            $userId = $_SESSION['user']->id;
             $result = $this->orderService->createOrder($userId);
             $result = json_decode($result, true);
             $price = $result['totalPrice'];

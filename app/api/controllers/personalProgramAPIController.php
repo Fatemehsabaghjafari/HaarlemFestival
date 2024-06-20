@@ -37,7 +37,7 @@ class PersonalProgramAPIController extends Controller
                 session_start();
             }
 
-            $userId = $_SESSION['user']->getId();
+            $userId = $_SESSION['user']->id;
             $result = $this->personalProgramService->updateTicketQuantity($userId, $ticketId, $eventType, $ticketType, $quantity);
 
             if ($result) {
@@ -66,7 +66,7 @@ class PersonalProgramAPIController extends Controller
                 session_start();
             }
 
-            $userId = $_SESSION['user']->getId();
+            $userId = $_SESSION['user']->id;
             $result = $this->personalProgramService->deleteTicket($userId, $ticketId, $eventType);
 
             if ($result) {
@@ -96,7 +96,7 @@ class PersonalProgramAPIController extends Controller
                 session_start();
             }
 
-            $userId = $_SESSION['user']->getId();
+            $userId = $_SESSION['user']->id;
             $result = $this->personalProgramService->setActiveStatus($userId, $ticketId, $eventType, $status);
 
             if ($result) {

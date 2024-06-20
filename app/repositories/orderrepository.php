@@ -176,6 +176,7 @@ class OrderRepository {
             WHERE orderId = :orderId
         ");
         $stmt->execute([':orderId' => $orderId]);
+    }
     public function getAllOrders() {
         $stmt = $this->db->prepare("
             SELECT orders.*, users.username 
