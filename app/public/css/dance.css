@@ -57,7 +57,7 @@
   cursor: pointer;
 }
 
-.navigation-cards {
+.navigation-cards dance{
   margin: 0 auto;
   display: flex;
   justify-content: center;
@@ -66,14 +66,14 @@
   max-width: 1300px;
 }
 
-.navigation-card-container {
+.navigation-card-container dance{
   width: 355px;
   height: 305px;
   position: relative;
   margin: 1rem;
 }
 
-.navigation-card-backdrop {
+.navigation-card-backdrop dance{
   width: 350px;
   height: 300px;
   border-radius: 15px;
@@ -83,7 +83,7 @@
   bottom: 0;
 }
 
-.navigation-card {
+.navigation-card dance{
   width: 350px;
   height: 300px;
   border-radius: 15px;
@@ -825,8 +825,29 @@ audio {
   }
 
 }
+@media (max-width: 768px) {
+  .orange {
+    width: 300px;
+    height: 110px;
+    font-size: 30px;
+    padding: 20px;
+  }
+}
 
 @media (max-width: 500px){
+
+  .danceHead {
+    margin-top: 25px;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 20px;
+    /* 80% */
+  }
+  .danceHeadP {
+    font-size: 10px;
+    margin-top: 15px;
+    padding: 5px;
+  }
 
   .btn.btn-primary.open-modal{
     background-color: #FC8E2E;
@@ -837,26 +858,94 @@ audio {
     font-weight: 900;
     max-height: 25px;
   }
-}
-@media (max-width: 768px) {
   .orange {
-    width: 300px;
-    height: 110px;
-    font-size: 30px;
-    padding: 20px;
-  }
-}
-
-@media (max-width: 576px) {
-  .orange {
-    width: 200px;
-    height: 80px;
-    font-size: 20px;
+    width: 150px;
+    height: 50px;
+    font-size: 15px;
     padding: 10px;
+  }
+  .nickyHead {
+
+    font-size: 30px;
+  }
+  
+  .nickyTopHead {
+
+    font-size: 30px;
+    font-style: normal;
   }
   .scheduleP {
     font-family: Figtree;
-    font-size: 18px;
+    font-size: 15px;
+  }
+  .DanceHeadP {
+    font-weight: 500;
+    font-size: 20px;
+  }
+  .topSongContainer {
+    width: 300px;
+    margin-left: 30px;
+    padding: 10px; /* Added padding for inner spacing */
   }
   
+  .eventH {
+    display: flex;
+    margin-left: 30px;
+    font-size: 15px;
+    font-weight: 650;
+    margin-bottom: 20px; /* Added margin-bottom for spacing */
+  }
+  
+  
+  .content img {
+    max-width: 40%; /* Adjust as needed */
+    height: auto;
+  }
+  
+  .audio-container {
+    padding: 10px;
+    border-radius: 10px;
+    max-width: 40%; /* Adjust as needed */
+    margin-left: 10px; /* Optional: Adds space between the image and audio player */
+  }
+  .audio-container h4{
+    font-size: 10px;
+  }
+  
+  audio {
+    width: 100%;
+  }
+  .scheduleContainer {
+
+    width: 100%;
+    margin-left: 3px;
+    margin-right: 3px;
+    margin-top: 40px;
+  }
+  .eventDetailContainer {
+ 
+    font-size: 15px;
+    margin-left: 8px;
+    margin-right: 4px;
+    width: 100px;
+    height: 380px;
+  }
+  
+  .eventDetail {
+    margin-left: 5px;
+ 
+  }
+  
+  .eventLocation {
+    margin-left: 20px;
+  }
+  .btn.btn-primary.add-to-cartNicky {
+
+    width: 80px;
+    font-size: 10px;
+    margin-left: 20px;
+    padding: 2px;
+  }
 }
+
+

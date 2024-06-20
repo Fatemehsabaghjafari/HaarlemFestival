@@ -21,7 +21,9 @@
         <?php
         include __DIR__ . '/header.php';
         ?>
-        <img class="headPic" src="/img/dance.png" alt="Museum">
+        <img class="headPic img-fluid" src="/img/dance.png" alt="Museum">
+
+        <div class="container">
 
         <h1 class="danceHead">Harmony in Motion </h1>
 
@@ -31,16 +33,17 @@
             Get ready to groove to the hottest tunes spun by top DJs at our dance festival, a night of
             non-stop beats and unforgettable vibes!
         </p>
+        </div>
 
         <div class="top-djs">
 
             <div class="djHead">Our DJs</div>
-            <div class="navigation-cards">
+            <div class="navigation-cards dance">
                 <?php foreach ($danceArtists as $artist): ?>
                     <a href="/<?php echo $artist['artistName']; ?>">
-                        <div class="navigation-card-container">
-                            <div class="navigation-card-backdrop"></div>
-                            <div class="navigation-card" style="background-image: url('<?php echo $artist['img']; ?>');">
+                        <div class="navigation-card-container dance">
+                            <div class="navigation-card-backdrop dance"></div>
+                            <div class="navigation-card dance" style="background-image: url('<?php echo $artist['img']; ?>');">
                                 <h3 class="dj">
                                     <?php echo $artist['artistName']; ?>
                                 </h3>

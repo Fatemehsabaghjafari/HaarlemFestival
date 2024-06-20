@@ -27,7 +27,7 @@ include __DIR__ . '/header.php';
     <div class="content d-flex justify-content-between align-items-center">
         <img src="img/animal.png" alt="Image" class="img-fluid">
         <div class="audio-container">
-        <h4>Click here to play the music</h4>
+            <h4>Click here to play the music</h4>
             <audio controls>
                 <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
                 Your browser does not support the audio element.
@@ -51,7 +51,7 @@ include __DIR__ . '/header.php';
 </div>
 
 <div class="container-fluid">
-<h1 class="nickyTopHead"> Martin’s schedule in festival</h1>
+    <h1 class="nickyTopHead"> Martin’s schedule in festival</h1>
 </div>
 <div class="scheduleContainer">
     <?php foreach ($artistTickets as $t): ?>
@@ -69,23 +69,27 @@ include __DIR__ . '/header.php';
                 <p class="eventDetail">Time: <?php echo date('H:i', strtotime($t['time'])); ?></p>
                 <p class="eventDetail">Venue: <?php echo $t['venueName']; ?></p>
                 <p class="eventDetail">Price: €<?php echo number_format($t['price'], 0, '.', ''); ?></p>
-                <p class="eventDetail">All-Access pass for this day €<?php echo number_format($t['oneDayAccessPrice'], 0, '.', ''); ?></p>
+                <p class="eventDetail">All-Access pass for this day
+                    €<?php echo number_format($t['oneDayAccessPrice'], 0, '.', ''); ?></p>
                 <p class="eventDetail"><?php echo $t['session']; ?> session</p>
-                <a class="eventLocation" href="https://www.google.com/maps/search/?api=1&query=<?php echo urlencode($t['venueName']); ?>" target="_blank">📍location</a>
+                <a class="eventLocation"
+                    href="https://www.google.com/maps/search/?api=1&query=<?php echo urlencode($t['venueName']); ?>"
+                    target="_blank">📍location</a>
             </div>
-            <button class="btn btn-primary add-to-cart add-to-cartNicky" type="button" data-ticket-id="<?php echo $t['eventId']; ?>">Add to program</button>
+            <button class="btn btn-primary add-to-cart add-to-cartNicky" type="button"
+                data-ticket-id="<?php echo $t['eventId']; ?>">Add to program</button>
         </div>
     <?php endforeach; ?>
-</div>
-
+    
     <div class="scheduleDP">
         <p class="scheduleP">All-Access pass for Friday, Saturday and Sun €250,00</p>
         <p class="scheduleP">Going for the deal? Select all tickets for the day, and an automatic discount will be
             applied.</p>
     </div>
 </div>
+
 <div class="container-fluid">
-<h1 class="nickyTopHead"> Career Highlights</h1>
+    <h1 class="nickyTopHead"> Career Highlights</h1>
 </div>
 <div class="topSongContainer">
     <div class="content">
