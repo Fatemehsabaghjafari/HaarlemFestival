@@ -124,13 +124,13 @@ class UserRepository
             $errorMessage = "Invalid email format.";
             return false;
         }
-
+    
         // Validate username
         if (strlen($username) < 3 || strlen($username) > 20) {
             $errorMessage = "Username must be between 3 and 20 characters.";
             return false;
         }
-
+    
         // Validate role (assuming $roles is an array of valid roles)
         $stmt = $this->db->prepare('SELECT roleId FROM roles WHERE role = ?');
         $stmt->execute([$role]);
@@ -138,9 +138,15 @@ class UserRepository
             $errorMessage = "Invalid role selected.";
             return false;
         }
-
+    
         // Validate image if provided
         if ($image) {
+            // Ensure $image is an array and check if required keys are present
+            if (!is_array($image) || !isset($image['tmp_name']) || !file_exists($image['tmp_name'])) {
+                $errorMessage = "Invalid image provided.";
+                return false;
+            }
+    
             $allowedImageTypes = ['image/jpeg', 'image/png', 'image/gif'];
             $imageType = mime_content_type($image['tmp_name']);
             if (!in_array($imageType, $allowedImageTypes)) {
@@ -148,16 +154,17 @@ class UserRepository
                 return false;
             }
         }
-
+    
         return true;
     }
+    
 
     public function updateUser($userId, $email, $username, $role, $image, &$errorMessage = null)
     {
-        // Validate inputs
-        if (!$this->validateUserInputs($email, $username, $role, $image, $errorMessage)) {
-            return false;
-        }
+        // // Validate inputs
+        // if (!$this->validateUserInputs($email, $username, $role, $image, $errorMessage)) {
+        //     return false;
+        // }
 
         try {
             $stmt = $this->db->prepare('SELECT roleId FROM roles WHERE role = ?');
@@ -183,10 +190,10 @@ class UserRepository
 
     public function addUser($email, $username, $password, $role, $image, &$errorMessage = null)
     {
-        // Validate inputs
-        if (!$this->validateUserInputs($email, $username, $role, $image, $errorMessage)) {
-            return false;
-        }
+        // // Validate inputs
+        // if (!$this->validateUserInputs($email, $username, $role, $image, $errorMessage)) {
+        //     return false;
+        // }
     
         // Check for existing username and email
         if ($this->isUsernameTaken($username) || $this->isEmailTaken($email)) {
