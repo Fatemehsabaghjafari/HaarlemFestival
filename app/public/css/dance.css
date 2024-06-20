@@ -1,3 +1,31 @@
+
+
+.picAndOrange{
+  position: relative;
+}       
+.headPic{
+  object-fit: cover;
+  height: 500px;
+  width: 100%;
+}
+.orange{
+  border-radius: 0px 110px 110px 0px;
+  background: #FF7A00;
+  width: 400px;
+  height: 147px;
+  flex-shrink: 0;
+  color: white;
+  font-size: 40px;
+  font-family: Inter;
+  font-weight: 700;
+  word-wrap: break-word;
+  padding: 35px;
+  position: absolute; 
+  bottom: -15px;
+}
+
+
+
 .custom-modal-width {
   max-width: 400px; 
   margin: auto;
@@ -328,21 +356,29 @@
   font-weight: 650;
   line-height: 40px;
 }
-
-.topSongContainer {
-  background-color: black;
-  color: white;
-  width: 1200px;
-  margin-left: 60px;
-  margin-top: 40px;
+.DanceHead {
+  text-align: center;
+  margin-top: 45px;
+  font-weight: bold;
 }
 
-.scheduleContainer {
-  background-color: black;
+.DanceHeadP {
+  text-align: center;
+  font-weight: 600;
+  font-size: x-large;
+  margin-top: 25px;
+  margin-bottom: 45px;
+}
+
+.topSongContainer {
+  background-color: rgba(16, 16, 16, 1);
   color: white;
   width: 1200px;
   margin-left: 60px;
-  margin-top: 40px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 20px; /* Added padding for inner spacing */
+  border-radius: 10px; /* Optional: Adds rounded corners */
 }
 
 .eventH {
@@ -350,6 +386,42 @@
   margin-left: 30px;
   font-size: 35px;
   font-weight: 650;
+  margin-bottom: 20px; /* Added margin-bottom for spacing */
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.content img {
+  max-width: 60%; /* Adjust as needed */
+  height: auto;
+}
+
+.audio-container {
+  background-color: black;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 35%; /* Adjust as needed */
+  margin-left: 50px; /* Optional: Adds space between the image and audio player */
+  text-align: center;
+  color: white; /* Ensure text color is white for visibility */
+}
+
+audio {
+  width: 100%;
+}
+
+
+
+.scheduleContainer {
+  background-color: black;
+  color: white;
+  width: 1200px;
+  margin-left: 60px;
+  margin-top: 40px;
 }
 
 .eventContainer {
@@ -765,4 +837,26 @@
     font-weight: 900;
     max-height: 25px;
   }
+}
+@media (max-width: 768px) {
+  .orange {
+    width: 300px;
+    height: 110px;
+    font-size: 30px;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .orange {
+    width: 200px;
+    height: 80px;
+    font-size: 20px;
+    padding: 10px;
+  }
+  .scheduleP {
+    font-family: Figtree;
+    font-size: 18px;
+  }
+  
 }
