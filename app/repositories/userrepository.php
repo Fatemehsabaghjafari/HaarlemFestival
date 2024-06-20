@@ -117,9 +117,48 @@ class UserRepository
             return false;
         }
     }
-
-    public function updateUser($userId, $email, $username, $role, $image)
+    private function validateUserInputs($email, $username, $role, $image, &$errorMessage = null)
     {
+        // Validate email
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $errorMessage = "Invalid email format.";
+            return false;
+        }
+
+        // Validate username
+        if (strlen($username) < 3 || strlen($username) > 20) {
+            $errorMessage = "Username must be between 3 and 20 characters.";
+            return false;
+        }
+
+        // Validate role (assuming $roles is an array of valid roles)
+        $stmt = $this->db->prepare('SELECT roleId FROM roles WHERE role = ?');
+        $stmt->execute([$role]);
+        if (!$stmt->fetchColumn()) {
+            $errorMessage = "Invalid role selected.";
+            return false;
+        }
+
+        // Validate image if provided
+        if ($image) {
+            $allowedImageTypes = ['image/jpeg', 'image/png', 'image/gif'];
+            $imageType = mime_content_type($image['tmp_name']);
+            if (!in_array($imageType, $allowedImageTypes)) {
+                $errorMessage = "Invalid image type. Allowed types are JPEG, PNG, GIF.";
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    public function updateUser($userId, $email, $username, $role, $image, &$errorMessage = null)
+    {
+        // Validate inputs
+        if (!$this->validateUserInputs($email, $username, $role, $image, $errorMessage)) {
+            return false;
+        }
+
         try {
             $stmt = $this->db->prepare('SELECT roleId FROM roles WHERE role = ?');
             $stmt->execute([$role]);
@@ -134,21 +173,32 @@ class UserRepository
             $stmt->execute();
             return true;
         } catch (PDOException $e) {
+            // Log the error (optional)
+            error_log($e->getMessage());
+            $errorMessage = "Database error: " . $e->getMessage();
             return false;
         }
     }
 
-    public function addUser($email, $username, $password, $role, $image)
-    {
-        try {
-            if ($this->isUsernameTaken($username) || $this->isEmailTaken($email)) {
-                return false;
-            }
 
+    public function addUser($email, $username, $password, $role, $image, &$errorMessage = null)
+    {
+        // Validate inputs
+        if (!$this->validateUserInputs($email, $username, $role, $image, $errorMessage)) {
+            return false;
+        }
+    
+        // Check for existing username and email
+        if ($this->isUsernameTaken($username) || $this->isEmailTaken($email)) {
+            $errorMessage = "Username or email already taken.";
+            return false;
+        }
+    
+        try {
             $stmt = $this->db->prepare('SELECT roleId FROM roles WHERE role = ?');
             $stmt->execute([$role]);
             $roleId = $stmt->fetchColumn();
-
+    
             $registrationDate = date("Y-m-d H:i:s");
             $stmt = $this->db->prepare("INSERT INTO users (email, username, password, roleId, registrationDate, img) VALUES (:email, :username, :password, :roleId, :registrationDate, :img)");
             $stmt->bindParam(':email', $email);
@@ -160,9 +210,13 @@ class UserRepository
             $stmt->execute();
             return true;
         } catch (PDOException $e) {
+            // Log the error (optional)
+            error_log($e->getMessage());
+            $errorMessage = "Database error: " . $e->getMessage();
             return false;
         }
     }
+    
 
     public function deleteUserById($userId)
     {

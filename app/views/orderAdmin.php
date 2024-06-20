@@ -28,7 +28,7 @@
             <input type="checkbox" name="columns[]" value="eventType"> Event Type
             <input type="checkbox" name="columns[]" value="ticketId"> Ticket ID
             <input type="checkbox" name="columns[]" value="username"> Username
-            <input type="checkbox" name="columns[]" value="paymentId"> Payment ID
+            <input type="checkbox" name="columns[]" value="price"> Price
             <button type="submit">Export to CSV</button>
         </form>
 
@@ -40,7 +40,7 @@
                     <th>Event Type</th>
                     <th>Ticket ID</th>
                     <th>Username</th>
-                    <th>Payment ID</th>
+                    <th>Price</th>
                 </tr>
             </thead>
             <tbody>
@@ -50,7 +50,7 @@
                         <td><?php echo htmlspecialchars($order['eventType']); ?></td>
                         <td><?php echo htmlspecialchars($order['ticketId']); ?></td>
                         <td><?php echo htmlspecialchars($order['username']); ?></td>
-                        <td><?php echo htmlspecialchars($order['paymentId']); ?></td>
+                        <td><?php echo htmlspecialchars($order['price']); ?>€</td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
