@@ -69,26 +69,26 @@
     ?>
 
     <h1 class="danceHeadT">Other festivals to enjoy </h1>
-    <div class="navigation-cards">
+    <div class="navigation-cards dance">
 
-        <div class="navigation-card-container">
-            <div class="navigation-card-backdrop"></div>
-            <div class="navigation-card" style="background-image: url('/img/Jazz.png');">
+        <div class="navigation-card-container dance">
+            <div class="navigation-card-backdrop dance"></div>
+            <div class="navigation-card dance" style="background-image: url('/img/Jazz.png');">
                 <h3>HAARLEM JAZZE</h3>
             </div>
         </div>
         <a href="/yummy">
-            <div class="navigation-card-container">
-                <div class="navigation-card-backdrop"></div>
-                <div class="navigation-card" style="background-image: url('/img/Yummi!.png');">
+            <div class="navigation-card-container dance">
+                <div class="navigation-card-backdrop dance"></div>
+                <div class="navigation-card dance" style="background-image: url('/img/Yummi!.png');">
                     <h3>YUMMI!</h3>
                 </div>
             </div>
         </a>
 
-        <div class="navigation-card-container">
-            <div class="navigation-card-backdrop"></div>
-            <div class="navigation-card" style="background-image: url('/img/history_card.png');">
+        <div class="navigation-card-container dance">
+            <div class="navigation-card-backdrop dance"></div>
+            <div class="navigation-card dance" style="background-image: url('/img/history_card.png');">
                 <h3>A STROLL THROUGH HISTORY</h3>
             </div>
         </div>
