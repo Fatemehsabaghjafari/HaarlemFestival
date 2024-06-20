@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', function () {
             .then(data => {
                 if (data.status === 'success') {
                     const displayMessage = data.message;
-                    showMessageModal(displayMessage);
+                    alert(displayMessage);
                     fetchEvents();
                 } else {
                     console.error('Error editing event:', data.message);
@@ -230,7 +230,7 @@ document.addEventListener('DOMContentLoaded', function () {
             .then(data => {
                 if (data.status === 'success') {
                     const displayMessage = data.message;
-                    showMessageModal(displayMessage);
+                    alert(displayMessage);
                     fetchEvents();
                 } else {
                     console.error('Error adding event:', data.message);
@@ -254,7 +254,7 @@ document.addEventListener('DOMContentLoaded', function () {
             .then(data => {
                 if (data.status === 'success') {
                     const displayMessage = data.message;
-                    showMessageModal(displayMessage);
+                    alert(displayMessage);
                     fetchEvents();
                 } else {
                     console.error('Error deleting event:', data.message);
