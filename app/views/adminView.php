@@ -19,9 +19,8 @@
 <body>
 
     <?php
-    include __DIR__ . '/adminHeader.php';
+        include __DIR__ . '/adminHeader.php';
     ?>
-
     <div class="container mt-4">
         <div class="welcome-container">
             <h4 class="alert-heading">Welcome to the Admin Dashboard!</h4>

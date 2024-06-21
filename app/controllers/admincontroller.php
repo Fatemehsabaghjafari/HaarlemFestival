@@ -52,6 +52,13 @@ class AdminController extends Controller
         }
     }
 
+    public function editPage()
+    {
+        if ($this->checkAuthorization()) {
+            include '../views/admin/pageEditor.php';
+        }
+    }
+
     public function danceAdmin()
     {
         if ($this->checkAuthorization()) {

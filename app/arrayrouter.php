@@ -199,7 +199,36 @@ class ArrayRouter
                 'controller' => 'exportcontroller',
                 'method' => 'exportToCSV'
             ),
+            'pages/:name' => array(
+                'controller' => 'PagesController',
+                'method' => 'index'
+            ),
+            'admin/pages' => array(
+                'controller' => 'PagesController',
+                'method' => 'listPages'
+            ),
+            'admin/createpage' => array(
+                'controller' => 'PagesController',
+                'method' => 'createPage'
+            ),
+            'admin/pageeditor/:name' => array(
+                'controller' => 'PagesController',
+                'method' => 'pageEditorView'
+            ),
+            'admin/deletepage' => array(
+                'controller' => 'PagesController',
+                'method' => 'deletePage'
+            ),
+            'admin/updatepage' => array(
+                'controller' => 'PagesController',
+                'method' => 'updatePage'
+            ),
+            'admin/pagepreview' => array(
+                'controller' => 'PagesController',
+                'method' => 'processPreviewContent'
+            ),
         );
+
         // Add this method to handle JSON responses
         function jsonResponse($data)
         {
@@ -207,21 +236,33 @@ class ArrayRouter
             echo json_encode($data);
             exit;
         }
-        
-        $uri = explode('?', $uri)[0];
 
         $uri = explode('?', $uri)[0];
-        
-        // deal with undefined paths first
-        if (!isset($routes[$uri]['controller']) || !isset($routes[$uri]['method'])) {
+
+        // Handle parameterized routes
+        $params = [];
+        $matchedRoute = null;
+
+        foreach ($routes as $route => $routeData) {
+            $routePattern = preg_replace('/:[^\/]+/', '([^\/]+)', $route);
+            if (preg_match('@^' . $routePattern . '$@', $uri, $matches)) {
+                array_shift($matches);
+                $params = $matches;
+                $matchedRoute = $routeData;
+                break;
+            }
+        }
+
+        // If no route matched, return 404
+        if (!$matchedRoute) {
             http_response_code(404);
             die();
         }
 
-        // dynamically instantiate controller and method
-        $controller = $routes[$uri]['controller'];
-        $method = $routes[$uri]['method'];
-        $api = $routes[$uri]['api'] ?? false;
+        // Dynamically instantiate controller and method
+        $controller = $matchedRoute['controller'];
+        $method = $matchedRoute['method'];
+        $api = $matchedRoute['api'] ?? false;
 
         if ($api) {
             require __DIR__ . '/api/controllers/' . $controller . '.php';
@@ -229,9 +270,12 @@ class ArrayRouter
             require __DIR__ . '/controllers/' . $controller . '.php';
         }
 
-         $controllerObj = new $controller;
-         $controllerObj->$method();
-       
+        $controllerObj = new $controller;
+        if (!empty($params)) {
+            call_user_func_array([$controllerObj, $method], $params);
+        } else {
+            $controllerObj->$method();
+        }
     }
 }
 ?>

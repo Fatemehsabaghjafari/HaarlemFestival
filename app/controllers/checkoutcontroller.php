@@ -24,7 +24,7 @@ class CheckoutController extends Controller
             session_start();
         }
 
-        $userId = $_SESSION['user']->getId();
+        $userId = $_SESSION['user']->id;
         $personalProgram = $this->personalProgramService->getPersonalProgram($userId, true, true);
 
         // Convert to JSON
