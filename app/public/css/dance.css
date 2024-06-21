@@ -1,3 +1,29 @@
+.picAndOrange{
+  position: relative;
+} 
+      
+.headPic{
+  object-fit: cover;
+  height: 500px;
+  width: 100%;
+}
+
+.orange{
+  border-radius: 0px 110px 110px 0px;
+  background: #FF7A00;
+  width: 400px;
+  height: 147px;
+  flex-shrink: 0;
+  color: white;
+  font-size: 40px;
+  font-family: Inter;
+  font-weight: 700;
+  word-wrap: break-word;
+  padding: 35px;
+  position: absolute; 
+  bottom: -15px;
+}
+
 .custom-modal-width {
   max-width: 400px; 
   margin: auto;
@@ -29,7 +55,8 @@
   cursor: pointer;
 }
 
-.navigation-cards {
+
+.navigation-cards.dance{
   margin: 0 auto;
   display: flex;
   justify-content: center;
@@ -38,14 +65,14 @@
   max-width: 1300px;
 }
 
-.navigation-card-container {
+.navigation-card-container.dance{
   width: 355px;
   height: 305px;
   position: relative;
   margin: 1rem;
 }
 
-.navigation-card-backdrop {
+.navigation-card-backdrop.dance{
   width: 350px;
   height: 300px;
   border-radius: 15px;
@@ -53,9 +80,10 @@
   position: absolute;
   right: 0;
   bottom: 0;
+
 }
 
-.navigation-card {
+.navigation-card.dance{
   width: 350px;
   height: 300px;
   border-radius: 15px;
@@ -328,21 +356,29 @@
   font-weight: 650;
   line-height: 40px;
 }
-
-.topSongContainer {
-  background-color: black;
-  color: white;
-  width: 1200px;
-  margin-left: 60px;
-  margin-top: 40px;
+.DanceHead {
+  text-align: center;
+  margin-top: 45px;
+  font-weight: bold;
 }
 
-.scheduleContainer {
-  background-color: black;
+.DanceHeadP {
+  text-align: center;
+  font-weight: 600;
+  font-size: x-large;
+  margin-top: 25px;
+  margin-bottom: 45px;
+}
+
+.topSongContainer {
+  background-color: rgba(16, 16, 16, 1);
   color: white;
   width: 1200px;
   margin-left: 60px;
-  margin-top: 40px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 20px; /* Added padding for inner spacing */
+  border-radius: 10px; /* Optional: Adds rounded corners */
 }
 
 .eventH {
@@ -350,6 +386,42 @@
   margin-left: 30px;
   font-size: 35px;
   font-weight: 650;
+  margin-bottom: 20px; /* Added margin-bottom for spacing */
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.content img {
+  max-width: 60%; /* Adjust as needed */
+  height: auto;
+}
+
+.audio-container {
+  background-color: black;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 35%; /* Adjust as needed */
+  margin-left: 50px; /* Optional: Adds space between the image and audio player */
+  text-align: center;
+  color: white; /* Ensure text color is white for visibility */
+}
+
+audio {
+  width: 100%;
+}
+
+
+
+.scheduleContainer {
+  background-color: black;
+  color: white;
+  width: 1200px;
+  margin-left: 60px;
+  margin-top: 40px;
 }
 
 .eventContainer {
@@ -753,8 +825,38 @@
   }
 
 }
+@media (max-width: 768px) {
+  .orange {
+    width: 300px;
+    height: 110px;
+    font-size: 30px;
+    padding: 20px;
+  }
+}
 
 @media (max-width: 500px){
+  .kid {
+    height: 85px;
+    width: 320px;
+    padding: 5px;
+  }
+
+  .kidPic {
+    height: 65px;
+    width: 300px;
+  }
+  .danceHead {
+    margin-top: 25px;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 20px;
+    /* 80% */
+  }
+  .danceHeadP {
+    font-size: 10px;
+    margin-top: 15px;
+    padding: 5px;
+  }
 
   .btn.btn-primary.open-modal{
     background-color: #FC8E2E;
@@ -765,4 +867,100 @@
     font-weight: 900;
     max-height: 25px;
   }
+  .orange {
+    width: 150px;
+    height: 50px;
+    font-size: 15px;
+    padding: 10px;
+  }
+  .nickyHead {
+
+    font-size: 30px;
+  }
+  
+  .nickyTopHead {
+
+    font-size: 30px;
+    font-style: normal;
+  }
+  .scheduleP {
+    font-family: Figtree;
+    font-size: 15px;
+  }
+  .DanceHeadP {
+    font-weight: 500;
+    font-size: 20px;
+  }
+  .topSongContainer {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 10px;
+  }
+  
+  .eventH {
+    display: flex;
+    margin-left: 30px;
+    font-size: 15px;
+    font-weight: 650;
+    margin-bottom: 20px; /* Added margin-bottom for spacing */
+  }
+  
+  .content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .content img {
+    max-width: 100%;
+    order: 1; /* Move image to the bottom */
+  }
+  
+  .audio-container {
+    max-width: 100%;
+    margin-left: 0;
+    margin-top: 20px;
+    order: 2; /* Move audio container to the top */
+  }
+  .audio-container h4{
+    font-size: 10px;
+  }
+  
+  .scheduleContainer {
+
+    width: 100%;
+    margin-left: 3px;
+    margin-right: 3px;
+    margin-top: 40px;
+  }
+  .eventDetailContainer {
+ 
+    font-size: 15px;
+    margin-left: 8px;
+    margin-right: 4px;
+    width: 100px;
+    height: 380px;
+  }
+  
+  .eventDetail {
+    margin-left: 5px;
+ 
+  }
+  
+  .eventLocation {
+    margin-left: 20px;
+  }
+  .btn.btn-primary.add-to-cartNicky {
+
+    width: 80px;
+    font-size: 10px;
+    margin-left: 20px;
+    padding: 2px;
+  }
+
+  .danceHeadT {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
 }
+
+

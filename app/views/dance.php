@@ -21,7 +21,9 @@
         <?php
         include __DIR__ . '/header.php';
         ?>
-        <img class="headPic" src="/img/dance.png" alt="Museum">
+        <img class="headPic img-fluid" src="/img/dance.png" alt="Museum">
+
+        <div class="container">
 
         <h1 class="danceHead">Harmony in Motion </h1>
 
@@ -31,16 +33,17 @@
             Get ready to groove to the hottest tunes spun by top DJs at our dance festival, a night of
             non-stop beats and unforgettable vibes!
         </p>
+        </div>
 
         <div class="top-djs">
 
             <div class="djHead">Our DJs</div>
-            <div class="navigation-cards">
+            <div class="navigation-cards dance">
                 <?php foreach ($danceArtists as $artist): ?>
                     <a href="/<?php echo $artist['artistName']; ?>">
-                        <div class="navigation-card-container">
-                            <div class="navigation-card-backdrop"></div>
-                            <div class="navigation-card" style="background-image: url('<?php echo $artist['img']; ?>');">
+                        <div class="navigation-card-container dance">
+                            <div class="navigation-card-backdrop dance"></div>
+                            <div class="navigation-card dance" style="background-image: url('<?php echo $artist['img']; ?>');">
                                 <h3 class="dj">
                                     <?php echo $artist['artistName']; ?>
                                 </h3>
@@ -53,19 +56,11 @@
     </div>
 
 
-    <h1 class="danceHeadT">Tickets overview </h1>
-
-    <?php
-    include __DIR__ . '/danceSlideshow.php';
-    ?>
-    <div class="allAccessInfo1">
-        All-Access pass for Friday €125,00, Saturday or Sunday €150,00
-
-    </div>
-    <div class="allAccessInfo2">
-
-        All-Access pass for Friday, Saturday and Sunday €250,00
-
+    <div class="content-section">
+        <h1 class="danceHeadT">Tickets overview </h1>
+        <?php include __DIR__ . '/danceSlideshow.php'; ?>
+        <div class="allAccessInfo1">All-Access pass for Friday €125,00, Saturday or Sunday €150,00</div>
+        <div class="allAccessInfo2">All-Access pass for Friday, Saturday and Sunday €250,00</div>
     </div>
 
     <h1 class="danceHeadT">Venues overview </h1>
@@ -74,26 +69,26 @@
     ?>
 
     <h1 class="danceHeadT">Other festivals to enjoy </h1>
-    <div class="navigation-cards">
+    <div class="navigation-cards dance">
 
-        <div class="navigation-card-container">
-            <div class="navigation-card-backdrop"></div>
-            <div class="navigation-card" style="background-image: url('/img/Jazz.png');">
+        <div class="navigation-card-container dance">
+            <div class="navigation-card-backdrop dance"></div>
+            <div class="navigation-card dance" style="background-image: url('/img/Jazz.png');">
                 <h3>HAARLEM JAZZE</h3>
             </div>
         </div>
         <a href="/yummy">
-            <div class="navigation-card-container">
-                <div class="navigation-card-backdrop"></div>
-                <div class="navigation-card" style="background-image: url('/img/Yummi!.png');">
+            <div class="navigation-card-container dance">
+                <div class="navigation-card-backdrop dance"></div>
+                <div class="navigation-card dance" style="background-image: url('/img/Yummi!.png');">
                     <h3>YUMMI!</h3>
                 </div>
             </div>
         </a>
 
-        <div class="navigation-card-container">
-            <div class="navigation-card-backdrop"></div>
-            <div class="navigation-card" style="background-image: url('/img/history_card.png');">
+        <div class="navigation-card-container dance">
+            <div class="navigation-card-backdrop dance"></div>
+            <div class="navigation-card dance" style="background-image: url('/img/history_card.png');">
                 <h3>A STROLL THROUGH HISTORY</h3>
             </div>
         </div>

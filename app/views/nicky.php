@@ -7,29 +7,48 @@
     include __DIR__ . '/header.php';
     ?>
     <div class="picAndOrange">
-        <img class="headPic" src="/img/nicky.png" alt="nicky">
+        <img class="headPic img-fluid" src="/img/nicky.png" alt="nicky">
         <div class="orange">Nicky Romero</div>
     </div>
     <h1 class="nickyHead">Dance Experience with Nicky Romero! </h1>
-    <p class="artCultureHeadP"> Embark on an exhilarating musical journey with Nicky Romero's chart-topping hits, where
+    <p class="DanceHeadP"> Embark on an exhilarating musical journey with Nicky Romero's chart-topping hits, where
         infectious beats and electrifying melodies converge to create an unforgettable experience—immerse yourself in
         the pulsating world of his popular tracks and let the music transport you.</p>
-    <h1 class="nickyTopHead">Top tracks of Nicky</h1>
 
-<div class="topSongContainer">
+<div class="container-fluid">
+    <h1 class="nickyTopHead">Top tracks of Nicky</h1>
+    </div>
+    <div class="topSongContainer">
     <div class="eventH">Toulouse</div>
-    <div class="content">
-        <img src="img/Toulouse.png" alt="Image">
+    <div class="content d-flex justify-content-between align-items-center">
+        <img src="img/Toulouse.png" alt="Image" class="img-fluid">
+        <div class="audio-container">
+        <h4>Click here to play the music</h4>
+            <audio controls>
+                <source src="URL_OF_Toulouse_by_Nicky_Romero.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
     </div>
 </div>
+
 
 <div class="topSongContainer">
     <div class="eventH">Symphonica</div>
-    <div class="content">
-        <img src="img/symphonica.png" alt="Image">
+    <div class="content d-flex justify-content-between align-items-center">
+        <img src="img/symphonica.png" alt="Image" class="img-fluid">
+        <div class="audio-container">
+            <h4>Click here to play the music</h4>
+            <audio controls>
+                <source src="path/to/Symphonica.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
     </div>
 </div>
+<div class="container-fluid">
 <h1 class="nickyTopHead"> Nicky’s schedule in festival</h1>
+</div>
 <div class="scheduleContainer">
     <?php foreach ($artistTickets as $t): ?>
         <div class="eventContainer">
@@ -75,10 +94,12 @@
             applied.</p>
     </div>
 </div>
+<div class="conatiner-fluid">
 <h1 class="nickyTopHead"> Career Highlights</h1>
+</div>
 <div class="topSongContainer">
     <div class="content">
-        <img class="highlightsImg" src="img/nickyHighlights.png" alt="Image">
+        <img class="highlightsImg img-fluid" src="img/nickyHighlights.png" alt="Image">
         <p class="highlightsP">Protocol Recordings Founder: Nicky Romero established Protocol Recordings, a renowned
             EDM label, demonstrating his commitment to fostering emerging talent. A-List Collaborations: Romero has
             partnered with music giants like Rihanna, David Guetta, and Calvin Harris, solidifying his position as a
@@ -87,7 +108,7 @@
             globally.
         </p>
     </div>
-
+</div>
     <?php
     include __DIR__ . '/footer.php';
     ?>

@@ -1,3 +1,9 @@
+.welcome-container {
+    color: #000;
+    padding: 20px;
+    border-radius: 5px;
+}
+
 .userImg {
     height: 235px;
     width: 200px;

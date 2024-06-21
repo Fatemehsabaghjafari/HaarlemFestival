@@ -177,14 +177,30 @@ class OrderRepository {
         ");
         $stmt->execute([':orderId' => $orderId]);
     }
+
     public function getAllOrders() {
         $stmt = $this->db->prepare("
-            SELECT orders.*, users.username 
+            SELECT 
+                orders.orderId, 
+                orders.eventType, 
+                orders.ticketId, 
+                orders.userId, 
+                orders.paymentId, 
+                orders.qrCode, 
+                users.username, 
+                COALESCE(musicEvents.price, yummyRestaurants.adultPrice, historyTours.singlePrice) AS price
             FROM orders 
             JOIN users ON orders.userId = users.id
+            LEFT JOIN musicTickets ON orders.ticketId = musicTickets.ticketId AND orders.eventType = 'music'
+            LEFT JOIN musicEvents ON musicTickets.eventId = musicEvents.eventId
+            LEFT JOIN yummyTickets ON orders.ticketId = yummyTickets.ticketId AND orders.eventType = 'yummy'
+            LEFT JOIN yummyRestaurants ON yummyTickets.ticketId = yummyRestaurants.restaurantId
+            LEFT JOIN historyTickets ON orders.ticketId = historyTickets.ticketId AND orders.eventType = 'history'
+            LEFT JOIN historyTours ON historyTickets.ticketId = historyTours.tourId
         ");
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+    
 }
 ?>
