@@ -75,7 +75,7 @@ class ArrayRouter
                 'method' => 'index'
             ),
 
-            'NickyRomero' => array(
+            'NickyRomeroo' => array(
                 'controller' => 'dancecontroller',
                 'method' => 'nicky'
             ),

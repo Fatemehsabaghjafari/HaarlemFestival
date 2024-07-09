@@ -1,29 +1,29 @@
 <?php
-    $stylesheets = [
-        'css/dance.css',
-        'css/home.css',
-    ];
-    $title = 'Martin Garrix - Dance!';
-    include __DIR__ . '/header.php';
-    ?>
-    <div class="picAndOrange">
-        <img class="headPic img-fluid" src="/img/nicky.png" alt="nicky">
-        <div class="orange">Nicky Romero</div>
-    </div>
-    <h1 class="nickyHead">Dance Experience with Nicky Romero! </h1>
-    <p class="DanceHeadP"> Embark on an exhilarating musical journey with Nicky Romero's chart-topping hits, where
-        infectious beats and electrifying melodies converge to create an unforgettable experience—immerse yourself in
-        the pulsating world of his popular tracks and let the music transport you.</p>
+$stylesheets = [
+    'css/dance.css',
+    'css/home.css',
+];
+$title = 'Nicky Romeroo - Dance!';
+include __DIR__ . '/header.php';
+?>
+<div class="picAndOrange">
+    <img class="headPic img-fluid" src="/img/nicky.png" alt="nicky">
+    <div class="orange">Nicky Romero</div>
+</div>
+<h1 class="nickyHead">Dance Experience with Nicky Romero! </h1>
+<p class="DanceHeadP"> Embark on an exhilarating musical journey with Nicky Romero's chart-topping hits, where
+    infectious beats and electrifying melodies converge to create an unforgettable experience—immerse yourself in
+    the pulsating world of his popular tracks and let the music transport you.</p>
 
 <div class="container-fluid">
     <h1 class="nickyTopHead">Top tracks of Nicky</h1>
-    </div>
-    <div class="topSongContainer">
+</div>
+<div class="topSongContainer">
     <div class="eventH">Toulouse</div>
     <div class="content d-flex justify-content-between align-items-center">
         <img src="img/Toulouse.png" alt="Image" class="img-fluid">
         <div class="audio-container">
-        <h4>Click here to play the music</h4>
+            <h4>Click here to play the music</h4>
             <audio controls>
                 <source src="URL_OF_Toulouse_by_Nicky_Romero.mp3" type="audio/mpeg">
                 Your browser does not support the audio element.
@@ -47,7 +47,7 @@
     </div>
 </div>
 <div class="container-fluid">
-<h1 class="nickyTopHead"> Nicky’s schedule in festival</h1>
+    <h1 class="nickyTopHead"> Nicky’s schedule in festival</h1>
 </div>
 <div class="scheduleContainer">
     <?php foreach ($artistTickets as $t): ?>
@@ -95,7 +95,7 @@
     </div>
 </div>
 <div class="conatiner-fluid">
-<h1 class="nickyTopHead"> Career Highlights</h1>
+    <h1 class="nickyTopHead"> Career Highlights</h1>
 </div>
 <div class="topSongContainer">
     <div class="content">
@@ -109,26 +109,27 @@
         </p>
     </div>
 </div>
-    <?php
-    include __DIR__ . '/footer.php';
-    ?>
+<?php
+include __DIR__ . '/footer.php';
+?>
 
-    <div id="messageModal" class="modal" style="display: none;">
-        <div class="modal-content custom-modal-width">
-            <span class="close">&times;</span>
-            <div class="modal-body">
-                <h2>Message</h2>
-                <p id="messageContent"></p>
-            </div>
+<div id="messageModal" class="modal" style="display: none;">
+    <div class="modal-content custom-modal-width">
+        <span class="close">&times;</span>
+        <div class="modal-body">
+            <h2>Message</h2>
+            <p id="messageContent"></p>
         </div>
     </div>
+</div>
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-0K+0C9ROIdu0xOmIkJfQGSfSfpe8XNZ9MwTfXfM/6MTd0EEXtq2VPFZLVD80p8xX"
+    crossorigin="anonymous"></script>
 
-    <script src="/javascript/script.js"></script>
+<script src="/javascript/script.js"></script>
 
 </body>
 
